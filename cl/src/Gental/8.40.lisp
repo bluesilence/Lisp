@@ -1,0 +1,5 @@
+(defun COUNT-CONS (x)
+  (cond ((ATOM x) 0)
+	((NULL x) 0)
+	((CONSP x) (+ 1 (+ (COUNT-CONS (CAR x)) (COUNT-CONS (CDR x)))))
+	(T (+ (COUNT-CONS (CAR x)) (COUNT-CONS (CDR x))))))

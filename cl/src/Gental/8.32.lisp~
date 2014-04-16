@@ -1,0 +1,3 @@
+(defun SUM-NUMERIC-ELEMENTS (x)
+  (cond ((nump (first x)) (first x))
+	 (T (SUM-NUMERIC-ELEMENTS (rest x)))))
