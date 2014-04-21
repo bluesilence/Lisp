@@ -37,6 +37,8 @@
 (setf *sides*
       '(2 4 6 8))
 
+(setf *centre* 5)
+
 (defun sum-triplet (board triplet)
 	(+ (nth (first triplet) board)
 	   (nth (second triplet) board)
@@ -90,22 +92,37 @@
 (defun choose-best-move (board)
 	(or (make-three-in-a-row board)
 	    (block-opponent-win board)
-        (block-squeeze-play board)
-        (make-squeeze-play board)
-	    (random-move-strategy board)))
+            (block-squeeze-play board)
+            (make-squeeze-play board)
+	    (occupy-centre-strategy board)
+            (random-move-strategy board)))
 
 (defun random-move-strategy (board)
 	(list (pick-random-empty-position board) "random move"))
 
+(defun occupy-centre-strategy (board)
+	(let ((pos (pick-central-position board)))
+		(cond (pos
+			(list pos "occupy centre"))
+			(T NIL))))
+
 (defun block-squeeze-play (board)
     (cond ((has-squeeze-play board)
-           (list (find-empty-position board *sides*) "block squeeze play"))
+           (let pos ((find-empty-position board *sides*))
+		(when pos
+			(list pos "block squeeze play"))))
           (T NIL)))
 
 (defun make-squeeze-play (board)
     (let ((triplet (has-squeeze-opportunity board)))
          (cond (triplet (list (find-empty-position board triplet) "make squeeze play"))
                (T NIL))))
+
+(defun pick-central-position (board)
+	(cond ((zerop (nth *centre* board))
+		(setf (nth *centre* board) *computer*)
+		*centre*)
+		(T NIL)))
 
 (defun pick-random-empty-position (board)
 	(let ((pos (+ 1 (random 9))))
