@@ -108,7 +108,7 @@
 
 (defun block-squeeze-play (board)
     (cond ((has-squeeze-play board)
-           (let pos ((find-empty-position board *sides*))
+           (let ((pos (find-empty-position board *sides*)))
 		(when pos
 			(list pos "block squeeze play"))))
           (T NIL)))
