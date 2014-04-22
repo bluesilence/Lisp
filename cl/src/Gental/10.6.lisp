@@ -3,13 +3,19 @@
 
 (setf *computer* 10) 
 (setf *opponent* 1)
-(setf *opponent-name* NIL)
-(setf *level* 0)
-(setf *mode* 1)
 (setf *players*
         '(player 1 10))
-(setf *players-name*
-        '(playername NIL NIL))
+(setf *players-id*
+        '(1 2))
+
+(defun initial-game ()
+	(setf *level* 0)
+	(setf *mode* 1)
+	(setf *opponent-name* NIL)
+	(setf *players-name*
+        	(list `playername NIL NIL))
+	(setf *scores*
+		(list `score 0 0)))
 
 (setf *centre* 5)
 (setf *triplets*
@@ -40,6 +46,24 @@
         (format T "~&  -----------")
         (print-row (nth 7 board) (nth 8 board) (nth 9 board))
         (format T "~%~%"))
+
+(defun record-score (playerId)
+	(cond ((not (member playerId *players-id*))
+		(format T "~&Invalid player id!"))
+	      (T (incf (nth playerId *scores*)))))
+
+(defun record-tie-score ()
+	(record-score (first *players-id*))
+	(record-score (second *players-id*)))
+
+(defun show-score ()
+	(format T "~&  ---- Game Summary ----")
+	(cond ((equal *mode* 1)
+		(format T "~&  ~10S vs. ~10S" *opponent-name* 'Computer)
+		(format T "~&  ~10S  :  ~10S" (nth 1 *scores*) (nth 2 *scores*)))
+	      ((equal *mode* 2)
+		(format T "~&  ~10S vs. ~10S" (nth 1 *players-name*) (nth 2 *players-name*))
+		(format T "~&  ~10S  :  ~10S" (nth 1 *scores*) (nth 2 *scores*)))))
 
 (defun winner-p (board)
         (let ((sums (compute-sums board)))
@@ -73,14 +97,23 @@
 (defun get-name-by-id (id)
 	(nth id *players-name*))
 
+(defun replay-or-end (playerId)
+	(if (y-or-n-p "~&Play again?")
+		(play-one-game)
+		(show-score)))
+
 (defun player-move (board playerId)
 	(let* ((pos (read-a-legal-move board (get-name-by-id playerId)))
 		(new-board (make-move (nth playerId *players*) pos board)))
 	(print-board new-board)
 	(cond ((winner-p new-board)
-		(format T "~&Player ~S wins!" (get-name-by-id playerId)))
+		(format T "~&Player ~S wins!" (get-name-by-id playerId))
+		(record-score playerId)
+		(replay-or-end playerId))
 	      ((board-full-p new-board)
-		(format T "~&Tie game."))
+		(format T "~&Tie game.")
+		(record-tie-score)
+		(replay-or-end playerId))
 	      (T (player-move new-board (the-other-player playerId))))))
 
 (defun read-a-legal-move (board playerName)
@@ -99,9 +132,13 @@
                 (new-board (make-move *opponent* pos board)))
         (print-board new-board)
         (cond ((winner-p new-board)
-                (format T "~&You win!"))
+                (format T "~&You win!")
+		(record-score 1)
+		(replay-or-end 1))
               ((board-full-p new-board)
-                (format T "~&Tie game."))
+                (format T "~&Tie game.")
+		(record-tie-score)
+		(replay-or-end 1))
               (T (computer-move new-board)))))
 
 (defun computer-move (board)
@@ -113,9 +150,13 @@
 	(format T "~&My strategy: ~A~%" strategy)
 	(print-board new-board)
 	(cond ((winner-p new-board)
-		(format T "~&I win!"))
+			(format T "~&I win!")
+			(record-score 2)
+			(replay-or-end 2))
 		((board-full-p new-board)
-		(format T "~&Tie game."))
+			(format T "~&Tie game.")
+			(record-tie-score)
+			(replay-or-end 2))
 		(T (opponent-move new-board)))))
 
 (defun choose-best-move (board level)
@@ -205,12 +246,12 @@
 (defun board-full-p (board)
 	(not (member 0 board)))
 
-(defun play-one-game (mode)
-	(cond ((equal mode 1)
+(defun play-one-game ()
+	(cond ((equal *mode* 1)
 		(if (y-or-n-p "~&Would you like to go first? ")
 			(opponent-move (make-board))
 			(computer-move (make-board))))
-	      ((equal mode 2)
+	      ((equal *mode* 2)
 		(if (y-or-n-p "~&Player 1 goes first? ")
 			(player-move (make-board) 1)
 			(player-move (make-board) 2)))))
@@ -254,5 +295,6 @@
 	(input-name *mode*))
 
 (defun play ()
+	(initial-game)
 	(show-options)
-	(play-one-game *mode*))
+	(play-one-game))
