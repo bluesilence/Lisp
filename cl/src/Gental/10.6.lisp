@@ -163,9 +163,11 @@
 	(or (make-three-in-a-row board)
 	    (block-opponent-win board)
             (if (> level 0)
-		(block-squeeze-play board))
+		(or (block-squeeze-play board)
+		    (block-two-on-one-play board)))
 	    (if (> level 1)
             	(or (make-squeeze-play board)
+		    (make-two-on-one-play board)
 		    (occupy-centre-strategy board)))
             (random-move-strategy board)))
 
@@ -185,9 +187,21 @@
 			(list pos "block squeeze play"))))
           (T NIL)))
 
+(defun block-two-on-one-play (board)
+    (cond ((has-two-on-one-play board)
+           (let ((pos (find-empty-position board *corners*)))
+		(when pos
+			(list pos "block two-on-one play"))))
+          (T NIL)))
+
 (defun make-squeeze-play (board)
     (let ((triplet (has-squeeze-opportunity board)))
          (cond (triplet (list (find-empty-position board triplet) "make squeeze play"))
+               (T NIL))))
+
+(defun make-two-on-one-play (board)
+    (let ((triplet (has-two-on-one-opportunity board)))
+         (cond (triplet (list (find-empty-position board triplet) "make two-on-one play"))
                (T NIL))))
 
 (defun pick-central-position (board)
@@ -210,7 +224,20 @@
 (defun has-squeeze-play (board)
   (let ((target-sum (+ (* *opponent* 2) *computer*)))
     (find-if #'(lambda (trip)
-                 (and (intersection trip *corners*)
+                 (and (member (first trip) *corners*)
+		      (member (third trip) *corners*)
+		      (equal (second trip) *centre*)
+		      (equal (nth *centre* board) *computer*)
+                      (equal (sum-triplet board trip) target-sum)))
+             *triplets*)))
+
+(defun has-two-on-one-play (board)
+  (let ((target-sum (+ (* *opponent* 2) *computer*)))
+    (find-if #'(lambda (trip)
+                 (and (member (first trip) *corners*)
+		      (member (third trip) *corners*)
+		      (equal (second trip) *centre*)
+		      (equal (nth *centre* board) *opponent*)
                       (equal (sum-triplet board trip) target-sum)))
              *triplets*)))
 
@@ -224,6 +251,27 @@
                           (equal (nth (third trip) board) *computer*)
                           (zerop (nth (first trip) board))))
                     (equal (nth (second trip) board) *opponent*)))
+           *triplets*))
+
+(defun has-two-on-one-opportunity (board)
+  (find-if #'(lambda (trip)
+               (and (member (first trip) *corners*)
+		    (equal (second trip) *centre*)
+		    (or
+		    	(and (equal (nth *centre* board) *computer*)
+                    	     (or (and
+                          	      (equal (nth (first trip) board) *opponent*)
+                          	      (zerop (nth (third trip) board)))
+                        	 (and
+                          	      (equal (nth (third trip) board) *opponent*)
+                          	      (zerop (nth (first trip) board)))))
+			(and (zerop (nth *centre* board))
+			     (or (and
+				      (equal (nth (first trip) board) *opponent*)
+				      (equal (nth (third trip) board) *computer*))
+			         (and
+				      (equal (nth (first trip) board) *computer*)
+				      (equal (nth (third trip) board) *opponent*)))))))
            *triplets*))
 
 (defun win-or-block (board target-sum)
