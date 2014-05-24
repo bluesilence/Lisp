@@ -1,6 +1,12 @@
 (ns maze.core
   (:gen-class))
 
+(def ^:dynamic *debug* true)
+
+(defmacro debug-do [& body]
+    (when *debug*
+          `(do ~@body)))
+
 ;merge-with
 ;http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/merge-with
 ;into
@@ -34,11 +40,21 @@
                         (merge-with into index {a [b] b [a]}))
                       {} (map seq walls))
         start-loc (rand-nth (keys paths))]
+    (debug-do [(println "StartLoc: ")
+               (println start-loc)])
     (loop [walls walls
            unvisited (disj (set (keys paths)) start-loc)]
       (if-let [loc (when-let [s (seq unvisited)] (rand-nth s))]
         (let [walk (iterate (comp rand-nth paths) loc)
               steps (zipmap (take-while unvisited walk) (next walk))]
+          (debug-do [(println "-------------------Loc---------------------")
+                     (println loc)
+                     (println "-------------------Walks-------------------")
+                     (println (paths loc))
+                     (println "-------------------Unvisited---------------")
+                     (println unvisited)
+                     (println "-------------------Steps---------------")
+                     (println steps)])
           (recur (reduce disj walls (map set steps))
                  (reduce disj unvisited (keys steps))))
         walls))))
