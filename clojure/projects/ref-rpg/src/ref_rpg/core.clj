@@ -32,6 +32,15 @@
   "P181 of Clojure Programming: RPG game as a demo of ref."
   [& args]
   (println "Hello, RPG!")
+  (println "Before loot: ")
+  (println @smaug)
+  (println @bilbo)
+  (println @gandalf)
   (wait-futures 1
                 (while (loot smaug bilbo))
-                (while (loot smaug gandalf))))
+                (while (loot smaug gandalf)))
+  (println "After loot: ")
+  (println @smaug)
+  (println @bilbo)
+  (println @gandalf)
+)
