@@ -25,8 +25,31 @@
   [from to]
   (dosync
     (when-let [item (first (:items @from))]
-      (alter to update-in [:items] conj item)
+      (commute to update-in [:items] conj item)
       (alter from update-in [:items] disj item))))
+
+(defn attack
+  [aggressor target]
+  (dosync
+    (let [damage (* (rand 0.1) (:strength @aggressor))]
+      (commute target update-in [:health] #(max 0 (- % damage))))))
+
+(defn heal
+  [healer target]
+  (dosync
+    (let [aid (* (rand 0.1) (:mana @healer))]
+      (when (pos? aid)
+        (commute healer update-in [:mana] - (max 5 (/ aid 5)))
+        (commute target update-in [:health] + aid)))))
+
+(def alive? (comp pos? :health))
+
+(defn play
+  [character action other]
+  (while (and (alive? @character)
+              (alive? @other)
+              (action character other))
+    (Thread/sleep (rand-int 50))))
 
 (defn -main
   "P181 of Clojure Programming: RPG game as a demo of ref."
@@ -43,4 +66,19 @@
   (println @smaug)
   (println @bilbo)
   (println @gandalf)
+  (println "bilbo combat with smaug:")
+  (wait-futures 1
+                (play bilbo attack smaug)
+                (play smaug attack bilbo))
+  (println "smaug's health: " ((comp :health deref) smaug))
+  (println "bilbo's health: " ((comp :health deref) bilbo))
+  (println "Historical battle:")
+  (dosync
+    (alter smaug assoc :health 500)
+    (alter bilbo assoc :health 100))
+  (wait-futures 1
+                (play bilbo attack smaug)
+                (play smaug attack bilbo)
+                (play gandalf heal bilbo))
+  (map (comp #(select-keys % [:name :health :mana]) deref) [smaug bilbo gandalf])
 )
