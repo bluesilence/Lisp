@@ -1,0 +1,416 @@
+{:strength 100, :name "Bilbo", :items #{0}, :health 100}
+{:strength 400, :name "Smaug", :items #{1 33 2 34 3 35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{33 2 34 3 35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{2 34 3 35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{34 3 35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{3 35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{32 1 33 2 34 3 35 4 36 5 37 6 38 7 39 8 40 9 41 10 42 11 43 12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{12 44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12}, :health 100}
+{:strength 400, :name "Smaug", :items #{44 13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44}, :health 100}
+{:strength 400, :name "Smaug", :items #{13 45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{45 14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45}, :health 100}
+{:strength 400, :name "Smaug", :items #{14 46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{46 15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{15 47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15}, :health 100}
+{:strength 400, :name "Smaug", :items #{47 16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47}, :health 100}
+{:strength 400, :name "Smaug", :items #{16 48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{48 17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{17 49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17}, :health 100}
+{:strength 400, :name "Smaug", :items #{49 18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49}, :health 100}
+{:strength 400, :name "Smaug", :items #{18 19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18}, :health 100}
+{:strength 400, :name "Smaug", :items #{19 20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19}, :health 100}
+{:strength 400, :name "Smaug", :items #{20 21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20}, :health 100}
+{:strength 400, :name "Smaug", :items #{21 22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21}, :health 100}
+{:strength 400, :name "Smaug", :items #{22 23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22}, :health 100}
+{:strength 400, :name "Smaug", :items #{23 24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23}, :health 100}
+{:strength 400, :name "Smaug", :items #{24 25 26 27 28 29 30 31}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 100}
+{:strength 400, :name "Smaug", :items #{25 26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{26 27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{27 28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{28 29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{29 30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{30 31}, :health 500}
+{:strength 400, :name "Smaug", :items #{31}, :health 500}
+{:strength 400, :name "Smaug", :items #{}, :health 500}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 87.94254413343873}
+{:strength 400, :name "Smaug", :items #{}, :health 491.4038331963879}
+{:strength 400, :name "Smaug", :items #{}, :health 483.5935492998732}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 53.7223084476085}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 34.16157013567185}
+{:strength 400, :name "Smaug", :items #{}, :health 482.7363534534623}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 25.152711600855113}
+{:strength 400, :name "Smaug", :items #{}, :health 475.7279311880973}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 0}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 100}
+{:strength 400, :name "Smaug", :items #{}, :health 500}
+{:strength 400, :name "Smaug", :items #{}, :health 491.041928874484}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 73.93136279586182}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 88.98656275380391}
+{:strength 400, :name "Smaug", :items #{}, :health 487.5955480262344}
+{:strength 400, :name "Smaug", :items #{}, :health 487.19582902107953}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 52.97620382182201}
+{:strength 400, :name "Smaug", :items #{}, :health 484.77752101896004}
+{:strength 400, :name "Smaug", :items #{}, :health 482.52070620855085}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 93.64245360396188}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 54.52764562543224}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 122.67781637213164}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 109.0084082814206}
+{:strength 400, :name "Smaug", :items #{}, :health 475.3758753828554}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 83.08133290509463}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 92.9692092808037}
+{:strength 400, :name "Smaug", :items #{}, :health 472.06485827963246}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 147.22442302482352}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 215.0337857841447}
+{:strength 400, :name "Smaug", :items #{}, :health 463.3371850169837}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 190.5535105492909}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 167.2179748233023}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 218.1595319234591}
+{:strength 400, :name "Smaug", :items #{}, :health 458.4838694271319}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 200.76152296686374}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 243.49594971009847}
+{:strength 400, :name "Smaug", :items #{}, :health 448.62239143374063}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 232.13704172244383}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 255.00096190069397}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 297.8052597813231}
+{:strength 400, :name "Smaug", :items #{}, :health 443.65391852457265}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 308.6184417298056}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 341.31857949713685}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 305.1554078621402}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 282.6477264406104}
+{:strength 400, :name "Smaug", :items #{}, :health 441.8024677872957}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 254.55884922739543}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 249.36733511731748}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 295.16728373296127}
+{:strength 400, :name "Smaug", :items #{}, :health 438.92663187792243}
+{:strength 400, :name "Smaug", :items #{}, :health 429.41725435460285}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 276.69042612978626}
+{:strength 400, :name "Smaug", :items #{}, :health 419.815529885943}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 312.070794762389}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 275.7476668667574}
+{:strength 400, :name "Smaug", :items #{}, :health 413.05783150925004}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 315.0441027617612}
+{:strength 400, :name "Smaug", :items #{}, :health 406.0659772017372}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 358.84717414296114}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 326.053059293009}
+{:strength 400, :name "Smaug", :items #{}, :health 400.83785569052696}
+{:strength 400, :name "Smaug", :items #{}, :health 393.424115052871}
+{:strength 400, :name "Smaug", :items #{}, :health 385.4596450694312}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 343.4735034980496}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 332.6533170679646}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 391.9408745640329}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 449.88415194468604}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 438.9352489386129}
+{:strength 400, :name "Smaug", :items #{}, :health 375.66935707411074}
+{:strength 400, :name "Smaug", :items #{}, :health 368.75672599306927}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 417.57201856975587}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 387.5667177900269}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 412.65128992119344}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 395.92798173843727}
+{:strength 400, :name "Smaug", :items #{}, :health 364.23509933355353}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 392.88732292408486}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 364.47187834042467}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 387.37946241853416}
+{:strength 400, :name "Smaug", :items #{}, :health 355.353892206838}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 444.032211199632}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 412.6405853346014}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 386.0301713410872}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 406.01463163715005}
+{:strength 400, :name "Smaug", :items #{}, :health 349.3877790090468}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 386.911570591466}
+{:strength 400, :name "Smaug", :items #{}, :health 348.1052232343318}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 419.6375311088355}
+{:strength 400, :name "Smaug", :items #{}, :health 341.4485645546371}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 385.0692018023888}
+{:strength 400, :name "Smaug", :items #{}, :health 335.4829951249769}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 395.3493734810769}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 389.121733329205}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 384.9843314381316}
+{:strength 400, :name "Smaug", :items #{}, :health 325.6424076087848}
+{:strength 400, :name "Smaug", :items #{}, :health 323.31088712262857}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 434.3637254752803}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 430.3310508994512}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 451.5056069908118}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 474.6277486432938}
+{:strength 400, :name "Smaug", :items #{}, :health 323.2989462782025}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 507.1721401748529}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 502.10174443200515}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 521.6787003275579}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 516.281355673229}
+{:strength 400, :name "Smaug", :items #{}, :health 316.73978420216673}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 554.7095670322642}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 550.7999006673251}
+{:strength 400, :name "Smaug", :items #{}, :health 307.43185930977535}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 537.5794287531029}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 523.4438881482606}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 526.0084091445964}
+{:strength 400, :name "Smaug", :items #{}, :health 306.40222805228444}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 508.8586086027748}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 494.9750943884163}
+{:strength 400, :name "Smaug", :items #{}, :health 296.59710566546215}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 497.93443379220497}
+{:strength 400, :name "Smaug", :items #{}, :health 292.26034685764847}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 481.5585648696965}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 507.20887463616054}
+{:strength 400, :name "Smaug", :items #{}, :health 291.6844341469572}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 493.40578137530935}
+{:strength 400, :name "Smaug", :items #{}, :health 285.3592538527702}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 536.2092340921266}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 527.2003803305278}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 508.61452713212617}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 536.7475298582598}
+{:strength 400, :name "Smaug", :items #{}, :health 280.65479102913577}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 498.2851033859509}
+{:strength 400, :name "Smaug", :items #{}, :health 276.23466516419046}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 479.1683720232895}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 503.181979411799}
+{:strength 400, :name "Smaug", :items #{}, :health 270.68157512731756}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 517.4217221109075}
+{:strength 400, :name "Smaug", :items #{}, :health 270.3835800795823}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 499.19910371921935}
+{:strength 400, :name "Smaug", :items #{}, :health 269.8965147819369}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 491.7234895643172}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 510.9556598766067}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 493.19781898495273}
+{:strength 400, :name "Smaug", :items #{}, :health 263.339687931372}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 490.50617980920237}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 512.2433041340747}
+{:strength 400, :name "Smaug", :items #{}, :health 255.9533274333871}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 500.89025824922203}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 475.5391224505286}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 488.7218391899289}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 460.1197878019252}
+{:strength 400, :name "Smaug", :items #{}, :health 246.34376253116463}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 485.0276060417773}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 507.4073945392924}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 493.4876065311826}
+{:strength 400, :name "Smaug", :items #{}, :health 237.7677682804904}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 529.9102095746291}
+{:strength 400, :name "Smaug", :items #{}, :health 237.40104459279942}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 498.90561149611034}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 470.00534322789787}
+{:strength 400, :name "Smaug", :items #{}, :health 232.57838669700286}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 483.81858599675934}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 457.32147334023784}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 489.21238223431686}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 452.2776731319312}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 492.09774669170787}
+{:strength 400, :name "Smaug", :items #{}, :health 228.97656778247926}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 498.07992636907557}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 515.0582910613076}
+{:strength 400, :name "Smaug", :items #{}, :health 227.61734867633132}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 511.5643046578919}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 503.82178194450023}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 536.0120302174167}
+{:strength 400, :name "Smaug", :items #{}, :health 221.54006514569235}
+{:strength 400, :name "Smaug", :items #{}, :health 215.20981046222104}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 529.9932742641612}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 514.8051202348089}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 551.0918990143157}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 563.5210521098045}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 544.4422599121931}
+{:strength 400, :name "Smaug", :items #{}, :health 210.0826328187311}
+{:strength 400, :name "Smaug", :items #{}, :health 206.90924497034828}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 537.6473634024386}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 550.5617302269218}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 558.0163056282568}
+{:strength 400, :name "Smaug", :items #{}, :health 199.58319642248176}
+{:strength 400, :name "Smaug", :items #{}, :health 193.03577819624633}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 573.6581451800091}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 537.6345622097889}
+{:strength 400, :name "Smaug", :items #{}, :health 190.487158694945}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 548.1611688154491}
+{:strength 400, :name "Smaug", :items #{}, :health 185.69105452180713}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 526.1613066811531}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 497.4650409160957}
+{:strength 400, :name "Smaug", :items #{}, :health 175.9388666523977}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 500.9023433036801}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 537.3471853222766}
+{:strength 400, :name "Smaug", :items #{}, :health 174.86164086057775}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 531.2544768475337}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 517.9568728043712}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 542.6429740587962}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 556.235874689319}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 580.3287268146896}
+{:strength 400, :name "Smaug", :items #{}, :health 168.61704735640515}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 593.4653353816235}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 605.1977264993523}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 591.3338312039464}
+{:strength 400, :name "Smaug", :items #{}, :health 159.55646321947214}
+{:strength 400, :name "Smaug", :items #{}, :health 150.07907401987393}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 608.0555478022222}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 594.1467747420091}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 565.4602633818124}
+{:strength 400, :name "Smaug", :items #{}, :health 143.07727803088665}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 567.9074184178999}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 563.910960641507}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 564.1206921382226}
+{:strength 400, :name "Smaug", :items #{}, :health 134.74972839832657}
+{:strength 400, :name "Smaug", :items #{}, :health 128.47751222520972}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 551.691578110066}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 523.4625994642415}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 550.1144750494761}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 578.837008027911}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 539.7282132464044}
+{:strength 400, :name "Smaug", :items #{}, :health 124.7490494340259}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 570.1578928783762}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 532.5404961338122}
+{:strength 400, :name "Smaug", :items #{}, :health 114.81689798353196}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 514.3703665617493}
+{:strength 400, :name "Smaug", :items #{}, :health 111.58457037274965}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 526.1235935281418}
+{:strength 400, :name "Smaug", :items #{}, :health 108.06515731596255}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 554.9225671787743}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 528.9158165926381}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 552.793795749158}
+{:strength 400, :name "Smaug", :items #{}, :health 106.06740895701058}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 526.5759688805249}
+{:strength 400, :name "Smaug", :items #{}, :health 101.16464702423308}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 512.7626318407071}
+{:strength 400, :name "Smaug", :items #{}, :health 99.04567921233718}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 538.8891755571044}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 535.7434561130648}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 555.6103040335388}
+{:strength 400, :name "Smaug", :items #{}, :health 98.65931452368913}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 556.2972358351517}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 525.9444381003228}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 490.56053547886114}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 512.490268832645}
+{:strength 400, :name "Smaug", :items #{}, :health 93.07009655364936}
+{:strength 400, :name "Smaug", :items #{}, :health 89.08160849139135}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 482.71315944796464}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 507.19561630203816}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 471.6138419944808}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 444.0365895932874}
+{:strength 400, :name "Smaug", :items #{}, :health 85.94525279238368}
+{:strength 400, :name "Smaug", :items #{}, :health 79.71339610595629}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 450.02908046523794}
+{:strength 400, :name "Smaug", :items #{}, :health 75.33818801443647}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 467.34353197747686}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 462.3300577905836}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 435.46452344625243}
+{:strength 400, :name "Smaug", :items #{}, :health 73.15201575982292}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 451.0580499669397}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 443.57394634920473}
+{:strength 400, :name "Smaug", :items #{}, :health 72.49013726803008}
+{:strength 400, :name "Smaug", :items #{}, :health 72.4796654759048}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 423.47431520567375}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 435.47089596452463}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 453.97912929919596}
+{:strength 400, :name "Smaug", :items #{}, :health 66.42456545156095}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 415.51138599634044}
+{:strength 400, :name "Smaug", :items #{}, :health 64.34430108521357}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 393.2552236918169}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 395.9333987264434}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 378.2966510600674}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 392.4107078070375}
+{:strength 400, :name "Smaug", :items #{}, :health 61.2212489295404}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 368.98733123679483}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 384.4501183679846}
+{:strength 400, :name "Smaug", :items #{}, :health 55.74587310299769}
+{:strength 400, :name "Smaug", :items #{}, :health 53.90899470604326}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 356.06117373145975}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 369.76334413801015}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 374.27916291288443}
+{:strength 400, :name "Smaug", :items #{}, :health 50.281461354450364}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 365.0229260557571}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 372.1848602479894}
+{:strength 400, :name "Smaug", :items #{}, :health 45.05209531629112}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 387.30576368108643}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 375.69028271810305}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 373.4359831970234}
+{:strength 400, :name "Smaug", :items #{}, :health 44.93931783874363}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 335.7293953210205}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 334.91298309080196}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 340.0056122442322}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 340.8395299624483}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 311.63713866704103}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 312.1639916068416}
+{:strength 400, :name "Smaug", :items #{}, :health 40.74764625166675}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 282.28539663884703}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 291.7458621253007}
+{:strength 400, :name "Smaug", :items #{}, :health 34.650502336360006}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 288.4399394423211}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 285.5516702077486}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 295.4488117862296}
+{:strength 400, :name "Smaug", :items #{}, :health 26.332133740136115}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 294.2651661527466}
+{:strength 400, :name "Smaug", :items #{}, :health 19.16113330170588}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 282.6621348134132}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 297.11121499952736}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 312.7635220747221}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 275.32762934068603}
+{:strength 400, :name "Smaug", :items #{}, :health 13.0200359630877}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 289.9186587193642}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 263.64576457882356}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 270.8949867098556}
+{:strength 400, :name "Smaug", :items #{}, :health 12.500225214411946}
+{:strength 400, :name "Smaug", :items #{}, :health 9.358447388272788}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 256.5743818564963}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 271.38696401098633}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 258.28727721147663}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 255.4068791056665}
+{:strength 400, :name "Smaug", :items #{}, :health 3.630165817329411}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 269.47612272144454}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 240.80639339052118}
+{:strength 400, :name "Smaug", :items #{}, :health 0}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 243.77127746676226}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 256.0275763778511}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 256.71945359417333}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 256.88642044232336}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 261.6791761592597}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 272.85215549103805}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 277.6010378356982}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 279.6233294195833}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 280.0202724338458}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 287.1968945604744}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 294.87064209862905}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 302.76303150336463}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 303.6201431074208}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 310.6389829707728}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 313.4982496214032}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 315.2193516337277}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 318.1224985924024}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 320.30188541217865}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 320.45047160133305}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 324.0870454890723}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 324.31650578491696}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 327.8432429501165}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 328.997024156401}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 329.91781344001885}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 330.28222468047534}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 331.42368571613514}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 331.64369861679944}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 332.64457783222116}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 333.28840235926873}
+{:strength 100, :name "Bilbo", :items #{0 12 44 45 15 47 17 49 18 19 20 21 22 23 24}, :health 333.3205023620388}
