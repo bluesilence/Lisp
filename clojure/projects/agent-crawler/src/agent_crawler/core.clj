@@ -39,10 +39,9 @@
   (println "------------------------get-url--------------------------")
   (let [url (.take queue)]
     (println "URL got:" url)
-    (println "Crawled?" (@crawled-urls url))
     (try
       (if (@crawled-urls url)
-        state
+           state
         {:url url
          :content (slurp url)
          ::t #'process})
@@ -126,6 +125,11 @@
   (println "Hello, Crawler of agents!")
   (println "Input number of agents:")
   (when-let [number (read)]
-    (println "Input starting url:")
-    (when-let [url (read)]
+    (println "Input starting url: ")
+    (when-let [url 
+               (str (when-let [rawUrl (str (read))]
+                (if (> 0 (.indexOf rawUrl "http://"))
+                  (str "http://" rawUrl)
+                  rawUrl)))]
+      (println "Starting url:" url)
       (test-crawler number url))))
