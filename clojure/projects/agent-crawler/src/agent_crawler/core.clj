@@ -104,7 +104,7 @@
 
 (defn test-crawler
   "Resets all state associated with the crawler, adds the given URL to the url-queue, and runs the crawler for 60 seconds, returning a vector containing the number of URLs crawled, and the number of URLs accumulated through crawling that have yet to be visited."
-  [agent-count starting-url]
+  [agent-count starting-url crawling-time]
   (def agents (set (repeatedly agent-count
                                #(agent {::t #'get-url :queue url-queue}))))
   (.clear url-queue)
@@ -112,13 +112,14 @@
   (swap! word-freqs empty)
   (.add url-queue starting-url)
   (run)
-  (Thread/sleep 300000)
+  (Thread/sleep crawling-time)
   (pause)
+  (Thread/sleep 10000)	;Wait till all agents terminate
   (println "Crawled url count: " (count @crawled-urls))
   (println "Url in queue: " (count url-queue))
   (->> (sort-by val @word-freqs)
     reverse
-    (take 10)))
+    (take 100)))
 
 (defn -main
   [& args]
@@ -132,4 +133,6 @@
                   (str "http://" rawUrl)
                   rawUrl)))]
       (println "Starting url:" url)
-      (test-crawler number url))))
+      (println "Input time to crawl(unit: s): ")
+      (when-let [crawling-time (read)]
+        (test-crawler number url (* 1000 crawling-time))))))
