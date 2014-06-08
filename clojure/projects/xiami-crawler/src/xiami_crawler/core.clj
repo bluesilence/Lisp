@@ -7,15 +7,22 @@
 (import '(java.util.concurrent LinkedBlockingQueue))
 
 (require '[xiami-crawler.config :as config])
+(require '[xiami-crawler.logger :as logger])
 
 (def url-queue (LinkedBlockingQueue.))
 (def crawled-urls (atom #{}))
 (def word-freqs (atom {}))
 (def song-infos (atom []))
 
+(def log (logger/multi-logger
+            (logger/print-logger *out*)
+            (logger/file-logger "logs/crawler.log")))
+
+(def record
+  (logger/file-logger (str "logs/songs.log")))
+
 (defn- songs-from
   [href]
-  (println "----------------------------------")
   (when-let [song-id (peek (re-find config/song-url-pattern href))]
     (println "Got song id: " song-id)
     (swap! song-infos conj {:id song-id})))
@@ -70,7 +77,6 @@
     (swap! crawled-urls conj url)
     (doseq [url links]
       (.put url-queue url))
-    ;(swap! song-infos conj songs)
 
     {::t #'get-url :queue url-queue}
     (finally (run *agent*))))
@@ -114,7 +120,9 @@
   (Thread/sleep 10000)	;Wait till all agents terminate
   (println "Crawled url count: " (count @crawled-urls))
   (println "Url in queue: " (count url-queue))
-  (println "Songs got: " @song-infos))
+  (println "Songs got: " (count @song-infos))
+  (doseq [song @song-infos]
+    (record (:id song))))
 
 (defn -main
   [& args]
