@@ -8,29 +8,28 @@
 
 (require '[xiami-crawler.config :as config])
 
+(def url-queue (LinkedBlockingQueue.))
+(def crawled-urls (atom #{}))
+(def word-freqs (atom {}))
+(def song-infos (atom []))
+
+(defn- songs-from
+  [href]
+  (println "----------------------------------")
+  (when-let [song-id (peek (re-find config/song-url-pattern href))]
+    (println "Got song id: " song-id)
+    (swap! song-infos conj {:id song-id})))
+
 (defn- links-from
   [base-url html]
   (remove nil? (for [link (enlive/select html [:a])]
                  (when-let [href (-> link :attrs :href)]
                    (try
                      (when (re-find config/qualified-url-pattern href)
+                       (songs-from href)
                        (URL. href))
                      ; ignore bad URLs
                      (catch MalformedURLException e))))))
-
-(defn- words-from
-  [html]
-  (let [chunks (-> html
-                 (enlive/at [:script] nil)
-                             (enlive/select [:body enlive/text-node]))]
-    (->> chunks
-      (mapcat (partial re-seq #"\w+"))
-      (remove (partial re-matches #"\d+"))
-      (map lower-case))))
-
-(def url-queue (LinkedBlockingQueue.))
-(def crawled-urls (atom #{}))
-(def word-freqs (atom {}))
 
 (declare get-url)
 (def agents (set (repeatedly 25 #(agent {::t #'get-url :queue url-queue}))))
@@ -58,25 +57,20 @@
   (println "------------------------process--------------------------")
   (try
     (let [html (enlive/html-resource (java.io.StringReader. content))]
-      (println "links: " (links-from url html))
       {::t #'handle-results
        :url url
        :links (links-from url html)
-       :words (reduce (fn [m word]
-                        (update-in m [word] (fnil inc 0)))
-                      {}
-                      (words-from html))})
+       })
     (finally (run *agent*))))
 
 (defn ^::blocking handle-results
-  [{:keys [url links words]}]
+  [{:keys [url links]}]
   (println "------------------------handle-results--------------------------")
-  (println "words:" words)
   (try
     (swap! crawled-urls conj url)
     (doseq [url links]
       (.put url-queue url))
-    (swap! word-freqs (partial merge-with +) words)
+    ;(swap! song-infos conj songs)
 
     {::t #'get-url :queue url-queue}
     (finally (run *agent*))))
@@ -120,9 +114,7 @@
   (Thread/sleep 10000)	;Wait till all agents terminate
   (println "Crawled url count: " (count @crawled-urls))
   (println "Url in queue: " (count url-queue))
-  (->> (sort-by val @word-freqs)
-    reverse
-    (take 100)))
+  (println "Songs got: " @song-infos))
 
 (defn -main
   [& args]
