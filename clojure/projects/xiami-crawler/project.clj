@@ -6,6 +6,6 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [enlive/enlive "1.0.0"]]
   :main xiami-crawler.core
-  :aot [xiami-crawler.config xiami-crawler.logger]
+  :aot [xiami-crawler.config xiami-crawler.logger xiami-crawler.debug]
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
