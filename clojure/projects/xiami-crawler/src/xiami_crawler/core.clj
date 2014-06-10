@@ -22,10 +22,16 @@
   (logger/file-logger (str "logs/songs.log")))
 
 (defn- songs-from
-  [href]
-  (when-let [song-id (peek (re-find config/song-url-pattern href))]
-    (println "Got song id: " song-id)
-    (swap! song-infos conj {:id song-id})))
+  [html]
+  (println "-------------------Songs-from--------------------")
+  (println config/song-id-name-pattern)
+  (log html)
+  (when-let [songs (re-seq config/song-id-name-pattern html)]
+    (println "-------------------After find--------------------")
+    (doseq [song-info songs]
+      (println "Got song info: " song-info)
+      (println "Song name: " (peek song-info))
+      (println "Song id: " (peek (pop song-info))))))
 
 (defn- links-from
   [base-url html]
@@ -33,10 +39,13 @@
                  (when-let [href (-> link :attrs :href)]
                    (try
                      (when (re-find config/qualified-url-pattern href)
-                       (songs-from href)
                        (URL. href))
                      ; ignore bad URLs
                      (catch MalformedURLException e))))))
+
+(defn add-album-url [id]
+  (.put url-queue (URL. (str config/album-url-path id)))
+  (log url-queue))
 
 (declare get-url)
 (def agents (set (repeatedly 25 #(agent {::t #'get-url :queue url-queue}))))
@@ -66,18 +75,17 @@
     (let [html (enlive/html-resource (java.io.StringReader. content))]
       {::t #'handle-results
        :url url
-       :links (links-from url html)
+       :songs (songs-from html)
        })
     (finally (run *agent*))))
 
 (defn ^::blocking handle-results
-  [{:keys [url links]}]
+  [{:keys [url songs]}]
   (println "------------------------handle-results--------------------------")
   (try
     (swap! crawled-urls conj url)
-    (doseq [url links]
-      (.put url-queue url))
-
+    (doseq [song songs]
+      (swap! song-infos conj song))
     {::t #'get-url :queue url-queue}
     (finally (run *agent*))))
 
@@ -113,7 +121,8 @@
   (.clear url-queue)
   (swap! crawled-urls empty)
   (swap! word-freqs empty)
-  (.add url-queue starting-url)
+  (doseq [album-id config/album-ids]
+    (.add url-queue (str config/album-url-path album-id)))
   (run)
   (Thread/sleep crawling-time)
   (pause)
