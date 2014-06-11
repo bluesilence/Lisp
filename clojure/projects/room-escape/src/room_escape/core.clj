@@ -1,17 +1,33 @@
 (ns room-escape.core
   (:gen-class))
 
-(def starting-message "You were drunk last night...
-                      and you found yourself...locked!
-                      Now, try to escape from here!")
+(def starting-message "
+************************************************
+  You were drunk last night.
+  and you found yourself...locked!
+
+  ...What the fuck?!
+
+  Anyway, let's try to escape from here first!
+************************************************")
 
 (def starting-room "Starting room")
-(def current-status (atom {:room {}}))
+(def current-status (atom {:location []
+                           :items []}))
+
+(defn update-status [key value]
+  (swap! current-status assoc key value))
+
+(defn update-room [room-name]
+  (update-status :location [room-name (second (:location @current-status))]))
+
+(defn get-current-room []
+  (first (:location @current-status)))
 
 (def rooms [{:id 1
              :name "Starting room"
              :visible 1
-             :description "This is a strange room. Barely no furniture except for a table and a door."
+             :description "This is a strange room. Barely no furniture except a table and a door."
              :spots [1 2]
              }])
 
@@ -49,45 +65,51 @@
 (defn locate-by-name [name]
   (first (filter (comp #(= % name) #(:name %)) objects)))
 
+(defn display [description]
+  (println ">>" description))
+
 (defn check [object-name]
-  (if-let [object (locate-by-name object-name)]
-    (if (= (:visible object) 1)
-      (println (:description object))
-      (println "You didn't see any " object-name " around here."))
-    (println "There is no " object-name " around here.")))
+  (if (nil? object-name)
+    (println "Object name cannot be nil.")
+    (if-let [object (locate-by-name object-name)]
+      (if (= (:visible object) 1)
+        (display (:description object))
+        (println "You didn't see any " object-name " around here."))
+      (println "There is no " object-name " around here."))))
 
 (defn look-around []
-  (check (:name (:room @current-status))))
+  (display "You looked around.")
+  (check (get-current-room)))
 
 (def action-list [{:name "look-around" :function look-around :description "Look around the room"},
                   {:name "check" :function check :description "Check room/spot/item"}])
 
 (defn help []
-  (println "-----------Available actions------------")
+  (display "Pick one [action] below:")
   (doseq [action action-list]
-    (println "Name: " (:name action))
-    (println "Description: " (:description action))
-    (println)))
+    (display (str "[" (:name action) "] " (:description action)))))
 
 (defn execute [command]
   ; To-Do: split command-str by ' '
-  (doseq [action action-list]
-    (when (= (:name action) command)
-      (:function action))))
+  (let [action (->> action-list (filter (comp #(= (:name %) (str command)))) first :function)]
+    (if (nil? action)
+      (println "Unsupported command: " command)
+      (action))))
 
 (defn initialize []
   (println starting-message)
-  (swap! current-status assoc :room (locate-by-name starting-room))
+  (update-room starting-room)
   (help))
 
 (defn -main
   "A text only game to escape from a locked room."
   [& args]
   (initialize)
-  (loop [command-str ""]
+  (println "Your action: ")
+  (loop [command-str (str (read))]
     (if (= command-str "quit")
       (println "Bye~!")
       (do (when-not (= command-str "")
             (execute command-str))
           (println "Your action: ")
-          (recur (read))))))
+          (recur (str (read)))))))
