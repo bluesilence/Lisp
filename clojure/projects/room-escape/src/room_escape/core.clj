@@ -1,6 +1,8 @@
 (ns room-escape.core
   (:gen-class))
 
+(use '[clojure.string :as string])
+
 (def starting-message "
 ************************************************
   You were drunk last night.
@@ -11,7 +13,6 @@
   Anyway, let's try to escape from here first!
 ************************************************")
 
-(def starting-room "Starting room")
 (def current-status (atom {:location []
                            :items []}))
 
@@ -25,29 +26,31 @@
   (first (:location @current-status)))
 
 (def rooms [{:id 1
-             :name "Starting room"
+             :name "starting room"
              :visible 1
-             :description "This is a strange room. Barely no furniture except a table and a door."
+             :description "This is a strange room. Barely no furniture except a [table] and a [door]."
              :spots [1 2]
              }])
 
+(def starting-room (:name (first rooms)))
+
 (def spots [{:id 1
-             :name "Table"
-             :visible 1
+             :name "table"
+             :visible 0
              :description "This is a small square table. It seems that there is something on the table..."
              :items [1]}
             {:id 2
-             :name "Door"
-             :visible 1
+             :name "door"
+             :visible 0
              :description "It is a door locked with a password panel. Maybe the password is written somewhere..."
              :items [2]}])
 
 (def items [{:id 1
-             :name "Card"
+             :name "card"
              :visible 0
              :description "It's a card with number 0428 on it."}
             {:id 2
-             :name "Password Panel"
+             :name "password Panel"
              :visible 0
              :description "There are button 0~9 on the panel. The length of the password seems to be 4."
              :state "Locked"}])
@@ -89,12 +92,17 @@
   (doseq [action action-list]
     (display (str "[" (:name action) "] " (:description action)))))
 
-(defn execute [command]
-  ; To-Do: split command-str by ' '
-  (let [action (->> action-list (filter (comp #(= (:name %) (str command)))) first :function)]
+(defn execute [command & args]
+  (println command)
+  (println args)
+  (println (string/join args))
+  (let [action (->> action-list (filter (comp #(= (:name %) (str command)))) first :function)
+        args-str (string/join args)]
     (if (nil? action)
       (println "Unsupported command: " command)
-      (action))))
+      (if (string/blank? args-str)
+          (action)
+          (action args-str)))))
 
 (defn initialize []
   (println starting-message)
@@ -106,10 +114,11 @@
   [& args]
   (initialize)
   (println "Your action: ")
-  (loop [command-str (str (read))]
+  (loop [command-str (str (read-line))]
     (if (= command-str "quit")
       (println "Bye~!")
       (do (when-not (= command-str "")
-            (execute command-str))
+            (let [command-vector (string/split command-str #" ")]
+              (execute (first command-vector) (string/join (rest command-vector)))))
           (println "Your action: ")
-          (recur (str (read)))))))
+          (recur (str (read-line)))))))
