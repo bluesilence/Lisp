@@ -23,7 +23,8 @@
 (def rooms [{:id 1
              :category 0
              :name "starting room"
-             :description "This is a strange room. Barely no furniture except a [table] and a [door]."
+             :description {:default-check "The room is dark. Try look around."
+                           :near-check "This is a strange room. Barely no furniture except a [table] and a [door]."}
              :items [2 3]
              }])
 
@@ -32,36 +33,27 @@
 (def spots [{:id 2
              :category 1
              :name "table"
-             :description "This is a small square table. It seems that there is a [card] on the table..."
+             :description {:default-check "This is a small square table. It seems that there is something on the table..."
+                           :near-check "There is a [card] on the table."}
              :items [4]}
             {:id 3
              :category 1
              :name "door"
-             :description "It is a door locked with a [password-panel]. Maybe the password is written somewhere..."
+             :description{:default-check "The door is locked."
+                          :near-check "There is a [password-panel] beside the door. Maybe the password is written somewhere..."}
              :items [5]}])
 
 (def items [{:id 4
              :category 2
              :name "card"
-             :description "It's a card with number 0428 on it."}
+             :description {:default-check "It's a card with number 0428 on it."}}
             {:id 5
              :category 2
              :name "password-panel"
-             :description "There are button 0~9 on the panel. The length of the password seems to be 4."
+             :description {:default-check "There are button 0~9 on the panel. The length of the password seems to be 4."}
              :state "Locked"}])
 
 (def objects (vec (concat rooms spots items)))
-(def visible (atom #{}))
-
-(defn visible? [id]
-  (contains? @visible id))
-
-(defn toggle-visible [id]
-  (if (visible? id)
-    (do (display "toggle " id " to invisible")
-    (swap! visible disj id))
-    (do (display "toggle " id " to visible")
-    (swap! visible conj id))))
 
 ; To-Do: use macro to generate these locate functions
 (defn locate-by-id [id]
@@ -85,7 +77,6 @@
   (let [category-id (:category (locate-by-id id))]
     (= "item" (nth categories category-id))))
 
-(def objects (vec (concat rooms spots items)))
 (def visible (atom #{}))
 
 (defn visible? [id]
@@ -101,6 +92,15 @@
   (if (visible? id)
     (set-invisible id)
     (set-visible id)))
+
+(defn describe
+  [id & args]
+  (if-let [object (locate-by-id id)]
+    (let [key-str (string/join args)]
+      (if (empty? key-str)
+        (display (:default-check (:description object)))
+        (display (get (:description object) (keyword key-str)))))
+    (display "No object with id " id " found.")))
 
 (def current-status (atom {:room -1
                            :spot -1
@@ -147,12 +147,15 @@
   (if (nil? object-name)
     (display "Object name cannot be nil.")
     (if-let [object (locate-by-name object-name)]
-      (if (visible? (:id object))
-        (do (display (:description object))
-            (if (in-status (:id object)) ; If object is in status, set its items are visible
-              (doseq [item (:items object)]
-                (set-visible item))))
-        (display "You didn't see any [" object-name "] around here."))
+      (let [id (:id object)]
+        (if (visible? id)
+          (if (in-status id) ; If object is in status, set its items are visible
+            (do
+                (doseq [item (:items object)]
+                  (set-visible item))
+                (describe id 'near-check))
+            (describe id))
+          (display "You didn't see any [" object-name "] around here.")))
       (display "There is no [" object-name "] around here."))))
 
 (defn goto [spot-name]
@@ -162,8 +165,9 @@
       (let [id (:id spot)]
         (if (visible? id)
           (if (spot? id)
-            (do (display "You went to the [" spot-name "].")
-                (update-spot id))
+            (do (display "You went to the [" spot-name "] to take a closer look.")
+                (update-spot id)
+                (describe id 'near-check))
             (display "[" spot-name "] is not somewhere to go to."))
           (display "You didn't see any [" spot-name "] around here.")))
       (display "There is no [" spot-name "] around here."))))
@@ -172,21 +176,26 @@
   (display "You looked around.")
   (check (get-current-room)))
 
-(def action-list [{:name "get-location" :function get-location :description "Get current location"},
-                  {:name "look-around" :function look-around :description "Look around the room"},
-                  {:name "check" :function check :description "Check room/spot/item"},
-                  {:name "goto" :function goto :description "Goto spot"}])
+(declare action-list)
 
 (defn help []
   (display "Pick one [action] below:")
   (doseq [action action-list]
     (display (str "[" (:name action) "] " (:description action)))))
 
+(def action-list [{:name "help" :function help :description "Get help information"},
+                  {:name "get-location" :function get-location :description "Get current location"},
+                  {:name "look-around" :function look-around :description "Look around the room"},
+                  {:name "check" :function check :description "Check room/spot/item"},
+                  {:name "goto" :function goto :description "Goto spot"}])
+
 (defn execute [command & args]
   (let [action (->> action-list (filter (comp #(= (:name %) (str command)))) first :function)
         args-str (string/join args)]
     (if (nil? action)
-      (display "Unsupported command: " command)
+      (do 
+        (display "Unsupported command: " command)
+        (help))
       (if (string/blank? args-str)
           (action)
           (action args-str)))))
