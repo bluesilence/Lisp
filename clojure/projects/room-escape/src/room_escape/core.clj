@@ -176,6 +176,14 @@
   (display "You looked around.")
   (check (get-current-room)))
 
+(def continue (atom true))
+(defn quit []
+  (swap! continue not)
+  (display "Bye~!"))
+
+(defn continue? []
+  (= @continue true))
+
 (declare action-list)
 
 (defn help []
@@ -187,7 +195,8 @@
                   {:name "get-location" :function get-location :description "Get current location"},
                   {:name "look-around" :function look-around :description "Look around the room"},
                   {:name "check" :function check :description "Check room/spot/item"},
-                  {:name "goto" :function goto :description "Goto spot"}])
+                  {:name "goto" :function goto :description "Goto spot"},
+                  {:name "quit" :function quit :description "Quit the game"}])
 
 (defn execute [command & args]
   (let [action (->> action-list (filter (comp #(= (:name %) (str command)))) first :function)
@@ -216,10 +225,9 @@
   (initialize)
   (display-prompt)
   (loop [command-str (str (read-line))]
-    (if (= command-str "quit")
-      (display "Bye~!")
-      (do (when-not (= command-str "")
-            (let [command-vector (string/split command-str #" ")]
-              (execute (first command-vector) (string/join (rest command-vector)))))
-          (display-prompt)
-          (recur (str (read-line)))))))
+    (do (when-not (= command-str "")
+      (let [command-vector (string/split command-str #" ")]
+        (execute (first command-vector) (string/join (rest command-vector)))))
+      (when (continue?)
+        (display-prompt)
+        (recur (str (read-line)))))))
