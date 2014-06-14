@@ -11,27 +11,40 @@
 
 (def url-queue (LinkedBlockingQueue.))
 (def crawled-urls (atom #{}))
-(def word-freqs (atom {}))
 (def song-infos (atom []))
 
 (def log (logger/multi-logger
             (logger/print-logger *out*)
-            (logger/file-logger "logs/crawler.log")))
+            (logger/file-logger-with-date "logs/crawler")))
 
-(def record
-  (logger/file-logger (str "logs/songs.log")))
+(def album-id (atom 0))
+
+(defn get-next-album []
+  (println "Get next album...")
+  (swap! album-id inc)
+  (println "Album id: " @album-id)
+  @album-id)
+
+(defn record-album [album-id message]
+  ((logger/file-logger (str "logs/album_" album-id ".log")) message))
+
+(defn get-album-log [id]
+  (slurp (str "logs/album_" id ".log")))
 
 (defn- songs-from
-  [html]
+  [html album-id]
   (println "-------------------Songs-from--------------------")
-  (println config/song-id-name-pattern)
-  (log html)
-  (when-let [songs (re-seq config/song-id-name-pattern html)]
+  (println "Album: " album-id)
+  (record-album album-id html) ; Force evaluate lazy-seq
+  (println "-------------------Before find--------------------")
+  (when-let [page (get-album-log album-id)]
     (println "-------------------After find--------------------")
-    (doseq [song-info songs]
-      (println "Got song info: " song-info)
-      (println "Song name: " (peek song-info))
-      (println "Song id: " (peek (pop song-info))))))
+    (let [songs (re-seq config/song-id-name-pattern page)
+          hotness (re-seq config/song-hot-pattern page)]
+      (let [song-id (map (comp peek pop) songs)
+            song-name (map peek songs)
+            song-hot (map peek hotness)]
+        (zipmap (zipmap song-id song-name) song-hot)))))
 
 (defn- links-from
   [base-url html]
@@ -43,10 +56,6 @@
                      ; ignore bad URLs
                      (catch MalformedURLException e))))))
 
-(defn add-album-url [id]
-  (.put url-queue (URL. (str config/album-url-path id)))
-  (log url-queue))
-
 (declare get-url)
 (def agents (set (repeatedly 25 #(agent {::t #'get-url :queue url-queue}))))
 
@@ -55,13 +64,14 @@
 (defn ^::blocking get-url
   [{:keys [^LinkedBlockingQueue queue] :as state}]
   (println "------------------------get-url--------------------------")
-  (let [url (.take queue)]
+  (let [url (URL. (str config/album-url-path (get-next-album)))]
     (println "URL got:" url)
     (try
       (if (@crawled-urls url)
            state
         {:url url
          :content (slurp url)
+         :album @album-id
          ::t #'process})
       (catch Exception e
         ;; skip any URL we failed to load
@@ -69,13 +79,13 @@
       (finally (run *agent*)))))
 
 (defn process
-  [{:keys [url content]}]
+  [{:keys [url content album]}]
   (println "------------------------process--------------------------")
   (try
     (let [html (enlive/html-resource (java.io.StringReader. content))]
       {::t #'handle-results
        :url url
-       :songs (songs-from html)
+       :songs (songs-from html album)
        })
     (finally (run *agent*))))
 
@@ -85,6 +95,7 @@
   (try
     (swap! crawled-urls conj url)
     (doseq [song songs]
+      (println song)
       (swap! song-infos conj song))
     {::t #'get-url :queue url-queue}
     (finally (run *agent*))))
@@ -120,18 +131,13 @@
                                #(agent {::t #'get-url :queue url-queue}))))
   (.clear url-queue)
   (swap! crawled-urls empty)
-  (swap! word-freqs empty)
-  (doseq [album-id config/album-ids]
-    (.add url-queue (str config/album-url-path album-id)))
   (run)
   (Thread/sleep crawling-time)
   (pause)
   (Thread/sleep 10000)	;Wait till all agents terminate
   (println "Crawled url count: " (count @crawled-urls))
   (println "Url in queue: " (count url-queue))
-  (println "Songs got: " (count @song-infos))
-  (doseq [song @song-infos]
-    (record (:id song))))
+  (println "Songs got: " (count @song-infos)))
 
 (defn -main
   [& args]

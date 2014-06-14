@@ -8,8 +8,14 @@
 
 (defn file-logger
   [file]
-  #(with-open [f (clojure.java.io/writer file :append true)]
+  #(with-open [f (clojure.java.io/writer file :append false)]
      ((print-logger f) %)))
+
+(defn file-logger-with-date
+  [file]
+  (let [file-name (str file (format "_%1$tY-%1$tm-%1$te.log"(java.util.Date.)))]
+    #(with-open [f (clojure.java.io/writer file-name :append false)]
+       ((print-logger f) %))))
 
 (defn multi-logger
   [& logger-fns]
@@ -19,6 +25,10 @@
 (defn timestamped-logger
   [logger]
   #(logger (format "[%1$tY-%1$tm-%1$te %1$tH:%1$tM:%1$tS] %2$s"(java.util.Date.) %)))
+
+(def writer (java.io.StringWriter.))
+
+(def retained-logger (print-logger writer))
 
 (defn -main
   "A few examples on the usage of the loggers."

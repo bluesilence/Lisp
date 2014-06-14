@@ -15,7 +15,7 @@
   (re-pattern "^http:\\/\\/www\\.xiami\\.com\\/album\\/(\\d+)"))
 
 ; Album ids to be crawled
-(def album-ids (range 1 (inc 100)))
+(def album-ids (range 1 (inc 1)))
 
 ; Parse song url
 (def song-url-pattern
@@ -24,6 +24,10 @@
 ; Parse song id and name
 (def song-id-name-pattern
   (re-pattern ":href \\/song\\/(\\d+)}, :content \\(([^\\)}]+)\\)"))
+
+; Parse song hot
+(def song-hot-pattern
+  (re-pattern ":class\\s+song_hot\\s*},\\s+:content\\s+\\((\\d+)\\)}"))
 
 ; Parse song id
 (def song-id-pattern
