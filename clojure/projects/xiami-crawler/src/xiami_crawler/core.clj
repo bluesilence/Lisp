@@ -25,6 +25,15 @@
   (println "Album id: " @album-id)
   @album-id)
 
+(defn record-song [song-info]
+  (let [[id name hot] song-info]
+  ((logger/file-logger-with-date "logs/songs") (str id ";" name ";" hot))))
+
+(defn record-songs []
+  (let [ordered-songs (sort-by last @song-infos)]
+    (doseq [song ordered-songs]
+      (println song))))
+
 (defn record-album [album-id message]
   ((logger/file-logger (str "logs/album_" album-id ".log")) message))
 
@@ -44,7 +53,7 @@
       (let [song-id (map (comp peek pop) songs)
             song-name (map peek songs)
             song-hot (map peek hotness)]
-        (zipmap (zipmap song-id song-name) song-hot)))))
+        (map vector song-id song-name song-hot)))))
 
 (defn- links-from
   [base-url html]
@@ -136,8 +145,8 @@
   (pause)
   (Thread/sleep 10000)	;Wait till all agents terminate
   (println "Crawled url count: " (count @crawled-urls))
-  (println "Url in queue: " (count url-queue))
-  (println "Songs got: " (count @song-infos)))
+  (println "Songs got: " (count @song-infos)
+  (record-songs)))
 
 (defn -main
   [& args]

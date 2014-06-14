@@ -14,7 +14,7 @@
 (defn file-logger-with-date
   [file]
   (let [file-name (str file (format "_%1$tY-%1$tm-%1$te.log"(java.util.Date.)))]
-    #(with-open [f (clojure.java.io/writer file-name :append false)]
+    #(with-open [f (clojure.java.io/writer file-name :append true)]
        ((print-logger f) %))))
 
 (defn multi-logger
