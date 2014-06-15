@@ -9,32 +9,65 @@
 (require '[xiami-crawler.config :as config])
 (require '[xiami-crawler.logger :as logger])
 
+(defn parse-int
+  ([s] (Integer/parseInt s))
+  ([s default-int] (try
+                     (Integer/parseInt s)
+                     (catch java.lang.NumberFormatException ne default-int))))
+
 (def url-queue (LinkedBlockingQueue.))
 (def crawled-urls (atom #{}))
-(def song-infos (atom []))
+(def song-infos (atom #{}))
+(def album-infos (atom #{}))
+(def artist-infos (atom #{}))
 
 (def log (logger/multi-logger
             (logger/print-logger *out*)
             (logger/file-logger-with-date "logs/crawler")))
+
+(defn filter-nil [info]
+  (filter (fn [x] (every? (comp not nil?) x)) info))
 
 (def album-id (atom 0))
 
 (defn get-next-album []
   (println "Get next album...")
   (swap! album-id inc)
-  (println "Album id: " @album-id)
+  (println "Next Album id: " @album-id)
   @album-id)
 
 (defn record-song [song-info]
-  (let [[id name hot] song-info]
-  ((logger/file-logger-with-date "logs/songs") (str id ";" name ";" hot))))
+  (let [[id name hot album-id] song-info]
+  ((logger/file-logger-with-date "logs/songs") (str id ";" name ";" hot ";" album-id))))
 
 (defn record-songs []
-  (let [ordered-songs (sort-by last @song-infos)]
+  (println "Songs got: " (count @song-infos))
+  (println @song-infos)
+  (let [ordered-songs (reverse (sort-by (comp parse-int #(nth % 2)) (filter-nil @song-infos)))]
     (doseq [song ordered-songs]
-      (println song))))
+      (record-song song))))
 
-(defn record-album [album-id message]
+(defn record-album [album-info]
+  (let [[id name genre artist-id] album-info]
+  ((logger/file-logger-with-date "logs/albums") (str id ";" name ";" genre ";" artist-id))))
+
+(defn record-albums []
+  (println "Albums got: " (count @album-infos))
+  (println @album-infos)
+  (doseq [album (filter-nil @album-infos)]
+    (record-album album)))
+
+(defn record-artist [artist-info]
+  (let [[id name] artist-info]
+  ((logger/file-logger-with-date "logs/artists") (str id ";" name))))
+
+(defn record-artists []
+  (println "Artists got: " (count @artist-infos))
+  (println @artist-infos)
+  (doseq [artist (filter-nil @artist-infos)]
+    (record-artist artist)))
+
+(defn record-album-page [album-id message]
   ((logger/file-logger (str "logs/album_" album-id ".log")) message))
 
 (defn get-album-log [id]
@@ -43,17 +76,26 @@
 (defn- songs-from
   [html album-id]
   (println "-------------------Songs-from--------------------")
-  (println "Album: " album-id)
-  (record-album album-id html) ; Force evaluate lazy-seq
-  (println "-------------------Before find--------------------")
+  (record-album-page album-id html) ; Force evaluate lazy-seq
   (when-let [page (get-album-log album-id)]
-    (println "-------------------After find--------------------")
     (let [songs (re-seq config/song-id-name-pattern page)
-          hotness (re-seq config/song-hot-pattern page)]
+          hotness (re-seq config/song-hot-pattern page)
+          album-name (re-seq config/album-name-pattern page)
+          genre (re-seq config/album-genre-pattern page)
+          artist (re-seq config/album-artist-pattern page)]
       (let [song-id (map (comp peek pop) songs)
             song-name (map peek songs)
-            song-hot (map peek hotness)]
-        (map vector song-id song-name song-hot)))))
+            song-hot (map peek hotness)
+            album-name (peek (first album-name))
+            album-genre (peek (first genre))
+            artist-id (peek (pop (first artist)))
+            artist-name (peek (first artist))]
+        (let [song-list (map conj (map vector song-id song-name song-hot) (repeat (count song-id) album-id))
+              album-info [album-id album-name album-genre artist-id]
+              artist-info [artist-id artist-name]]
+          {:song-list song-list
+           :album-info album-info
+           :artist-info artist-info})))))
 
 (defn- links-from
   [base-url html]
@@ -76,6 +118,7 @@
   (let [url (URL. (str config/album-url-path (get-next-album)))]
     (println "URL got:" url)
     (try
+      (Thread/sleep config/sleep-interval)
       (if (@crawled-urls url)
            state
         {:url url
@@ -103,9 +146,17 @@
   (println "------------------------handle-results--------------------------")
   (try
     (swap! crawled-urls conj url)
-    (doseq [song songs]
-      (println song)
-      (swap! song-infos conj song))
+    (println "------------Songs------------")
+    (let [songs (:song-list songs)]
+      (doseq [song songs]
+        (println song)
+        (swap! song-infos conj song)))
+    (println "------------Album------------")
+    (println (:album-info songs))
+    (swap! album-infos conj (:album-info songs))
+    (println "------------Artist------------")
+    (println (:artist-info songs))
+    (swap! artist-infos conj (:artist-info songs))
     {::t #'get-url :queue url-queue}
     (finally (run *agent*))))
 
@@ -145,8 +196,9 @@
   (pause)
   (Thread/sleep 10000)	;Wait till all agents terminate
   (println "Crawled url count: " (count @crawled-urls))
-  (println "Songs got: " (count @song-infos)
-  (record-songs)))
+  (record-songs)
+  (record-albums)
+  (record-artists))
 
 (defn -main
   [& args]

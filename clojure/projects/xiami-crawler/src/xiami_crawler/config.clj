@@ -1,6 +1,10 @@
 (ns xiami-crawler.config
   (:gen-class))
 
+; Sleep 1s between every slurp to prevent being banned
+(def sleep-interval 1000)
+
+; Start from album 1
 (def starting-url "http://www.xiami.com/album/1")
 
 ; Only crawl xiami's pages
@@ -14,8 +18,30 @@
 (def album-url-pattern
   (re-pattern "^http:\\/\\/www\\.xiami\\.com\\/album\\/(\\d+)"))
 
-; Album ids to be crawled
-(def album-ids (range 1 (inc 1)))
+; Parse album name
+(def album-name-pattern
+  (re-pattern "《(.+)》 专辑地址：http:\\/\\/www\\.xiami\\.com\\/album\\/\\d+"))
+
+; Test text of album name
+(def album-name-test
+  "分享 Alex 的专辑《我 那一场恋爱》 专辑地址：http://www.xiami.com/album/1")
+
+; Parse album genre
+(def album-genre-pattern
+  (re-pattern ":content \\(专辑类别：\\)}\\s+.+:content\\s+\\(([^\\)}]+)\\)}"))
+
+; Test text of album genre
+(def album-genre-test
+  "{:tag :td, :attrs {:valign top, :class item}, :content (专辑类别：)}  
+   {:tag :td, :attrs {:valign top}, :content (录音室专辑)}")
+
+; Parse album artist
+(def album-artist-pattern
+  (re-pattern ":href \\/artist\\/(\\d+)}, :content \\(([^\\)}]+)\\)"))
+
+; Test text of album artist
+(def album-artist-test
+  ":content ({:tag :a, :attrs {:title Alex, :href /artist/1}, :content (Alex)})})")
 
 ; Parse song url
 (def song-url-pattern
