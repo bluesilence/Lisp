@@ -1,8 +1,8 @@
 (ns xiami-crawler.config
   (:gen-class))
 
-; Sleep 1s between every slurp to prevent being banned
-(def sleep-interval 5000)
+; Sleep between every slurp to prevent being banned
+(def sleep-interval 3000)
 
 ; Start from album 1
 (def starting-url "http://www.xiami.com/album/1")
@@ -26,12 +26,12 @@
 (def album-name-test
   "分享 Alex 的专辑《我 那一场恋爱》 专辑地址：http://www.xiami.com/album/1")
 
-; Parse album genre
-(def album-genre-pattern
+; Parse album category
+(def album-category-pattern
   (re-pattern ":content \\(专辑类别：\\)}\\s+.+:content\\s+\\(([^\\)}]+)\\)}"))
 
-; Test text of album genre
-(def album-genre-test
+; Test text of album category
+(def album-category-test
   "{:tag :td, :attrs {:valign top, :class item}, :content (专辑类别：)}  
    {:tag :td, :attrs {:valign top}, :content (录音室专辑)}")
 
@@ -42,6 +42,40 @@
 ; Test text of album artist
 (def album-artist-test
   ":content ({:tag :a, :attrs {:title Alex, :href /artist/1}, :content (Alex)})})")
+
+; Parse album genre
+(def album-genre-pattern
+  (re-pattern ":content \\(专辑风格：\\)}\\s+[^{]+\\s+.+\\/genre\\/.+}, :content \\(([^\\(\\)]+)\\)}"))
+
+; Test text of album genre
+(def album-genre-test
+  "{:tag :td, :attrs {:valign top, :class item}, :content (专辑风格：)}
+   284                                                                                       {:tag :td, :attrs {:valign top}, :content ({:tag :a, :attrs {:href /genre/detail/gid/12}, :content (轻音乐 Easy Listening)}")
+
+; Parse album value
+(def album-value-pattern
+  (re-pattern ":content \\(总体评分\\)}[\\s{:a-z,]+v:value}, :content \\(([^\\(\\)]+)\\)}"))
+
+; Test text of album value
+(def album-value-test
+  ":content (总体评分)} {:tag :em, :attrs {:property v:value}, :content (9.5)}")
+
+; Parse album colleted
+; Album hotness = SUM (song_hot), where the songs belong to this album
+(def album-colleted-pattern
+  (re-pattern ":content \\((\\d+)[\\s{:,a-z]+:content \\(收藏\\)"))
+
+; Test text of album colleted
+(def album-colleted-test
+  ":content (3745 {:tag :span, :attrs nil, :content (收藏)})}")
+
+; Parse number of album comments
+(def album-comments-pattern
+  (re-pattern ":content \\((\\d+)\\)} [\\s{:,a-z]+:content \\(评论\\)"))
+
+; Test text of album comments
+(def album-comments-test
+  ":content (431)} {:tag :span, :attrs nil, :content (评论)}")
 
 ; Parse song url
 (def song-url-pattern

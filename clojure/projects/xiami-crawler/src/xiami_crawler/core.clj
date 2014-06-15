@@ -15,6 +15,14 @@
                      (Integer/parseInt s)
                      (catch java.lang.NumberFormatException ne default-int))))
 
+(defn parse-double
+  ([s] (Double/parseDouble s))
+  ([s default-double] (try
+                     (Double/parseDouble s)
+                     (catch java.lang.NumberFormatException ne default-double))))
+
+(def album-id (atom 0))
+
 (def url-queue (LinkedBlockingQueue.))
 (def crawled-urls (atom #{}))
 (def song-infos (atom #{}))
@@ -27,8 +35,6 @@
 
 (defn filter-nil [info]
   (filter (fn [x] (every? (comp not nil?) x)) info))
-
-(def album-id (atom 0))
 
 (defn get-next-album []
   (println "Get next album...")
@@ -49,14 +55,14 @@
       (record-song song))))
 
 (defn record-album [album-info]
-  (let [[id name genre artist-id] album-info]
-  ((logger/file-logger-with-date "records/albums") (apply str (interpose ";" [logger/today id name genre artist-id])))))
+  (let [[id name category genre artist-id value comments colleted] album-info]
+  ((logger/file-logger-with-date "records/albums") (apply str (interpose ";" [logger/today id name category genre artist-id value comments colleted])))))
 
-; Record albums by artist-id
+; Record albums by album-colleted
 (defn record-albums []
   (println "Albums got: " (count @album-infos))
   (println @album-infos)
-  (let [ordered-albums (sort-by (comp parse-int last) (filter-nil @album-infos))]
+  (let [ordered-albums (sort-by (comp parse-double last) (filter-nil @album-infos))]
     (doseq [album (filter-nil ordered-albums)]
       (record-album album))))
 
@@ -86,17 +92,27 @@
     (let [songs (re-seq config/song-id-name-pattern page)
           hotness (re-seq config/song-hot-pattern page)
           album-name (re-seq config/album-name-pattern page)
+          category (re-seq config/album-category-pattern page)
+          artist (re-seq config/album-artist-pattern page)
           genre (re-seq config/album-genre-pattern page)
-          artist (re-seq config/album-artist-pattern page)]
+          value (re-seq config/album-value-pattern page)
+          colleted (re-seq config/album-colleted-pattern page)
+          comments (re-seq config/album-comments-pattern page)]
       (let [song-id (map (comp peek pop) songs)
             song-name (map peek songs)
             song-hot (map peek hotness)
             album-name (peek (first album-name))
-            album-genre (peek (first genre))
+            album-category (peek (first category))
+            album-genre (if (nil? genre)
+                          "N/A"
+                          (peek (first genre)))
+            album-value (peek (first value))
+            album-colleted (peek (first colleted))
+            album-comments (peek (first comments))
             artist-id (peek (pop (first artist)))
             artist-name (peek (first artist))]
         (let [song-list (map conj (map vector song-id song-name song-hot) (repeat (count song-id) album-id))
-              album-info [album-id album-name album-genre artist-id]
+              album-info [album-id album-name album-category album-genre artist-id album-value album-comments album-colleted]
               artist-info [artist-id artist-name]]
           {:song-list song-list
            :album-info album-info
