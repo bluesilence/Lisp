@@ -40,6 +40,7 @@
   (let [[id name hot album-id] song-info]
   ((logger/file-logger-with-date "records/songs") (apply str (interpose ";" [logger/today id name hot album-id])))))
 
+; Record songs by hotness desc
 (defn record-songs []
   (println "Songs got: " (count @song-infos))
   (println @song-infos)
@@ -51,21 +52,25 @@
   (let [[id name genre artist-id] album-info]
   ((logger/file-logger-with-date "records/albums") (apply str (interpose ";" [logger/today id name genre artist-id])))))
 
+; Record albums by artist-id
 (defn record-albums []
   (println "Albums got: " (count @album-infos))
   (println @album-infos)
-  (doseq [album (filter-nil @album-infos)]
-    (record-album album)))
+  (let [ordered-albums (sort-by (comp parse-int last) (filter-nil @album-infos))]
+    (doseq [album (filter-nil ordered-albums)]
+      (record-album album))))
 
 (defn record-artist [artist-info]
   (let [[id name] artist-info]
   ((logger/file-logger-with-date "records/artists") (apply str (interpose ";" [logger/today id name])))))
 
+; Record artists by id
 (defn record-artists []
   (println "Artists got: " (count @artist-infos))
   (println @artist-infos)
-  (doseq [artist (filter-nil @artist-infos)]
-    (record-artist artist)))
+  (let [ordered-artists (sort-by (comp parse-int first) (filter-nil @artist-infos))]
+    (doseq [artist (filter-nil ordered-artists)]
+      (record-artist artist))))
 
 (defn record-album-page [album-id message]
   ((logger/file-logger (str "logs/album_" album-id ".log")) message))
@@ -115,7 +120,8 @@
 (defn ^::blocking get-url
   [{:keys [^LinkedBlockingQueue queue] :as state}]
   (println "------------------------get-url--------------------------")
-  (let [url (URL. (str config/album-url-path (get-next-album)))]
+  (let [album-id (get-next-album)
+        url (URL. (str config/album-url-path album-id))]
     (println "URL got:" url)
     (try
       (Thread/sleep config/sleep-interval)
@@ -123,7 +129,7 @@
            state
         {:url url
          :content (slurp url)
-         :album @album-id
+         :album album-id
          ::t #'process})
       (catch Exception e
         ;; skip any URL we failed to load
