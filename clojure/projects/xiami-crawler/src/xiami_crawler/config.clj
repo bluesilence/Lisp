@@ -2,7 +2,7 @@
   (:gen-class))
 
 ; Sleep 1s between every slurp to prevent being banned
-(def sleep-interval 1000)
+(def sleep-interval 5000)
 
 ; Start from album 1
 (def starting-url "http://www.xiami.com/album/1")

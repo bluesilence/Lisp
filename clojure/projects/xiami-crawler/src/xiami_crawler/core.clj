@@ -38,7 +38,7 @@
 
 (defn record-song [song-info]
   (let [[id name hot album-id] song-info]
-  ((logger/file-logger-with-date "logs/songs") (apply str (interpose ";" [logger/today id name hot album-id])))))
+  ((logger/file-logger-with-date "records/songs") (apply str (interpose ";" [logger/today id name hot album-id])))))
 
 (defn record-songs []
   (println "Songs got: " (count @song-infos))
@@ -49,7 +49,7 @@
 
 (defn record-album [album-info]
   (let [[id name genre artist-id] album-info]
-  ((logger/file-logger-with-date "logs/albums") (apply str (interpose ";" [logger/today id name genre artist-id])))))
+  ((logger/file-logger-with-date "records/albums") (apply str (interpose ";" [logger/today id name genre artist-id])))))
 
 (defn record-albums []
   (println "Albums got: " (count @album-infos))
@@ -59,7 +59,7 @@
 
 (defn record-artist [artist-info]
   (let [[id name] artist-info]
-  ((logger/file-logger-with-date "logs/artists") (apply str (interpose ";" [logger/today id name])))))
+  ((logger/file-logger-with-date "records/artists") (apply str (interpose ";" [logger/today id name])))))
 
 (defn record-artists []
   (println "Artists got: " (count @artist-infos))

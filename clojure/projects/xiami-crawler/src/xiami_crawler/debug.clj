@@ -10,7 +10,11 @@
 
 (defn slurp-single-page [url]
   (let [html (enlive/html-resource (java.io.StringReader. (slurp url)))]
-    (log->file html)))
+    (log->file html)
+    (println html)))
+
+(defn test-slurp []
+  (slurp-single-page "http://www.xiami.com/album/1"))
 
 (defn match [html pattern]
   (re-seq pattern html))
