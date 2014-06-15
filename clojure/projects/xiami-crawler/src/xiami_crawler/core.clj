@@ -106,7 +106,9 @@
             album-genre (if (nil? genre)
                           "N/A"
                           (peek (first genre)))
-            album-value (peek (first value))
+            album-value (if (nil? value)
+                          "-1"
+                          (peek (first value)))
             album-colleted (peek (first colleted))
             album-comments (peek (first comments))
             artist-id (peek (pop (first artist)))
