@@ -1,0 +1,2116 @@
+({:type :comment, :data [if lt IE 7 ]> <html class="ie ie6"> <![endif]} {:type :comment, :data [if IE 7 ]>    <html class="ie ie7"> <![endif]} {:type :comment, :data [if IE 8 ]>    <html class="ie8"> <![endif]} {:type :comment, :data [if IE 9 ]>    <html class="ie9"> <![endif]} {:type :comment, :data [if (gt IE 9)|!(IE)]><!} {:tag :html, :attrs {:lang zh-CN}, :content ({:type :comment, :data <![endif]} 
+ {:tag :head, :attrs nil, :content (
+	 {:tag :meta, :attrs {:charset UTF-8}, :content nil} 
+	 {:tag :meta, :attrs {:content webkit, :name renderer}, :content nil} 
+	 {:tag :meta, :attrs {:content IE=edge, :http-equiv X-UA-Compatible}, :content nil} 
+	 {:tag :meta, :attrs {:content a1z1s, :name data-spm}, :content nil} 
+	 {:tag :title, :attrs nil, :content (艳阳天 专辑 窦唯)} 
+	 {:tag :meta, :attrs {:content gNntuhTm2rH7Qa/GPp6lf0mIp9KQsjejNs+i1LZhG7U=, :name verify-v1}, :content nil} 
+	 {:tag :meta, :attrs {:content 艳阳天 专辑 窦唯, :name keywords}, :content nil} 
+	 {:tag :meta, :attrs {:content 艳阳天 专辑 窦唯, :name description}, :content nil} 
+	 {:tag :meta, :attrs {:content app-id=595594905, :name apple-itunes-app}, :content nil} 
+
+	 {:tag :link, :attrs {:rel stylesheet, :media all, :href http://res.xiami.net/static/common/base.css?ver=20140613-131046}, :content nil} 
+
+		 {:tag :link, :attrs {:rel stylesheet, :media all, :href http://res.xiami.net/??res/v3/css/global.css,res/v3/css/login.css,static/css/basic/core_mod.css,static/relation/css/name_card.css?ver=20140613-131046}, :content nil} 
+
+		 {:tag :link, :attrs {:rel stylesheet, :media all, :href http://res.xiami.net/??static/lib/jquery.jscrollpane.css,static/common/header.css,static/common/footer.css?ver=20140613-131046}, :content nil} 
+
+	 {:tag :link, :attrs {:rel stylesheet, :media all, :href http://res.xiami.net/??res/css/default/group15.css,res/css/default/beta15.css,res/v3/css/music.css?ver=20140613-131046}, :content nil} 
+ {:tag :link, :attrs {:rel stylesheet, :media all, :href http://res.xiami.net/res/js/jquery/jquery.lightbox.css?ver=20140613-131046}, :content nil} 
+
+	 {:tag :link, :attrs {:rel stylesheet, :media all, :href http://res.xiami.net/static/common/old.css?ver=20140613-131046}, :content nil} 
+
+	 {:tag :link, :attrs {:rel shortcut icon, :type image/x-icon, :href http://img.xiami.net/favicon.ico}, :content nil} 
+	 {:tag :link, :attrs {:rel apple-touch-icon, :href http://img.xiami.net/res/img/common/ipad/xiami_logo_apple.png}, :content nil} 
+	 {:tag :link, :attrs {:title Xiami Search, :rel search, :type application/opensearchdescription+xml, :href /opensearch.xml}, :content nil} 
+	 {:tag :link, :attrs {:href /collect/feed, :title 虾米音乐每日精选, :type application/atom+xml, :rel alternate}, :content nil} 
+
+	
+	
+	 {:tag :style, :attrs {:type text/css}, :content (
+
+		#header{   text-align: left;  zoom:1;  z-index:10; }
+		#header .wrapper,#secondary .wrapper,#footer .wrapper{
+			_width: expression(documentElement.clientWidth < 980? "980px" : documentElement.clientWidth > 1100? "1100px" : "auto");
+		}
+
+		.ie6 #secondary a.current{ background: none;}
+		#header .primary .search .submit{ padding:0; cursor: pointer;}
+		#header a,#secondary a{ text-decoration:none;}
+		#header .user{vertical-align:top;}
+		#header .auto_complete strong{ font-weight:normal;}
+		#header .primary .user_popup .content ul .logout{ padding:0;}
+		#header .content,#secondary .content{ overflow: visible;}	
+		#secondary{  text-align: left;}
+		.no-shadow{ box-shadow: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important;}
+		#footer{zoom: 1;}
+	)} 
+	
+
+
+	 {:type :comment, :data [if lte IE 8]>
+	<link href="http://res.xiami.net/res/v3/css/login_iefix.css?v=20130521145542" rel="stylesheet" media="all" />
+	<![endif]} 
+
+		 {:tag :script, :attrs {:src http://res.xiami.net/??static/lib/jQuery/1.4.4/jquery.min.js,res/js/jquery/jqDnR.js,static/lib/jqModal.js,res/js/jquery/jquery.form.js,res/js/jquery/jquery.cookie.js,res/js/jquery/jquery.tools.js,res/v3/js/functions/index.js,res/js/default/xiami.js?ver=20140613-131046, :type text/javascript}, :content nil} 
+
+		 {:tag :script, :attrs {:src http://res.xiami.net/??static/js/lib/jquery.tmpl.min.js,static/js/app/relation.js,static/js/app/nameCard.js?ver=20140613-131046, :type text/javascript}, :content nil} 
+
+
+	 {:tag :script, :attrs {:src http://res.xiami.net/??static/lib/jquery.mousewheel.js,static/lib/jquery.jscrollpane.min.js,static/common/header_old.js,static/common/base.js?ver=20140613-131046, :type text/javascript}, :content nil} 
+
+
+	 {:tag :script, :attrs nil, :content (
+	var _xiamitoken = $.cookie('_xiamitoken'),
+		_xiamiimg = 'http://img.xiami.net',
+		_xiamiuser = $.cookie('user'),
+		_athenaapiurl = 'ihi.xiami.com';
+	)} 
+
+	 {:tag :script, :attrs {:src http://res.xiami.net/res/js/jquery/jquery.lightbox.js?ver=20140613-131046, :type text/javascript}, :content nil} 
+
+	
+			 {:tag :script, :attrs {:src http://partner.googleadservices.com/gampad/google_service.js?v=201307175516, :type text/javascript}, :content nil} 
+	 {:tag :script, :attrs {:type text/javascript}, :content (GS_googleAddAdSenseService("ca-pub-2784367241150493");GS_googleEnableAllServices();)} 
+		 {:tag :script, :attrs {:language JavaScript}, :content (
+	GA_googleAddAttr("MusicType", "Album");
+		GA_googleAddAttr("ArtistID", "198");
+	GA_googleAddAttr("AlbumID", "816");
+		)} 
+		 {:tag :script, :attrs {:type text/javascript}, :content (
+	GA_googleAddSlot("ca-pub-2784367241150493", "Muisc-Album_Right_300x250");GA_googleAddSlot("ca-pub-2784367241150493", "Muisc-Album_Bottom_300x250");	)} 
+	 {:tag :script, :attrs {:type text/javascript}, :content (GA_googleFetchAds();)} 
+	
+)} 
+ {:tag :body, :attrs {:data-spm 6659513}, :content ({:tag :script, :attrs {:type text/javascript}, :content (
+(function (d) {
+var t=d.createElement("script");t.type="text/javascript";t.async=true;t.id="tb-beacon-aplus";
+t.setAttribute("exparams","category=&userid=&aplus&member_auth=0");
+t.src=("https:"==d.location.protocol?"https://s":"http://a")+".tbcdn.cn/s/aplus_v2.js";
+d.getElementsByTagName("head")[0].appendChild(t);
+})(document);
+)} 
+ {:tag :script, :attrs nil, :content (
+var ua = "";
+var UA_Opt = {};
+UA_Opt.LogVal = "ua";
+UA_Opt.MaxMCLog = 3;
+UA_Opt.MaxMPLog = 3;
+UA_Opt.MaxKSLog = 3;
+UA_Opt.Token = new Date().getTime() + ":" + Math.random();
+UA_Opt.SendMethod = 8;
+UA_Opt.Flag = 13454;
+)} 
+ {:tag :script, :attrs {:src http://uaction.aliyuncdn.com/js/ua.js}, :content nil} 
+ {:tag :script, :attrs nil, :content (
+try{
+    UA_Opt.Token = new Date().getTime() + ":" + Math.random();
+UA_Opt.reload();
+}catch(err){}
+var uaexp=new Date();
+uaexp.setTime(uaexp.getTime()+30*24*60*60*1000);
+document.cookie="pnm_cku822="+encodeURIComponent(ua)+";path=/;expires="+uaexp.toGMTString();
+)} 
+
+
+
+ {:tag :div, :attrs {:id xiami-content}, :content ({:tag :h1, :attrs nil, :content (艳阳天 专辑 窦唯)})} 
+ {:tag :div, :attrs {:id web_loading}, :content (Loading...)} 
+
+
+
+
+
+ {:tag :div, :attrs {:data-spm 226669510, :id header}, :content (
+	 {:tag :div, :attrs {:class primary}, :content (
+		 {:tag :div, :attrs {:class gap}, :content (
+		 {:tag :div, :attrs {:class wrapper}, :content (
+			 {:tag :table, :attrs nil, :content (
+				 {:tag :tr, :attrs nil, :content (
+					 {:tag :td, :attrs {:class logo}, :content ({:tag :a, :attrs {:title 虾米音乐网(xiami.com) - 高品质音乐 发现 分享, :href /}, :content (虾米音乐网(xiami.com) - 高品质音乐 发现 分享)})} 
+										 {:tag :td, :attrs {:class nav}, :content (
+						 {:tag :a, :attrs {:href /, :class bigtext current}, :content (发现音乐)} 
+						 {:tag :a, :attrs {:href /space/lib-song, :class bigtext }, :content (我的音乐)} 
+					)} 
+					 {:tag :td, :attrs {:class subnav}, :content (
+						 {:tag :a, :attrs {:href /collect, :class bigtext first }, :content (精选集)} 
+						 {:tag :a, :attrs {:href /radio, :target _blank, :class bigtext middle }, :content (电台)} 
+						 {:tag :a, :attrs {:href http://i.xiami.com, :class bigtext last }, :content (音乐人)} 
+					)} 
+					 {:tag :td, :attrs {:class search}, :content (
+						 {:tag :div, :attrs {:class container}, :content (
+							 {:tag :form, :attrs {:id search, :method get, :action /search}, :content (
+								 {:tag :input, :attrs {:name key, :placeholder 音乐搜索，找人..., :autocomplete off, :class keyword}, :content nil} 
+								 {:tag :input, :attrs {:value 搜索, :type submit, :class icon submit}, :content nil} 
+								 {:tag :input, :attrs {:value 1, :name pos, :type hidden}, :content nil} 
+							)} 
+							 {:tag :div, :attrs {:class auto_complete}, :content nil} 
+						)} 
+					)} 
+										 {:tag :td, :attrs {:class reg}, :content (
+						 {:tag :a, :attrs {:href /member/register}, :content (免费注册)} 
+					)} 
+					 {:tag :td, :attrs {:class login}, :content (
+						 {:tag :a, :attrs {:href https://login.xiami.com/member/login, :class first}, :content (立即登录)} 
+						 {:tag :a, :attrs {:onclick sinaLogin();return false;, :href , :class middle}, :content ({:tag :b, :attrs {:class icon weibo}, :content (weibo)})} 
+						 {:tag :a, :attrs {:onclick qqLogin();return false;, :href , :class last}, :content ({:tag :b, :attrs {:class icon qq}, :content (qq)})} 
+					)} 
+									)} 
+			)} 
+			 {:tag :div, :attrs {:class notify_popup}, :content (
+				 {:tag :div, :attrs {:class content}, :content (
+					 {:tag :div, :attrs {:class container}, :content ({:tag :p, :attrs {:class loading}, :content nil})} 
+					 {:tag :b, :attrs {:class triangle}, :content ({:tag :i, :attrs nil, :content (◆)} ◆)} 
+				)} 
+			)} 			
+			 {:tag :div, :attrs {:class user_popup}, :content (
+				 {:tag :div, :attrs {:class content}, :content (
+					 {:tag :ul, :attrs nil, :content (
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:href /u/}, :content ({:tag :b, :attrs {:class icon home}, :content nil} 我的主页)})} 
+						 {:tag :li, :attrs {:class fence}, :content nil} 
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:href /relation/following}, :content ({:tag :b, :attrs {:class icon relationship}, :content nil} 关注 / 粉丝)})} 
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:href /vip}, :content ({:tag :b, :attrs {:class icon vip}, :content nil} VIP)})} 
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:href /account}, :content ({:tag :b, :attrs {:class icon account}, :content nil} 账户)})} 
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:href /property/myproperties}, :content ({:tag :b, :attrs {:class icon props}, :content nil} 道具)})} 
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:href /share}, :content ({:tag :b, :attrs {:class icon setting}, :content nil} 设置)})} 
+						 {:tag :li, :attrs {:class fence}, :content nil} 
+						 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:onclick return false;, :class logout, :href }, :content ({:tag :b, :attrs {:class icon logout}, :content nil} 退出)})} 
+					)} 
+					 {:tag :b, :attrs {:class triangle}, :content ({:tag :i, :attrs nil, :content (◆)} ◆)} 
+				)} 
+			)} 
+		)} 
+		)} 
+	)} 
+)} 
+ {:tag :div, :attrs {:id hidden_obj}, :content (
+	 {:tag :object, :attrs {:name trans, :id trans, :height 1, :width 1, :type application/x-shockwave-flash, :data /res/player/sdtos.swf?v=1402817841}, :content (
+	     {:tag :param, :attrs {:value /res/player/sdtos.swf?v=1402817841, :name movie}, :content nil} 
+	     {:tag :param, :attrs {:value high, :name quality}, :content nil} 
+	     {:tag :param, :attrs {:value window, :name wmode}, :content nil} 
+		 {:tag :param, :attrs {:value sameDomain, :name allowScriptAccess}, :content nil} 
+	)} 
+)} 
+ {:tag :div, :attrs {:class white, :id page}, :content (
+	 {:tag :div, :attrs {:typeof v:Review-aggregate, :class scalable clearfix, :id wrapper}, :content (
+
+		 {:tag :div, :attrs {:id title}, :content (
+			 {:tag :h1, :attrs {:property v:itemreviewed}, :content (艳阳天)} 
+		)} 
+		 {:tag :div, :attrs {:class clearfix, :id content}, :content (
+			 {:tag :div, :attrs {:class clearfix, :id main_wrapper}, :content (
+				 {:tag :div, :attrs {:id main_content}, :content (
+					 {:tag :div, :attrs {:id main}, :content (
+						 {:tag :div, :attrs {:data-spm 6856585, :class clearfix, :id album_block}, :content (
+
+ {:tag :style, :attrs nil, :content (
+#album_info{position:relative;z-index:2;min-height:310px;_height:310px; margin:5px 10px 0 250px;}
+#album_cover{position:absolute;left:0;top:-5px;}
+#album_cover .stats{padding:3px 8px; position:absolute; top:0; left:0px;}
+#album_cover .shield{background:none repeat scroll 0 0 #333333; border-bottom:1px solid #171410; border-right:1px solid #171410; color:#999999;}
+#album_cover .pubbing{background:none repeat scroll 0 0 #333333; border-bottom:1px solid #171410; border-right:1px solid #171410; color:#ffffff;}
+#album_cover .unpub{background:none repeat scroll 0 0 #333333; border-bottom:1px solid #171410; border-right:1px solid #171410; color:#cccccc;}
+#album_cover .promotion{background:none repeat scroll 0 0 #821616; border-bottom:1px solid #171410; border-right:1px solid #171410; color:#ffffff;}
+
+.grade {margin: -5px 0 0 15px;overflow: hidden;height:16px;color:#aaa;}
+.grade a{background: url('http://img.xiami.net/res/v3/img/star2.png') no-repeat scroll 0 0 transparent;display: inline-block;height: 16px;overflow: hidden;text-indent: -9999em;width: 16px;vertical-align:middle;}
+.grade a.hover{ background-position:-17px 0}
+.grade a.selected{ background-position:-34px 0}
+.grade span {color: #666666;margin-left: 5px;vertical-align:middle;}
+.grade b.delGrade{color:#8CA6D7;cursor:pointer;vertical-align:middle;display:none;}
+.grade b:hover,.b-h{color:#36c;}
+
+#album_rank{float:left;padding:10px 0 10px 5px;border-bottom:1px dashed #D9D9D9;}
+#album_rank p{position:relative;padding:0 20px 0 100px;line-height:22px;color:#999;background:url('http://img.xiami.net/res/v3/img/star3.png') no-repeat 0 0;font-family:"Microsoft Yahei";}
+#album_rank span{position:absolute;left:0;top:0;background:url('http://img.xiami.net/res/v3/img/star3.png') no-repeat 0 -24px;text-indent:-9999px;}
+#album_rank em{margin:0 10px;font-weight:bold;font-size:16px;font-style:normal;color:#F60;vertical-align:middle;}
+
+#album_info ul{clear:both;margin:10px 0;padding:10px 5px 5px;*padding:0 5px 5px;border-bottom:1px solid #EEE;}
+#album_info ul li{ font-size:10px; color:#666;  height:12px; margin-bottom:7px; *margin:2px;}
+#album_info ul li span{ float:left; margin-right:5px;}
+#album_info ul li span.appraise_bg{ background:#FFDCC5; height:11px;  display:block;}
+#album_info ul .appraise4{ background:url('http://img.xiami.net/res/v3/img/star1_v2.png') 0 0 no-repeat;}
+#album_info ul .appraise3{ background:url('http://img.xiami.net/res/v3/img/star1_v2.png') 0 -14px no-repeat; }
+#album_info ul .appraise2{ background:url('http://img.xiami.net/res/v3/img/star1_v2.png') 0 -28px no-repeat; }
+#album_info ul .appraise1{ background:url('http://img.xiami.net/res/v3/img/star1_v2.png') 0 -42px no-repeat; }
+#album_info ul .appraise0{ background:url('http://img.xiami.net/res/v3/img/star1_v2.png') 0 -56px no-repeat; }
+/**/
+#artist_fangroup_block{width:298px;height:403px;z-index:99999;margin-top:0;}
+.music_counts{margin-bottom:20px;}
+a.bt_tel{margin:0 10px;}
+#album_acts .acts_list {position: absolute;right: 0;top: 50%;margin-top: -15px;}
+
+)} 
+
+							 {:tag :div, :attrs {:rel v:rating, :id album_info}, :content (
+								 {:tag :div, :attrs {:typeof v:Rating, :id album_rank}, :content (
+																		 {:tag :p, :attrs {:class clearfix}, :content ({:tag :span, :attrs {:style width:96px;}, :content (总体评分)} {:tag :em, :attrs {:property v:value}, :content (9.6)} {:tag :span, :attrs {:property v:best}, :content (10)} ( {:tag :i, :attrs {:property v:votes}, :content (440)} 人评价))} 
+																	)} 
+								 {:tag :ul, :attrs nil, :content (
+									 {:tag :li, :attrs nil, :content ({:tag :span, :attrs {:class appraise4 rankico}, :content ({:tag :em, :attrs nil, :content (酷爱)})} {:tag :span, :attrs {:class appraise_bg, :style width:100px;}, :content nil} 381)} 
+									 {:tag :li, :attrs nil, :content ({:tag :span, :attrs {:class appraise3 rankico}, :content ({:tag :em, :attrs nil, :content (好听)})} {:tag :span, :attrs {:class appraise_bg, :style width:12.0734908136px;}, :content nil} 46)} 
+									 {:tag :li, :attrs nil, :content ({:tag :span, :attrs {:class appraise2 rankico}, :content ({:tag :em, :attrs nil, :content (能听)})} {:tag :span, :attrs {:class appraise_bg, :style width:2.62467191601px;}, :content nil} 10)} 
+									 {:tag :li, :attrs nil, :content ({:tag :span, :attrs {:class appraise1 rankico}, :content ({:tag :em, :attrs nil, :content (难听)})} {:tag :span, :attrs {:class appraise_bg, :style width:0px;}, :content nil} 0)} 
+									 {:tag :li, :attrs nil, :content ({:tag :span, :attrs {:class appraise0 rankico}, :content ({:tag :em, :attrs nil, :content (噪音)})} {:tag :span, :attrs {:class appraise_bg, :style width:0.787401574803px;}, :content nil} 3)} 
+								)} 
+								 {:tag :table, :attrs nil, :content (
+									 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:valign top, :width 64, :class item}, :content (艺人：)} 
+										 {:tag :td, :attrs {:valign top}, :content (
+																						 {:tag :a, :attrs {:title , :href /artist/198}, :content (窦唯)} 
+																					)} 
+									)} 
+									
+									 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:valign top, :class item}, :content (语种：)} 
+										 {:tag :td, :attrs {:valign top}, :content (国语)} 
+									)} 
+									 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:valign top, :class item}, :content (唱片公司：)} 
+										 {:tag :td, :attrs {:valign top}, :content ({:tag :a, :attrs {:target _blank, :title 搜索魔岩唱片, :href /search?key=%E9%AD%94%E5%B2%A9%E5%94%B1%E7%89%87}, :content (魔岩唱片)})} 
+									)} 
+																		 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:valign top, :class item}, :content (发行时间：)} 
+										 {:tag :td, :attrs {:valign top}, :content (1995年10月01日)} 
+									)} 
+																		 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:valign top, :class item}, :content (专辑类别：)} 
+										 {:tag :td, :attrs {:valign top}, :content (录音室专辑)} 
+									)} 
+																		
+																											 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:valign top, :class item}, :content (专辑风格：)} 
+										 {:tag :td, :attrs {:valign top}, :content ({:tag :a, :attrs {:href /genre/detail/sid/322}, :content (摇滚 Rock & Roll)})} 
+									)} 
+																	)} 
+							)} 
+							 {:tag :div, :attrs {:id album_cover}, :content (
+								 {:tag :a, :attrs {:class CDcover185, :href http://img.xiami.net/images/album/img98/198/8161393497144.jpg, :target _blank, :title 艳阳天, :id albumCover}, :content (  {:tag :img, :attrs {:alt 艳阳天, :rel v:photo, :src http://img.xiami.net/images/album/img98/198/8161393497144_2.jpg, :class cdCover185}, :content nil})} 
+								
+								 {:tag :div, :attrs {:id taobao_cd}, :content (
+								
+								 {:tag :style, :attrs nil, :content (
+								#taobao_cd {
+									width: 230px;
+									margin: -10px 0 20px;
+								}
+								#taobao_cd a {
+									display: block;
+									width: 183px;
+									height: 40px;
+									border-radius: 3px;
+									background: whitesmoke url("http://gtms03.alicdn.com/tps/i3/T1Q8T9FOtbXXcCq_Hr-93-32.gif") no-repeat 86px 4px;
+									border: 1px solid #e0e0e0;
+									text-decoration: none;
+									margin: 0 auto;
+									position: relative;
+								}
+								#taobao_cd s {
+									display: block;
+									width: 86px;
+									height: 40px;
+									color: #999;
+									text-align: center;
+									line-height: 40px;
+									position: absolute;
+									left: 0;
+									top: 0;
+								}
+								#taobao_cd span {
+									display: block;
+									width: 64px;
+									height: 20px;
+									line-height: 20px;
+									position: absolute;
+									left: 116px;
+									top: 4px;
+									color: #fff;
+									font-size: 12px;
+									text-align: center;
+								}
+								#taobao_cd em {
+									font-style: normal;
+									font-size: 18px;
+								}								
+								)} 
+								
+								 {:tag :script, :attrs nil, :content (
+								var albumid = '816',
+									userid = _xiamiuser ? _xiamiuser.split('"')[0] : '';
+									
+									$(function() {
+										$.getJSON('/app/promotion/getitem',{'type':3, 'id':albumid}, function(data) {
+											if (data.data) {
+												var itemsid = data.data[0].url.split('?id=')[1];
+												goldlog.record('/xiamipc.1.10','','albumid='+albumid+'&itemsid='+itemsid+'&userid='+userid,'H46807173');
+												$('#taobao_cd').append('<a onclick="javascript:goldlog.record(\'/xiamipc.1.11\',\'\',\'albumid='+albumid+'&itemsid='+itemsid+'&userid='+userid+'\',\'H46807174\')" href="' + data.data[0].url + '" target="_blank"><s>CD原价￥' + (data.data[0].normal_price | 0) + '</s><span>￥<em>' + (data.data[0].discount_price | 0) + '</em></span></a>');
+											};
+										});
+									});
+									
+								)} 
+								)} 
+
+								 {:tag :p, :attrs {:class grade}, :content (
+									 {:tag :input, :attrs {:name grade, :class grade_v, :value , :type hidden}, :content nil} 我的评价：
+									 {:tag :a, :attrs {:onclick page_review(816,1);, :href javascript:void(0);}, :content (很差)} 
+									 {:tag :a, :attrs {:onclick page_review(816,2);, :href javascript:void(0);}, :content (较差)} 
+									 {:tag :a, :attrs {:onclick page_review(816,3);, :href javascript:void(0);}, :content (还行)} 
+									 {:tag :a, :attrs {:onclick page_review(816,4);, :href javascript:void(0);}, :content (推荐)} 
+									 {:tag :a, :attrs {:onclick page_review(816,5);, :href javascript:void(0);}, :content (力荐)} {:tag :span, :attrs nil, :content nil}  								)} 	
+							)} 
+						)} 
+
+												 {:tag :div, :attrs {:class clearfix, :id album_acts}, :content (							
+							 {:tag :div, :attrs {:class cd2play}, :content (
+																 {:tag :a, :attrs {:href javascript:void(0), :title 立即播放 艳阳天 专辑, :onclick playalbum('816')}, :content (立即播放)} 
+															)} 							
+							 {:tag :ul, :attrs {:class acts_list}, :content (								
+																								 {:tag :li, :attrs {:class do_fav, :id album_getfav_816}, :content ({:tag :a, :attrs {:title 收藏此专辑到音乐库, :class wrap, :href javascript:void(0);, :onclick tag(816,5)}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 收藏到音乐库)})})} 
+								 {:tag :li, :attrs {:id album_removefav_816, :style display:none, :class do_fav done}, :content ({:tag :a, :attrs {:class wrap item_5_816, :onclick albumstore('816',2);, :title 取消收藏, :href javascript:void(0)}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 已收藏到音乐库 {:tag :strong, :attrs nil, :content ((取消))})})})} 
+								 {:tag :li, :attrs {:class do_share}, :content ({:tag :a, :attrs {:title 分享给朋友们, :class wrap, :onclick recommend('816','33');, :href javascript:void(0);}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 分享 {:tag :em, :attrs nil, :content ((883))})})})} 
+								 {:tag :li, :attrs {:class do_widget}, :content ({:tag :a, :attrs {:title 将转贴到博客或BBS, :class wrap, :onclick getQuote(2,'816');, :href javascript:void(0)}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 转贴)})})} 							)} 
+						)} 
+												
+ {:tag :div, :attrs {:class bgbd clearfix, :id share_bar}, :content (
+ {:tag :div, :attrs {:style float: right; padding-right:5px;, :class share-bar-inner}, :content (
+ {:type :comment, :data  Baidu Button BEGIN } 
+ {:tag :div, :attrs {:data {'wbuid':1718436033}, :style float: left; padding: 5px;, :class bdshare_t bds_tools get-codes-bdshare, :id bdshare}, :content (
+ {:tag :span, :attrs {:class bds_more}, :content (分享到：)} 
+ {:tag :a, :attrs {:style margin-right: 20px;, :class bds_tsina}, :content nil} 
+ {:tag :a, :attrs {:class bds_renren}, :content nil} 
+ {:tag :a, :attrs {:class bds_qzone}, :content nil} 
+ {:tag :a, :attrs {:class bds_douban}, :content nil} 
+ {:tag :a, :attrs {:class bds_tqq}, :content nil} 
+ {:tag :a, :attrs {:class bds_t163}, :content nil} 
+ {:tag :a, :attrs {:class bds_huaban}, :content nil} 
+ {:type :comment, :data  <a class="shareCount"></a> } 
+)} 
+ {:tag :a, :attrs {:href , :onclick return shareLaiwang();, :title 分享到来往, :style float: left; margin-top: 10px; position: absolute; top:0; right: 141px;, :class laiwang}, :content ({:tag :i, :attrs {:style display: inline-block;width: 16px;height: 16px;margin-right: 2px;background: url('http://img.xiami.net/static/img/common/share_icon.png') no-repeat -263px 0;vertical-align: middle;}, :content nil})} 
+)} 
+
+ {:tag :script, :attrs {:data type=tools&uid=0, :id bdshare_js, :type text/javascript}, :content nil} 
+ {:tag :script, :attrs {:id bdshell_js, :type text/javascript}, :content nil} 
+ {:tag :script, :attrs {:type text/javascript}, :content (
+
+    var bds_config = {
+        'wbUid':1718436033,
+        'snsKey':{'tsina':'3845915579'},
+        'bdText':'分享 窦唯 的专辑《艳阳天》 专辑地址：http://www.xiami.com/album/816（分享自 @虾米音乐）',
+        'bdPic':"http://img.xiami.net/images/album/img98/198/8161393497144.jpg"
+    };
+    var laiwang_config = {
+        title:'分享 窦唯 的专辑《艳阳天》',
+        location:'www.xiami.com/album/816',
+        pic:'http://img.xiami.net/images/album/img98/198/8161393497144.jpg'
+    };
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+    function shareLaiwang(){
+        var url = 'content='+ encodeURIComponent(laiwang_config.title) + encodeURIComponent('http://'+laiwang_config.location)+'&title='+encodeURIComponent(laiwang_config.title)+'&url='+encodeURIComponent('http://'+laiwang_config.location)+'&image='+encodeURI(laiwang_config.pic);
+        window.open('http://www.laiwang.com/stream/shareToLaiwang.htm?'+url+'&'+new Date().getTime(), 'newwindow', 'height=360,width=588, top='+(screen.height-360)/2+',left='+(screen.width-588)/2+', toolbar=no, menubar=no, scrollbars=no,resizable=yes,location=no, status=no');
+        return false;
+    }
+
+)} 
+ {:type :comment, :data  Baidu Button END } 
+)} 												 {:tag :div, :attrs {:class clearfix intro_less, :id album_intro}, :content (
+							 {:tag :div, :attrs {:class album_intro_brief}, :content ( 
+							 {:tag :strong, :attrs nil, :content (专辑介绍：)} {:tag :span, :attrs {:property v:summary}, :content (窦唯第二张个人专辑，音乐从以往非现实的基调，意识流的色彩中，更注入了他自身的血液，活生生的随着情绪的张力而波动，伴着心律的起伏而起舞，时而沉淀内敛，时而明明亮旷远。他的第一张专辑"黑梦"，借着整体音乐的氛围，不难感受到他的世界里浸淫着晦暗而封闭的式的迷幻色彩，就如同在现实生活中，不能自我完成的种种压力，投射在梦境中一般。但是这张作品中，则明确的诠释出他对生命的新体验，像是从封闭的空间里完全解放，歌曲中可以感受出一种自在，如同阴晴圆缺在窗外，心中自有一片艳阳天，延伸并丰富了我们更宽广的听觉空间。)} 
+							)} 
+							 {:tag :div, :attrs {:class album_intro_toggle}, :content ({:tag :a, :attrs {:id show_more, :href javascript:void(0), :title }, :content (详细)})} 
+						)} 
+												 {:tag :div, :attrs {:class album_tracks mgt20, :id track}, :content (
+														 {:tag :div, :attrs {:class cd_info clearfix}, :content (
+																 {:tag :div, :attrs {:class cd_pay}, :content (
+									 {:tag :a, :attrs {:href javascript:void(0), :title 免费下载到手机, :onclick showDialog('/music/sendall/id/816/type/album');, :class send_phone}, :content ({:tag :span, :attrs nil, :content (免费下载到手机)})} 
+									 {:tag :a, :attrs {:href javascript:void(0), :title 下载整张专辑, :onclick downloadalbum('816','album')}, :content ({:tag :span, :attrs nil, :content (下载整张专辑)})} 
+																		 
+								)} 
+							)} 
+														 {:tag :div, :attrs {:class chapter mgt10}, :content (
+																 {:tag :strong, :attrs {:style  border-bottom: 1px solid #E5E5E5;padding: 10px 5px;, :class trackname}, :content (disc 1 )} 
+								 {:tag :table, :attrs {:class track_list, :cellpadding 0, :cellspacing 0}, :content (
+																		 {:tag :tbody, :attrs nil, :content (
+																														 {:tag :tr, :attrs nil, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381417, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (01)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381417}, :content (引子)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (58275)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:32%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381417');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381417','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381417');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381417');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381417');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381417,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381417, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs {:class bg_grey}, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381418, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (02)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381418}, :content (出发)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (58026)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:32%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381418');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381418','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381418');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381418');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381418');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381418,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381418, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs nil, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381419, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (03)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381419}, :content (窗外)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (291747)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:99%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381419');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381419','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381419');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381419');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381419');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381419,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381419, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs {:class bg_grey}, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381420, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (04)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381420}, :content (春去春来)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (49352)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:30%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381420');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381420','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381420');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381420');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381420');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381420,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381420, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs nil, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381421, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (05)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381421}, :content (他)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (42415)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:28%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381421');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381421','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381421');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381421');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381421');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381421,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381421, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs {:class bg_grey}, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381422, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (06)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381422}, :content (阴)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (39099)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:27%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381422');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381422','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381422');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381422');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381422');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381422,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381422, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs nil, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381423, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (07)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381423}, :content (艳阳天)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (253882)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:89%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381423');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381423','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381423');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381423');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381423');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381423,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381423, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs {:class bg_grey}, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381424, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (08)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381424}, :content (说不出的感觉)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (50789)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:30%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381424');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381424','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381424');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381424');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381424');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381424,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381424, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs nil, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381425, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (09)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381425}, :content (晚霞)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (40985)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:27%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381425');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381425','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381425');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381425');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381425');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381425,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381425, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs {:class bg_grey}, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381426, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (10)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381426}, :content (黄昏)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (46000)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:29%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381426');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381426','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381426');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381426');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381426');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381426,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381426, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																																								 {:tag :tr, :attrs nil, :content (
+											 {:tag :td, :attrs {:class chkbox}, :content ({:tag :input, :attrs {:name recommendids, :value 381427, :checked checked, :type checkbox}, :content nil})} 
+											 {:tag :td, :attrs {:class trackid}, :content (11)} 
+											 {:tag :td, :attrs {:class song_name}, :content ({:tag :a, :attrs {:title , :href /song/381427}, :content (未知)}  )} 
+											 {:type :comment, :data  <td class="song_price">0.8米</td>  } 
+																						 {:tag :td, :attrs {:class song_hot}, :content (42845)} 
+											 {:tag :td, :attrs {:class song_hot_bar}, :content ({:tag :span, :attrs {:style width:28%;}, :content ( )})} 
+																						 {:tag :td, :attrs {:class song_act}, :content (
+																							 {:tag :div, :attrs {:style width:170px;_width:180px;, :class song_do}, :content (
+ {:tag :a, :attrs {:onclick play('381427');, :title 试听, :href javascript:void(0), :class song_play}, :content ({:tag :span, :attrs nil, :content (试听)})}  
+ {:tag :a, :attrs {:onclick recommend('381427','32'), :title 推荐, :href javascript:void(0), :class song_digg}, :content ({:tag :span, :attrs nil, :content (推荐)})}  
+ {:tag :a, :attrs {:onclick collect('381427');, :title 添加到精选集, :href javascript:void(0), :class song_toclt}, :content ({:tag :span, :attrs nil, :content (添加到am精选集)})} 
+ {:tag :a, :attrs {:onclick xm_download('381427');, :title 下载, :href javascript:void(0), :class song_download}, :content ({:tag :span, :attrs nil, :content (下载)})} 
+ {:tag :a, :attrs {:title 发送到, :onclick showDialog('/music/send/id/381427');, :href javascript:void(0), :class song_tel}, :content (发送到)} 
+ {:tag :div, :attrs {:class song_menu}, :content (
+ {:tag :a, :attrs {:title , :href javascript:void(0), :class song_more}, :content (更多)} 
+ {:tag :span, :attrs {:class song_menu_drop}, :content (
+ {:tag :em, :attrs nil, :content nil} 
+ {:tag :a, :attrs {:title , :onclick tag(381427,3);, :href javascript:;}, :content (添加标签)} 
+ {:tag :a, :attrs {:title , :href /widget/isingle?sid=381427, :class toplayer}, :content (转贴到其它网站)})} 
+)})} 																						)} 
+
+										)} 
+																													)} 
+								)} 
+															)} 
+														 {:tag :div, :attrs {:class chapter_ctrl cd_count}, :content (
+								 {:tag :div, :attrs {:class ctrl_play}, :content (  {:tag :a, :attrs {:class bt_choose, :href javascript:void(0), :title , :onclick selectAll('recommendids')}, :content ({:tag :span, :attrs nil, :content (全选)})}   {:tag :a, :attrs {:class bt_choose, :href javascript:void(0);, :onclick inverse('recommendids');, :title }, :content ({:tag :span, :attrs nil, :content (反选)})}   {:tag :a, :attrs {:class bt_play, :href javascript:void(0);, :title , :onclick playsongs('recommendids');}, :content ({:tag :span, :attrs nil, :content (播放选中歌曲)})}  )} 
+								 {:tag :div, :attrs {:class ctrl_gears}, :content (  {:tag :a, :attrs {:class bt_cdgears, :href javascript:void(0), :title }, :content ({:tag :span, :attrs nil, :content (更多)})} 
+									 {:tag :div, :attrs {:class ctrl_gears_more hidden}, :content ({:tag :em, :attrs nil, :content nil}   {:tag :a, :attrs {:href javascript:void(0);, :title 添加选中歌曲到精选集, :onclick collects('recommendids');}, :content (添加选中歌曲到精选集)} {:tag :a, :attrs {:class towidget, :href javascript:;, :title 将选中歌曲制作成虾米播播, :onclick makeMultiWidget('recommendids');return false;}, :content (将选中歌曲制作成虾米播播)}  )} 
+								)} 
+								 {:tag :div, :attrs {:class ctrl_download}, :content (
+									 {:tag :a, :attrs {:class bt_download, :href javascript:void(0), :title 下载选中的歌曲, :onclick downloadsongs('recommendids')}, :content ({:tag :span, :attrs nil, :content (下载选中歌曲)})} 
+								)} 
+							)} 
+													)} 
+						 {:tag :div, :attrs {:class sec_Rlt mgt30, :id comments}, :content (
+	 {:tag :h3, :attrs nil, :content (受欢迎的乐评)} 
+	 {:tag :div, :attrs {:class common_sec, :id comment}, :content (
+		 {:tag :ul, :attrs {:class clearfix}, :content (
+				 {:tag :li, :attrs {:class comments_item}, :content (
+			 {:tag :div, :attrs {:class comment_item}, :content (
+				 {:tag :p, :attrs {:class buddy}, :content ({:tag :a, :attrs {:title , :href /u/15437675}, :content ({:tag :img, :attrs {:alt , :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/308/75/15437675/154376751369536201_1.jpg}, :content nil})})} 
+				 {:tag :div, :attrs {:class comment_item_main}, :content (
+					 {:tag :div, :attrs {:class title clearfix}, :content (
+						 {:tag :h4, :attrs nil, :content ({:tag :a, :attrs {:title 出发-艳阳天, :href /comment/38273}, :content (出发-艳阳天)})} 
+						 {:tag :a, :attrs {:title 展开, :data-commetid 38273, :class more close}, :content (展开)} 
+					)} 
+					 {:tag :div, :attrs {:class author}, :content ({:tag :a, :attrs {:title , :href /u/15437675}, :content (M_Z_Yang)}  发表于 2013-12-17  {:tag :p, :attrs {:class album_rank}, :content ({:tag :span, :attrs {:style width:50px;}, :content (评分)})})} 
+					 {:tag :div, :attrs {:class comment_brief, :id review_38273_short}, :content (
+						最近的每天清晨，闹钟吵醒睡梦，在为着准备出发的短暂而混乱的时间里，放着《艳阳天》的音乐寻找清醒。
+
+  经历了《黑梦》的寒冷黑暗与沉睡思考，《艳阳天》是温暖...
+											)} 
+					 {:tag :div, :attrs {:style display:none;, :class comment_brief comment_brief_full, :id review_38273_full}, :content (
+						最近的每天清晨，闹钟吵醒睡梦，在为着准备出发的短暂而混乱的时间里，放着《艳阳天》的音乐寻找清醒。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+  经历了《黑梦》的寒冷黑暗与沉睡思考，《艳阳天》是温暖现实的，正如其中的表达，周遭的风景，随心的呢喃，与梦境的灰暗形成鲜明对比的便是理想生活的色彩。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+  与很多喜欢窦唯人一样，我也被其音乐深深的吸引而不能自拔。开始是《无地自容》的呐喊，紧接着沉迷于《黑梦》的思索，经过《艳阳天》，《山河水》的洗礼，《幻听》与《雨吁》，那忘我的境界，最终是《镜花缘记》的仙境…… 这个世界伴随着音乐而改变了，意语幻听的也跟着成了仙人，摆脱了尘世的浮躁，寻找着属于内心的那一份宁静与安详。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+  在如此喧嚣与浮华的世界，能够可以静心聆听的声音太少了，《艳阳天》能够让你忘却尘世烦恼的，“这是一种说不出的感觉，何必放在心上，随风飘散吧……” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+  不必说如何摆脱烦恼，走出灯红酒绿，乌烟瘴气的城市，看看那窗外的远方，交替的四季，游走于山林河间，欣赏着晚霞的余辉，哪怕短暂的温暖，那才是该有的理想生活与完美世界。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+本文固定链接： {:tag :a, :attrs {:rel nofollow, :target _blank, :href http://blog.sina.com.cn/s/blog_724eb3440101ec0w.html}, :content (http://blog.sina.com.cn/s/blog_724eb3440101ec0w.html)} 
+						 {:tag :div, :attrs {:class comment_acts clearfix}, :content (
+							 {:tag :ul, :attrs {:class acts_list}, :content (
+								 {:tag :li, :attrs {:class do_share}, :content (
+									 {:tag :a, :attrs {:onclick recommend('38273','37'), :href javascript:void(0), :class wrap}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 分享)})} 
+								)} 
+							)} 
+							 {:tag :table, :attrs nil, :content (
+								 {:tag :tbody, :attrs nil, :content (
+									 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:class gap}, :content ({:tag :em, :attrs nil, :content (230)} 浏览)} 
+										 {:tag :td, :attrs nil, :content ({:tag :a, :attrs {:href /comment/38273#wall}, :content ({:tag :em, :attrs nil, :content (0)} 简评)})} 
+									)} 
+								)} 
+							)} 
+						)} 
+											)} 
+					 {:type :comment, :data  <div class="comment_toggle"><a href="/comment/38273" title="">0个回复 | 0人推荐</a></div> } 
+				)} 
+			)} 
+		)} 
+				 {:tag :li, :attrs {:class comments_item}, :content (
+			 {:tag :div, :attrs {:class comment_item}, :content (
+				 {:tag :p, :attrs {:class buddy}, :content ({:tag :a, :attrs {:title , :href /u/10400025}, :content ({:tag :img, :attrs {:alt , :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/208/10400025_1400166050_1.jpg}, :content nil})})} 
+				 {:tag :div, :attrs {:class comment_item_main}, :content (
+					 {:tag :div, :attrs {:class title clearfix}, :content (
+						 {:tag :h4, :attrs nil, :content ({:tag :a, :attrs {:title 逃离钢筋森林, :href /comment/37108}, :content (逃离钢筋森林)})} 
+						 {:tag :a, :attrs {:title 展开, :data-commetid 37108, :class more close}, :content (展开)} 
+					)} 
+					 {:tag :div, :attrs {:class author}, :content ({:tag :a, :attrs {:title , :href /u/10400025}, :content (渡边纯一)}  发表于 2013-11-23  {:tag :p, :attrs {:class album_rank}, :content ({:tag :span, :attrs {:style width:50px;}, :content (评分)})})} 
+					 {:tag :div, :attrs {:class comment_brief, :id review_37108_short}, :content (
+						走出灯红酒绿，山川原野，视野都变得开阔明亮，钢铁森林里久违了的自然风情。一个疯狂而执着的音乐人窦唯，却总能带给人净化心灵般的美妙感受。 
+
+《窗外》是典型ABCDE的...
+											)} 
+					 {:tag :div, :attrs {:style display:none;, :class comment_brief comment_brief_full, :id review_37108_full}, :content (
+						走出灯红酒绿，山川原野，视野都变得开阔明亮，钢铁森林里久违了的自然风情。一个疯狂而执着的音乐人窦唯，却总能带给人净化心灵般的美妙感受。  {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+《窗外》是典型ABCDE的段式，按照内容又可以分为前后两大主题，前半段是人物对自然风光的敏锐触觉，经过一层摇滚音乐的过度和鼓拍的烘托，后段流露心灵的解脱和释怀，信天游的风格让整个思想感情得到升华，此时的窦唯天人合一。难怪有人提起王菲的《无常》。这首歌少有的令人热泪盈眶，他绝非都市情歌感性的伤人。漫步田野，身心自然，脱离了现实的压抑和生活的忙碌，古典器乐如飘逸的油菜花香，仿佛从寒冷麻木中解冻的灵魂，一个寒战才恢复了感官知觉，禁不住，莫名发出婴儿的啼哭。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+窦唯是另一种精神的感性。窦唯是一个疯狂的音乐人，他的音乐无法令人疯狂，但能让你感到疯狂所体现的自由。信天游式的引吭高歌《艳阳天》、从自然景象回到生活气息的《晚霞》、略有哲理的《春去春来》，都有着《窗外》的山川日月，所见感悟，那是一份田园之心。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+周迅在电影《李米的猜想》里献唱了这首《窗外》，窦唯的出现与周迅显然形成了一种气场的叠加，只是窦唯给周迅的版本重编了歌曲，少了信天游式的吟唱，更多是在突出重点桥段Brit-Pop轻快的节拍与摇滚风格，以及古典乐器轻灵空幻的倾向，这一点，还是可以看出窦唯骨子里的古典情结。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+《黄昏》中那不知所云的只言片语堆叠起来，各种扑朔迷离的动作，仿佛一个实验电影。而《他》彻底回到了世俗生活，虽然带着些许俏皮和嘲笑的口吻，却严肃正经了许多。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“听见他在笑，笑着自己笑无聊。”这是说他自己还是说了我们。我们忙里忙外的，不见得就不无聊。无聊不是说没事儿干，内心的空虚也是一种无聊，谁都感受的到。所以他还生怕人们听不懂，不知道耳巴子是挨在谁脸上的，非要在结尾再次强调以便引起警惕：“他看着你我，他还看着谁。” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+　　  {:tag :br, :attrs nil, :content nil} 
+酒足饭饱　见面问候　蹦蹦跳跳　ＤＩＳＣＯ  {:tag :br, :attrs nil, :content nil} 
+总要睡觉　东奔西走　忙忙碌碌　开心否  {:tag :br, :attrs nil, :content nil} 
+这声道谢　相聚离别　白天黑夜 后浪推动　前浪更向前  {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+窦唯的返璞归真，不但用优美的自然风光从正面去表达，唤起你向往神驰，也从反面表达，用一种淋漓尽致的世俗将你我他感同身受，连于一心，也正是他天生的悲观，才能承受诸多的无可奈何，颓废的大环境由外界到内心的渗透，与心神舒畅的大自然的氛围形成鲜明对比，进一步，沉浸在绿色原野的心旷神怡才能更加值得久陷钢筋森林里的人们珍惜。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+《艳阳天》发行于1995年，第二年王菲发行了《浮躁》。夫妻俩很容易就被拿来比较，因为一首《无常》与《窗外》有着相似的结构，窦唯被看做‘影响了王菲的人’。其实可以换一个更为准确的说法：窦唯的田园情怀启发了王菲，她带着这份灵感写了两首歌。还有对社会和人心的观照，王菲在歌曲《末日》延续了窦唯在《他》中的自嘲和无奈，并把眼光投放到整个社会，然而那隐约的绝望，又让人觉察到一丝窦唯的悲观色彩。两人剪不清理还乱的共性，更是一种精神交流的共鸣。之后，窦唯两个字在王菲的作品里出现的更少了，《童》之后两人彻底分道扬镳，王菲一贯的玩时髦前卫的Trip-Hop(一种嘻哈节奏为基础的迷幻舞曲)和Dream-Pop(梦幻仙音)，而窦唯多专注于中国文化和电子化的氛围音乐(Ambient)，古今结合。这首《窗外》成了他的里程碑，也是从那时起窦唯就坚守着自己一颗向往自然的赤子之心吧。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+文：渡辺纯一 {:tag :br, :attrs nil, :content nil} 
+2013年冬发表于音乐客
+						 {:tag :div, :attrs {:class comment_acts clearfix}, :content (
+							 {:tag :ul, :attrs {:class acts_list}, :content (
+								 {:tag :li, :attrs {:class do_share}, :content (
+									 {:tag :a, :attrs {:onclick recommend('37108','37'), :href javascript:void(0), :class wrap}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 分享)})} 
+								)} 
+							)} 
+							 {:tag :table, :attrs nil, :content (
+								 {:tag :tbody, :attrs nil, :content (
+									 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:class gap}, :content ({:tag :em, :attrs nil, :content (328)} 浏览)} 
+										 {:tag :td, :attrs nil, :content ({:tag :a, :attrs {:href /comment/37108#wall}, :content ({:tag :em, :attrs nil, :content (0)} 简评)})} 
+									)} 
+								)} 
+							)} 
+						)} 
+											)} 
+					 {:type :comment, :data  <div class="comment_toggle"><a href="/comment/37108" title="">0个回复 | 1人推荐</a></div> } 
+				)} 
+			)} 
+		)} 
+				 {:tag :li, :attrs {:class comments_item}, :content (
+			 {:tag :div, :attrs {:class comment_item}, :content (
+				 {:tag :p, :attrs {:class buddy}, :content ({:tag :a, :attrs {:title , :href /u/4762}, :content ({:tag :img, :attrs {:alt , :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/0/9/4762/4762_1340636534_1.png}, :content nil})})} 
+				 {:tag :div, :attrs {:class comment_item_main}, :content (
+					 {:tag :div, :attrs {:class title clearfix}, :content (
+						 {:tag :h4, :attrs nil, :content ({:tag :a, :attrs {:title 转一篇我认为写地很好的艳阳天乐评, :href /comment/11664}, :content (转一篇我认为写地很好的艳阳天乐评)})} 
+						 {:tag :a, :attrs {:title 展开, :data-commetid 11664, :class more close}, :content (展开)} 
+					)} 
+					 {:tag :div, :attrs {:class author}, :content ({:tag :a, :attrs {:title , :href /u/4762}, :content (引子)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})}  发表于 2010-11-11  {:tag :p, :attrs {:class album_rank}, :content ({:tag :span, :attrs {:style width:0px;}, :content (评分)})})} 
+					 {:tag :div, :attrs {:class comment_brief, :id review_11664_short}, :content (
+						NO.1 引子
+四月的春天，总是暖洋洋的。离开，奔向，无声。
+总是痴迷的看着车站中的人潮，每个人都背着重重的行囊，形形色色，总是好奇地想知道，每个人的包包里到底是什么...
+											)} 
+					 {:tag :div, :attrs {:style display:none;, :class comment_brief comment_brief_full, :id review_11664_full}, :content (
+						NO.1 引子 {:tag :br, :attrs nil, :content nil} 
+四月的春天，总是暖洋洋的。离开，奔向，无声。 {:tag :br, :attrs nil, :content nil} 
+总是痴迷的看着车站中的人潮，每个人都背着重重的行囊，形形色色，总是好奇地想知道，每个人的包包里到底是什么样的东西？每个人都背负着什么样的故事？站台上的广播声，都仿似天籁之音，看着长长的人龙，疲倦而兴奋的脸，自己肩上的包裹，不知不觉中已和人流合而为一。喜欢这面临检阅的气氛，焦急地等待那时刻的到来。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+已经有些迷茫了，应该这样冲动的出走么？北京与儿时的记忆是否有多大的区别？隐隐约约的酒劲上来了，刚才的一杯啤酒已使自己昏昏沉沉，心里还在隐隐作痛，才深刻地体会到打翻了五味瓶的感受，我想人最矛盾的莫过于对自己的决定感到迷惑了。面对一个抉择，甚至有反悔的懦弱，逃避的卑微。甚至想放下行装，重新选择。等待的未来是否会如此精彩？又决无反悔的勇气，自诩的潇洒已无踪迹，惊于自己也有可能会有心痛的时候，无法捕捉自己的思绪，甚至有些麻木了，唯一能感受到自己还像个男人的是，还偷偷望了两眼对面候车的女孩子，摆出自认为还可以的POSE，在空白中等待着行程…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.2 出发 {:tag :br, :attrs nil, :content nil} 
+"沿着大路我行进着，远景如此辽阔，环顾着像是在找谁" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+行进中的列车，环顾的我。突发的事件使自己的心情久久不能平静，甚至抵消了无时无刻不在接近北京的喜悦，习惯性地拿起一支烟，走到吸烟区，头，低下去，头，抬起来。知道，烟是苦的，就爱这苦涩的味道。远景也许真的很辽阔，但是满目皆是荒草丘陵。快速地行进，凝视路旁的铁轨，瞬间离我远去，渐不可及。忽有纵身跳下的欲望，紧闭的车门不允我实现自己的疯狂，胆怯打败了肆虐的欲望。我总是相信，人人面对着疾速行驶的快车，高耸入云的大楼，都有一跃而下的念头吧？似乎飞起来的感觉，就远远脱离这烦躁的生活。久久不愿离开吸烟区，斜倚着窗。看着自己的样子，活脱脱就是一个吸毒几年的人。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+"乌云满天，透出霞光，我还有希望。青山遥远，依稀看到，我还有梦想。抱着我沉默如何？日出到日落。无垠的天空任鸟飞，独有缘中你，依然是你未离去，不要是悲剧，不要惋惜……” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+离开一段经历，也许是新的生活的开始，幸好自己不是一个沉溺于过去的人，看到了霞光和青山，真的。会有人拥我沉默的，也许下一个日落，我的梦不是一个人的了。缘中的你，正在天的那头等我到来，希望那段日子不是惋惜，未来不是悲剧。游离在追忆和憧憬之间，想来可笑。自己也许已经过了爱的花季，但决不感到这是可耻的，因为大家都渴望用心声传达各式爱的讯号。不如意随着隆隆的车声，一点点地剥离开，如此快的速度，以至于它无法再追赶上我，毕竟正在一步步远离这个城市，而爱会一步步地靠近，这个城市上空笼罩着迷雾，而我，正在逃离…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.3 窗外 {:tag :br, :attrs nil, :content nil} 
+"窗外/天空/脑海/无穷/绿色原野/你灿烂的微笑/我拼命地奔跑……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+在陌生而又封闭的车厢中，看着熙熙攘攘的人群，远眺窗外。迷失在叠峦起伏的山峰中间，每座山都是相同的，令我无法分别自己是否正在穿越；每座山边也许都有村落，每户中都正在发生着不同的故事。我羡慕那天边，白云片片下，平凡的人们，赶动着自己的牛车，播种着希望，偶尔抬着头看见远处驰过的火车，离他们远去。他们可会知道，在飞驰过去的车窗上，印着一张面孔，凝视着他们，无限神思？ "就在瞬间，你出现在眼前……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+突然间感到世界是如此的小，思绪可以将我带到任何人的身边，自己是多么的年轻，世界还可以令我无限的激动。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+"我早已忘怀/自己是从哪里来/也只能相信/你比我更明白" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+儿时认为最浪漫的生活，应该是在永不停奔袭的火车上，每天清晨醒来，看着远方的稻田，匆匆地洗一把脸，继续着行程，没有尽头……无穷。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.4 春去春来 {:tag :br, :attrs nil, :content nil} 
+"花开伴着月/转眼间/隐隐约约听见/你的脸/阵阵吹过这风/啊/所有我的视线……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+春天美丽。二十多年的经历，从未这样爱着春天。这风，唤醒了我的麻木。在低沉的灯光下，看到远处两个同龄人，背着一把吉它，我如失魂魄地被吸引过去，搭讪起来，他们正是怀着梦，到北京开始自己的梦的行者。我的旅程不再孤单。天南海北，满目春光。自己的坏情绪，怎么也抵挡不住音乐的悸动。孤寂的人生，我只想有歌声相伴。爆发了饮酒的冲动，想让酒神伴着我，放开自己的胸襟，肆无忌惮起来。酒后是神采奕奕的我，毫无倦意，钦佩着生活拮据的而不放弃自己生活目标的人，停止思想的人，如何活着？他们早已死去，可悲…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+如获至宝地抱着琴，抬目望去，凌晨的旅人已倦倦地入了梦乡。在车中横竖，满是混浊的空气。明晨醒来，就到达了北京的土地上，此刻弹起了《钟鼓楼》，清脆的琴声，"我的家，就在二环路的里边……"我的怀思。身旁的流浪音乐家对我说，"看这车厢中，每个人都揣着自己一个梦，奔向北京，他们都有着各式各样的梦。"梦，我想飞到每个人的梦中，愿琴声中，人人好梦…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.5 他 {:tag :br, :attrs nil, :content nil} 
+清晨，劲风，辛勤打扫的清洁工人。广场上飞舞的塑料袋，让我知道这还是个北方的城市。这个城市还没有施粉黛，人们正在努力抓紧最后一个梦乡。过不了多久，都市就将尽展它的喧嚣与狰狞。无心留恋身旁的景色，急急忙忙的登上一辆公共汽车，奔向另一个目的地。耳边不断的浓郁京腔，才令自己感受到自己身处在一个陌生的地方。来不及仔细的甄别，满腔的激动此刻已化为深深的困倦。疲惫，悄悄的爬进我的脑海。 "听见他在笑／笑着自己笑无聊…" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我，生性胆怯，高度近视，羞于向人问路。盘旋车站中已近两个钟头，直到双腿肿痛，才寻找到自己要找的地方。只能苦笑自己的无聊，笑这个城市的大自己才刚刚开始领略。外面已经是春暖花开，而我只能伏在案上，昏昏欲睡，用自己残存的热量来驱走身边行人带来的阵阵阴风。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+"相互搂抱着／默默防着自己／他在笑我／他在笑／笑得微妙／笑着自己太糟糕／回荡着他的双眼／似曾见过／他看着我……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+拥吻在人潮汹涌的站台上，只是为了自己认为的快意。心中无数次渴望着戏剧中的场景，让它在我身上实现。只有在这仅存的世界中，我的世界中，我才是无可争议的主角。那胆怯的眼神，回荡着的双眼，似曾见过的一天，那双眼，一直在看着我。携手寻找下一班公共汽车的快乐，即将开始的新的日子里，彼此感受生存在同一片天空下的美丽。生活，不仅仅是我自己。她。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.6 阴 {:tag :br, :attrs nil, :content nil} 
+总是刻意营造自己生活中的色彩，以证明自己的人生应该是与众不同，别无二致的。或是忧郁的蓝色，或是暗淡的灰色，也或是明亮的黄色。如今，我的生活中是瑰丽的紫色。也许这许多的色彩在旁人的眼中，并无二致，但总是深深地沉浸在自己为自己编织的一个又一个梦境当中，不可自拔。尽管为这种自我救赎似的生活方式已经伤痕累累，却仍乐此不疲。总是顽固的认为，多思与痛苦自来就是双生姐妹，想要爱上智慧的姐姐，就不得不忍受暴烈的妹妹。 时常在凌晨半梦半醒中感到无助，无意识的状态中，一切虚假的刚强，无可控制的离我而去。瞬间冲入脑中的是切切的悲伤，无力的怨叹，自责的忏悔。善良，经常不期而至。游离状态中的，似乎又是最真实的自我。当所有的脸谱又重新戴上的时候，自私与冷漠才是这个世界最确切的规则。当我还是小孩子的时候，我以为什么都可能发生，当我长大后，才知道什么都不可能发生。就像生活永远只是一杯水，不可能有什么风浪。水杯中，没有海洋。 时常一人静静凝望阴郁的天空，偏爱缠绵的细雨，隆隆的雷声。当空中闪过霹雳般的电光后，焦急的等待轰鸣快到来。只想张开双臂汲取自然的能量，安抚我无助的躯体。当雷鸣渐去的时候，隐隐感到失落，世界一如往昔，下一个泥泞仍会到来。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+这里，没有给我一次发聩的震撼。似乎在这个城市的上空，永远没有云朵飘过。满眼皆是的只有歌舞升平，人们享受着悠闲的快乐，没人去注意窗外是否还会有乌云满天。这段日子，真的是艳阳天。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.7 艳阳天 {:tag :br, :attrs nil, :content nil} 
+"好春光／在这艳阳天／朦胧胧像是那从前／睡梦甜／梦中天外的青山／抬头望向天空蓝蓝……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我坐在广场一角欣赏这段忧虑的音乐。也许我经常在最不适宜的时间和地点作最不适宜的事情。坐在广场上，CD中美妙的人声，头顶烈日炎炎，酷暑和严寒，永远在考验着人们的承受能力。心中诧异，如此宽广的地方，为何一片树荫都没有？原谅我在如此不恰当的地点冒出奇怪的念头。满心怀想，要是在这里种上一片巨大的竹林该有多好啊！人们可以免遭暴晒之苦，我斜倚在竹林中，悠闲地看人们出入，相亲相爱。我也可以抬头望向天空蓝蓝。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“为了那份美好的心愿／心再苦涩／路再艰难／只怕梦到中途又难圆／狂风暴雨／老天变脸／常要说的　是乐生于苦／可乐极生悲／道理又自古／别让我不安／是非难辨／沧桑千年／不再有遗憾……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+正在心怀畅想，可是乐曲笔锋一转，心情一泻千里，心思也颓然几分。放眼望去，奈何这良辰美景，并非我所拥有，自己不过是这个城市中的一个过客，苍茫天地间一介蜉蚴，为了那些美好的心愿所付出的努力，似乎微不足道，希望渺茫。那些我所挚爱的欢乐，是否能够长存于我的宿命中？转念至此，欲望不能达成带来的深刻痛苦令我心痛欲绝，一切美好，似乎在瞬间离我远去，遥远得不可触及，自己仿佛变成了一个孤魂野鬼，阳间的快乐只能远远的观看，而不能参与了。也许这才是艳阳天背后的真实苦悲之处吧？ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+"往昔已远走过来到你我眼前／有什么会让你留恋／" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+看着眼前美丽的容颜，想起自己还要努力的生存下去，记起一段话："好好活着，让生命像一棵树。"也只能打起勇气，继续下去，一切不如意，此刻抛在脑后。做一棵顽强的树好了。而做一个守望者的理想，也许永远是幻想，唯一留下的痕迹，也只有买到的一顶霍尔顿带的鸭舌帽了。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.8 说不出的感觉 {:tag :br, :attrs nil, :content nil} 
+"这是一种说不出的感觉／像是从前又在今日轮回／朝朝暮暮的往昔／过来了／回头望／熟悉的一些／说不清的感觉／……" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+躺在这个狭小房间中，感受昏暗的灯光，幸福与温暖让时间静得可怕。就如同轮回中千百次熟悉的面容，望着一个人的背影，消失在长廊尽头，空气中有清香，那种似曾熟悉的感觉让我担忧快乐到了尽头会溢出的。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+失意和忧愁被压缩至角落，外面也许正是春意融融，这里清凉宁静，时间缓慢的流，大脑无意识的停止工作，只有相互看，闭目想……一切都是悄声的，安详的，我是倦怠的，心是狂喜的。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+每一次微笑，每一个颦怒，彼此触摸的皮肤，手掌间的山河，吻过万遍的唇，依偎的温暖，融化了自呼吸以来的寒冬，那个从容的午后。 "OH，LALA／何必放在心上／随风飘散吧／行路吧／往前方／总还有一些诱惑你的梦想／" {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+记不起曾有多少次将黄昏当作清晨的日子，只希望太阳落山后，就永远不要再醒来，我们都不再醒来，哪怕明天真的是什么"艳阳天"。恐惧的紧张时光流逝，畏缩在封闭的空间，丝毫没有感到压抑。担心失去的笑容，让我何时才能忆起？每一丝的甘甜，疲倦的汗水，不想它们飘散在风里。失望的看又一次黎明的到来，掠过一个念头，在这最美妙的瞬间如果天崩地裂，尽可让我结束在完美的句点中，也许我会带着笑容离去，没有未来，留下只是永恒的记忆。那些围绕我张开翅膀的思绪，快飞过太阳，找到一个宁静的港湾，让我停留在那里，此刻的我只想堕落在幸福带来的快感中。虚伪的理想已变得不重要，只是不希望再变得身心俱疲，永远沉浸在无始无终的梦里。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.9 晚霞 {:tag :br, :attrs nil, :content nil} 
+“观望着那一束光亮／不会让他紧张／他爱联想／清澈的湖中／晚霞散发着余光／…” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+直至今日也不知道那条河的名字，就连一个北京姑娘也惭愧的对我说“那条河，实在没名。”它静静的流淌在东二环路的旁边，围绕着我的住处。惊喜的发现它时，诧异在如此繁华的都市中，竟还会有这样宁静的所在。低矮的房屋，袅袅的炊烟，水面上的小桥，还有一艘久违的船。携手漫步在堤旁，阵阵吹来这风，飘来了水的气息，水是有味道的，真的！只要用心体会。河水，娓娓流走，脑海中的记忆里，那时的世界，只有它还在流动，一切都已经静止了。晚霞泛出的粼光，破碎这河面，千丝万缕，跳跃着，伴随我们的脚步，手中的手，是温热的；路，此刻好像没有尽头。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“你穿的衣裳／很普通也很漂亮／我说这是好日子／你却为何悲伤／午后的太阳／此刻快要进入梦乡／这晚霞／这时光／你可会淡忘／” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+遁形在没有概念的时空里，只有远处奔袭的车流，证明我还未摆脱现代生活。一抹绿已悄悄爬上了树梢，想起了那个故事，联想。“他们，当年也曾在这里走过吧？”空气中弥漫着爱的气息，这真是个好日子。万物都很漂亮，你也很漂亮。暮色就要降临在这片大地，新的景色就要开始了，垂下蔓帐的天际，要将我们吞没在无尽的虚空里。我要停止脚步了，因为有人在提醒我。可我知道，只要沿着这条小河，我一定能找到回家的路。再会了，小河，也许有一天，我会将所有爱的脚印播种在你的身旁。这晚霞，这时光，我怎会淡忘？ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.10 黄昏 {:tag :br, :attrs nil, :content nil} 
+“晚来声香／脸雾云床／晨慌河光／目作风／……” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+北京的夜晚，很美。似乎虚伪，炙热，都能被沉沉的夜色掩埋。坐上了一班远途的汽车，可以放下一天的疲倦，舒服的在座位上认真观看两旁的人群了。漫长的车程，穿越了半个北京城，驶过了一条条赫赫有名的街道，隔着一道玻璃窗，我好奇的张望，川流的车潮，鼎沸的人声，流光溢彩的大街，似乎无法寻觅静谧。沾沾自得的人们，正从我身边以光速逝过。白天满受灰尘和阳光暴晒的大厦,此刻就像一个个童话中的彩色盒子,而我们就栖息在那拥挤的空间里，为了那一个个牢笼要去奋斗终生。这班汽车，仿佛令我和世界断绝了联系，载着我们到没有终点的地方，真希望我可以静静的看路边的风景，永远旁观下去。不知是我在一个游动的笼子里，还是人们在更大的监牢中呢？？也许这个城市并没有我想象中的唯美，天空中飘着的是同样的艳阳而不是满天的理想。或许我的想法本身就是极其可笑与无知的。又或许一切事物都只适合远观，不可亵玩吧？但我不失望，因为在这个婆娑的世界里，已经无法找到真正的纯洁，如果存在，只能在我们的内心中，希望我能永远保有它。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“空蓝性忘／红无酒伤／时进话跑/笑飘广唱/……” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+步入阳光无法穿透的地下通道中，传来一阵琴声，这是我在北京听到的第一次琴声！看到两个在卖艺的孩子，他们稚嫩的脸庞上丝毫没有窘困的神色，年轻的脸上只有好奇与纯良，以及乐观的情绪，正对比着我这个阴暗的家伙。我兴奋的跑过去，借来他们的琴，坐在他们两人身旁唱了一会，并得到了我唱歌的第一份报酬--四角钱。路人们也把我当成卖艺的人了，懒得去管他们会怎样看我，这个城市里没有人认识我，我爱上这种轻易就能迷失自己的感觉了，在这里我没有过去，只有未来…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+回想起在北京见到最让我尊重的歌者，那是在西单大街上,一对盲人夫妇。当他们手挽着手,坚定的唱起《三套车》时，身旁不断经过的人群，顿时停下匆忙的脚步，那时的气氛，应该用“震惊”来形容。那几分钟里，整条街上的时间停顿下来了。北京，西单，是属于他们两人的了。四周一片安静，只有他们坚定的屹立在风中，仿似一撙雕像。他们饱经风霜的脸上，流露出来的是深深的相爱和强烈的自信！这神情，我在许多人身上发现过，他们总令我不由产生敬重之情，让我自惭形秽。在他们面前，我不敢妄谈艺术，我想那些卑鄙小人也一定无处藏身。当女人摸索着，将我给她的一元钱小心翼翼的放进口袋时，我觉得我是在用金钱亵渎他们，也为自己吝啬的帮助倍感羞愧。一首歌毕，女人紧紧挎男人的臂弯，男人拉了拉女人的肩膀，舔了舔已经干裂的嘴唇，继续唱下去，时间才又恢复了平常。走出很远，我仍频频回头看他们，想上前和他们说点什么，却不知从何说起。次日，同样的地点，我没有再次见到他们，不知他们会怎样生活？会永远的站在盲动的街中么？他们也许永远看不到这段文字，但我想把这段文字献给他们，他们让我认真去理解幸福的含义，祝他们在未知的远方生活愉快。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“湖春痛开/烟/哭/床/想/你/嘘／” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+时间总是飞泄般的流逝，明天，就要离开这个城市了，这个能让我尽情肆意的城市，让我得到迷失快感的城市。春天才刚刚开始，怎么又匆匆要离去？明晨醒来，就要踏上归途，重返自己熟悉的土地，而这些艳阳的日子，短暂的像一次急促的呼吸。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+烟，我在抽烟，烟雾中飘荡着虚幻的未来，记起一个荒唐的人说过：“香烟是永远不背叛你的女人。”当时感到荒谬可笑，此刻忽然觉得，当一切都只能象轻烟一样掠过的时候，也许正是手中这支烟，才是真正自己能够把握的。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+哭，我看到了有人为了分离而流泪，我如此恐惧眼泪，因为我相信每一滴眼泪。我会记忆每一个为我流泪的人，我会背负那些我造成的伤痛，总想，今天以后，不要让任何人再为我流泪。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+床，还是那张温床，载我一片痴心妄想。离开床，意味着梦到了结束的时候了。床头的那个香料盒子还在散发芳香，柜子里的物品已经收拾整齐，明日，谁将卧于这张宽大的床上？ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+想，我一次次的在想，痴想，幻想，怀想，梦想，冥想，苦想，空想，妄想，在想象中，我们可以永远相互传递玫瑰，想，永远是想，不会有任何结果。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+你，让我看你进入梦乡，感受一次次心跳，明晨，你会在何方？也只能在睡梦中等待明日的到来。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+嘘………………… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+NO.11 未知 {:tag :br, :attrs nil, :content nil} 
+“你以为知道什么　我以为明白什么 {:tag :br, :attrs nil, :content nil} 
+　你以为相信什么　我以为担心什么 {:tag :br, :attrs nil, :content nil} 
+　何不来抱着我　何苦要不停地说 {:tag :br, :attrs nil, :content nil} 
+　岁月如水流过　年轻无知的你我……” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+坐在电脑前听这张专辑最后一首歌曲，记忆的碎片在脑中浮现, 凝望窗外,那个城市距我千里之遥，我能看到窗外的青山，充沛的阳光，但我看不到那个城市的上空…… 那个时节空气中漂浮的快乐,夜色中流连的双目.沐浴般沉浸在巨大氛围中压迫的舒适,冲动,好奇,迷幻,飘然,甜蜜……都渐渐从记忆中逃离，我试图伸手捉住她，但却无力触及…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我竭力拾起散落的记忆，追忆一丝思绪，一种状态，我留恋一个看不到阳光的下午、一顿香美的晚餐、一缕袒露在背上的阳光、一张动听的唱片、一个容纳几十万人的广场、一步踏出80cm的日子、一个肾上腺素指标……因为，那个时间里，空气中弥漫着骚动，每一寸都是新鲜未呼吸过的。一个春天的感觉足以满足一颗并无奢求的心灵。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+而时间强行拉开我与梦境的亲昵，瑰丽的色彩逐渐褪去，我和这个城市已无初恋般亲近，我的激情也许只有一次。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“不知道的事太多　想知道太多太多 {:tag :br, :attrs nil, :content nil} 
+　问他问你问我　 怎样才算真正快乐 {:tag :br, :attrs nil, :content nil} 
+　会得到的太多　 会失去的太多 {:tag :br, :attrs nil, :content nil} 
+　明天谁人可知　 梦可会被湮没 {:tag :br, :attrs nil, :content nil} 
+　也许最好不说　 也许不必太难过 {:tag :br, :attrs nil, :content nil} 
+　今天做些什么　 今天该怎样去生活……” {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我心怀恐惧,恐惧岁月在身体中流逝，洗涤、蹂躏我憔悴的心.恐惧一切美好在身边溜走，恐惧梦境终会醒来。恐惧醒处看到一张冰冷的面孔。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我心存感激，原来心灵离肉体如此接近，铭刻我心。我曾变成过一只幸福的鸟，飞得很高，自由穿梭在太阳普照的天际。那只鸟儿曾飞越过悲伤，虽然生命短暂。 激情归复平静,平静打乱了所有的秩序. {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我曾知道，曾明白,曾相信,曾担心的未知变成已知. {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我曾赋予这个故事太多的结局,低沉失落、踌躇满志、霞光万丈…至今他们仍能从我指间溜出，我未曾过设想宛如第三人般的平淡。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+“今天的疯狂过后　可会变冷漠 {:tag :br, :attrs nil, :content nil} 
+　随便去什么地方　你可在身旁“ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+我问自己是否无悔，为轻狂付出的代价。我试图否定，然而我发现推翻它，我只会失去自己。我回过头去，对纠缠在我身后的曾经说：我无怨恨，你仍是你。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+那个春天，我丢了一件东西在路上，可我无意回头寻找，就这样走下去好了…… {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+又是一个艳阳天了。我爱你，生活。 {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+ {:tag :br, :attrs nil, :content nil} 
+作者：爆裂的青霉素 {:tag :br, :attrs nil, :content nil} 
+完成时间：2002-04 {:tag :br, :attrs nil, :content nil} 
+作品名称：艳阳天 {:tag :br, :attrs nil, :content nil} 
+email： {:tag :a, :attrs {:href mailto:douwei7@sina.com}, :content (douwei7@sina.com)} 
+						 {:tag :div, :attrs {:class comment_acts clearfix}, :content (
+							 {:tag :ul, :attrs {:class acts_list}, :content (
+								 {:tag :li, :attrs {:class do_share}, :content (
+									 {:tag :a, :attrs {:onclick recommend('11664','37'), :href javascript:void(0), :class wrap}, :content ({:tag :span, :attrs nil, :content ({:tag :i, :attrs nil, :content nil} 分享)})} 
+								)} 
+							)} 
+							 {:tag :table, :attrs nil, :content (
+								 {:tag :tbody, :attrs nil, :content (
+									 {:tag :tr, :attrs nil, :content (
+										 {:tag :td, :attrs {:class gap}, :content ({:tag :em, :attrs nil, :content (3365)} 浏览)} 
+										 {:tag :td, :attrs nil, :content ({:tag :a, :attrs {:href /comment/11664#wall}, :content ({:tag :em, :attrs nil, :content (9)} 简评)})} 
+									)} 
+								)} 
+							)} 
+						)} 
+											)} 
+					 {:type :comment, :data  <div class="comment_toggle"><a href="/comment/11664" title="">9个回复 | 6人推荐</a></div> } 
+				)} 
+			)} 
+		)} 
+				)} 
+		 {:tag :div, :attrs {:class creat_comment}, :content ({:tag :a, :attrs {:href /comment/add/id/816, :class bt_links}, :content ({:tag :span, :attrs nil, :content (写乐评)})})} 
+	)} 
+	 {:tag :div, :attrs {:class acts}, :content ({:tag :a, :attrs {:href /comment/list/id/816, :class more}, :content (更多乐评)})} 
+	
+	 {:tag :script, :attrs nil, :content (
+		$(function(){
+			$('.comment_acts').hover(function(){
+				$(this).addClass('acts_hover');
+			},function(){
+				$(this).removeClass('acts_hover');
+			});
+			
+			$(".comment_item_main .title .more").click(function(){
+				var self = $(this);
+				var CommetId = self.data("commetid");
+				if(self.hasClass("open")){
+					self.removeClass("open").addClass("close");
+					this.innerHTML = "展开";
+					this.title = "展开";
+				}else{
+					self.removeClass("close").addClass("open");
+					this.innerHTML = "收起";
+					this.title = "收起";
+					
+					var view = $("#review_"+CommetId+"_full").find('em').eq(0).html();
+					$("#review_"+CommetId+"_full").find('em').eq(0).html(parseInt(view)+1);					
+					$.getJSON('/ajax/add-comment-views',{'id':CommetId},function(data){
+						
+					});				
+				}
+				$("#review_"+CommetId+"_full").toggle();
+				$("#review_"+CommetId+"_short").toggle();
+			});
+		});
+	)} 
+	
+)} 
+						
+
+ {:tag :div, :attrs {:class comments_wall blank40, :id wall}, :content (
+		 {:tag :h3, :attrs {:style position:relative, :class Ctitle}, :content (我来说两句
+		)} 
+		 {:tag :div, :attrs {:class common_sec}, :content (
+				 {:tag :div, :attrs {:class a_wall_unlog}, :content ( 
+			 {:tag :div, :attrs {:style padding:10px 0;text-align:center;, :class login_method clearfix}, :content (
+				 {:tag :a, :attrs {:style margin:0 5px;, :href https://login.xiami.com/member/login?taobao=1}, :content ({:tag :img, :attrs {:style float:none, :height 24, :width 125, :src http://img.xiami.net/res/img/common/thirdparty/taobao125_24.jpg, :alt 用淘宝帐号登录}, :content nil})} 
+				 {:tag :a, :attrs {:style margin:0 5px;, :onclick sinaLoginForMsg();return false;, :href javascript:;}, :content ({:tag :img, :attrs {:style float:none, :height 24, :width 125, :src http://img.xiami.net/res/img/common/thirdparty/weibo125_24.jpg, :alt 用微博帐号登录}, :content nil})} 
+				 {:tag :a, :attrs {:style margin:0 5px;, :onclick qqLoginForMsg();return false;, :href javascript:;}, :content ({:tag :img, :attrs {:style float:none, :height 24, :width 125, :src http://img.xiami.net/res/img/common/thirdparty/qq125_24.jpg, :alt 用QQ帐号登录}, :content nil})} 
+							)} 
+			 {:tag :p, :attrs {:style text-align: center;}, :content (您需要登录后才可以留言，请用虾米帐号  {:tag :a, :attrs {:title 直接登录到虾米, :href https://login.xiami.com/member/login}, :content (登录)}  或  {:tag :a, :attrs {:title 注册虾米, :href /member/register}, :content (免费注册)})} 
+		)} 
+				
+					 {:tag :div, :attrs {:class hotComment}, :content (
+ {:tag :h3, :attrs {:class Ctitle}, :content (热门评论)} 
+ {:tag :ul, :attrs nil, :content (
+		 {:tag :li, :attrs {:id 11174787}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title Kurt.Cheung, :href http://www.xiami.com/u/9570768, :rel , :name_card 9570768, :class personalDropDown}, :content (   {:tag :img, :attrs {:alt Kurt.Cheung, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/191/41/9570768/9570768_1340856730_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content ( 
+				 {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title Kurt.Cheung, :name_card 9570768, :href http://www.xiami.com/u/9570768}, :content (Kurt.Cheung)})} {:tag :span, :attrs {:class time}, :content (2012-06-27 22:27)} 
+				
+								
+				 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 12, :onclick ageree(11174787,1), :class agereebox_11174787, :href javascript:;}, :content (赞(12))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 2, :onclick ageree(11174787,2), :class disagereebox_11174787, :href javascript:;}, :content (弱(2))})} 
+				
+							)} 
+						
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_2_11174787}, :content (说不出什么理由，这张专辑听着就是舒服，每个毛孔都舒服，在我看来《艳阳天》是窦唯最动听的一张专辑！
+																
+				)} 
+			)} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 17334255}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title ShadoWalker----, :href http://www.xiami.com/u/12216784, :rel , :name_card 12216784, :class personalDropDown}, :content (   {:tag :img, :attrs {:alt ShadoWalker----, :height 50, :width 50, :src http://img.xiami.net/res/img/default/usr50.gif}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content ( 
+				 {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title ShadoWalker----, :name_card 12216784, :href http://www.xiami.com/u/12216784}, :content (ShadoWalker----)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2013-09-22 20:32)} 
+				
+								
+				 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 6, :onclick ageree(17334255,1), :class agereebox_17334255, :href javascript:;}, :content (赞(6))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 2, :onclick ageree(17334255,2), :class disagereebox_17334255, :href javascript:;}, :content (弱(2))})} 
+				
+							)} 
+						
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_2_17334255}, :content (今年成了窦唯脑残粉，25岁
+																
+				)} 
+			)} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 17478708}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title 自安禅悦, :href http://www.xiami.com/u/3321172, :rel , :name_card 3321172, :class personalDropDown}, :content (   {:tag :img, :attrs {:alt 自安禅悦, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/66/42/3321172/3321172_1337357061_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content ( 
+				 {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title 自安禅悦, :name_card 3321172, :href http://www.xiami.com/u/3321172}, :content (自安禅悦)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2013-10-05 03:47)} 
+				
+								
+				 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 4, :onclick ageree(17478708,1), :class agereebox_17478708, :href javascript:;}, :content (赞(4))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 2, :onclick ageree(17478708,2), :class disagereebox_17478708, :href javascript:;}, :content (弱(2))})} 
+				
+							)} 
+						
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_2_17478708}, :content (每到秋日有风时，下意识就要听《艳阳天》了。
+																
+				)} 
+			)} 
+		)} 
+	)} 
+	)} 
+)} 
+				 {:tag :div, :attrs {:id wall_list, :class wall_list}, :content (
+			 {:tag :p, :attrs {:class wall_list_count}, :content ({:tag :span, :attrs nil, :content (259)} 条简评)} 
+			 {:tag :ul, :attrs nil, :content (
+		 {:tag :li, :attrs {:id 21009599}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title woaimn, :href http://www.xiami.com/u/8767968, :rel , :name_card 8767968}, :content (   {:tag :img, :attrs {:alt woaimn, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/175/8767968_1395283402_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title woaimn, :name_card 8767968, :href http://www.xiami.com/u/8767968}, :content (woaimn)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2014-06-13 14:37)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(21009599,1), :class agereebox_21009599, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(21009599,2), :class disagereebox_21009599, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_21009599}, :content (乌云满天　透出霞光　我还有希望
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20757934}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title 闵豆豆, :href http://www.xiami.com/u/35523285, :rel , :name_card 35523285}, :content (   {:tag :img, :attrs {:alt 闵豆豆, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/710/355232851397768146_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title 闵豆豆, :name_card 35523285, :href http://www.xiami.com/u/35523285}, :content (闵豆豆)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2014-05-27 00:27)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20757934,1), :class agereebox_20757934, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 1, :onclick ageree(20757934,2), :class disagereebox_20757934, :href javascript:;}, :content (弱(1))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20757934}, :content (偶然听到 就喜欢上了  今年19岁
+												  {:tag :br, :attrs nil, :content nil} {:tag :br, :attrs nil, :content nil} {:tag :a, :attrs {:target _blank, :href http://www.xiami.com/apps/mobile}, :content (来自android客户端)}  				)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20744510}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title 清水里的刀子, :href http://www.xiami.com/u/13525289, :rel , :name_card 13525289}, :content (   {:tag :img, :attrs {:alt 清水里的刀子, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/270/13525289_1400807972_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title 清水里的刀子, :name_card 13525289, :href http://www.xiami.com/u/13525289}, :content (清水里的刀子)} (将摇滚进行到死！！！！！))} {:tag :span, :attrs {:class time}, :content (2014-05-26 08:37)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20744510,1), :class agereebox_20744510, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20744510,2), :class disagereebox_20744510, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20744510}, :content (喜欢，经典，国内无人能及
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20744495}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title 清水里的刀子, :href http://www.xiami.com/u/13525289, :rel , :name_card 13525289}, :content (   {:tag :img, :attrs {:alt 清水里的刀子, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/270/13525289_1400807972_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title 清水里的刀子, :name_card 13525289, :href http://www.xiami.com/u/13525289}, :content (清水里的刀子)} (将摇滚进行到死！！！！！))} {:tag :span, :attrs {:class time}, :content (2014-05-26 08:35)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20744495,1), :class agereebox_20744495, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20744495,2), :class disagereebox_20744495, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20744495}, :content (这张最喜欢，有意境，
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20645875}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title lulu, :href http://www.xiami.com/u/3674107, :rel , :name_card 3674107}, :content (   {:tag :img, :attrs {:alt lulu, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/73/48/3674107/3674107_1334144996_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title lulu, :name_card 3674107, :href http://www.xiami.com/u/3674107}, :content (lulu)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2014-05-19 21:57)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20645875,1), :class agereebox_20645875, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20645875,2), :class disagereebox_20645875, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20645875}, :content (记得在9几年大学时代，躺在床上迷迷糊糊的听着窗外的磁带，真的听出来了推开窗的感觉！
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20644728}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title 天少当, :href http://www.xiami.com/u/2503362, :rel , :name_card 2503362}, :content (   {:tag :img, :attrs {:alt 天少当, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/50/6/2503362/2503362_1306130826_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title 天少当, :name_card 2503362, :href http://www.xiami.com/u/2503362}, :content (天少当)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2014-05-19 21:07)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20644728,1), :class agereebox_20644728, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20644728,2), :class disagereebox_20644728, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20644728}, :content (相见不恨晚，窦唯艳阳天！
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20609528}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title Juliane, :href http://www.xiami.com/u/28250847, :rel , :name_card 28250847}, :content (   {:tag :img, :attrs {:alt Juliane, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/565/28250847_1388629368_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title Juliane, :name_card 28250847, :href http://www.xiami.com/u/28250847}, :content (Juliane)})} {:tag :span, :attrs {:class time}, :content (2014-05-17 16:01)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20609528,1), :class agereebox_20609528, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20609528,2), :class disagereebox_20609528, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20609528}, :content (我买的第一张实体专辑
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20547786}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title up的鱼, :href http://www.xiami.com/u/3982234, :rel , :name_card 3982234}, :content (   {:tag :img, :attrs {:alt up的鱼, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/79/64/3982234/3982234_1305719684_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title up的鱼, :name_card 3982234, :href http://www.xiami.com/u/3982234}, :content (up的鱼)})} {:tag :span, :attrs {:class time}, :content (2014-05-13 13:26)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20547786,1), :class agereebox_20547786, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20547786,2), :class disagereebox_20547786, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20547786}, :content (心里的自我
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20529152}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title carina_yan, :href http://www.xiami.com/u/7034982, :rel , :name_card 7034982}, :content (   {:tag :img, :attrs {:alt carina_yan, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/140/7034982_1402453404_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title carina_yan, :name_card 7034982, :href http://www.xiami.com/u/7034982}, :content (carina_yan)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})} {:tag :span, :attrs {:class time}, :content (2014-05-12 09:55)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20529152,1), :class agereebox_20529152, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 1, :onclick ageree(20529152,2), :class disagereebox_20529152, :href javascript:;}, :content (弱(1))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20529152}, :content (这首歌适合今天的北平。
+																)} 
+				 )} 
+		)} 
+	)} 
+		 {:tag :li, :attrs {:id 20491593}, :content (
+		 {:tag :div, :attrs {:class post_item}, :content (
+			 {:tag :p, :attrs {:class usr_cover}, :content ({:tag :a, :attrs {:title zhang555666, :href http://www.xiami.com/u/688799, :rel , :name_card 688799}, :content (   {:tag :img, :attrs {:alt zhang555666, :height 50, :width 50, :src http://img.xiami.net/images/avatar_new/13/688799_1399637603_1.jpg}, :content nil}   )})} 
+			 {:tag :div, :attrs {:class info}, :content (  {:tag :span, :attrs {:class author}, :content ({:tag :a, :attrs {:title zhang555666, :name_card 688799, :href http://www.xiami.com/u/688799}, :content (zhang555666)} (沉生))} {:tag :span, :attrs {:class time}, :content (2014-05-09 22:15)} 
+											 {:tag :span, :attrs {:class ageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20491593,1), :class agereebox_20491593, :href javascript:;}, :content (赞(0))})} 
+				 {:tag :span, :attrs {:class disageree}, :content ({:tag :a, :attrs {:rel 0, :onclick ageree(20491593,2), :class disagereebox_20491593, :href javascript:;}, :content (弱(0))})} 
+							)} 
+			 {:tag :div, :attrs {:class brief}, :content (
+				 {:tag :div, :attrs {:id brief_20491593}, :content (人生啊.尽情的跳吧
+																)} 
+				 )} 
+		)} 
+	)} 
+	)} 
+ {:tag :div, :attrs {:class all_page}, :content ({:tag :a, :attrs {:class p_num p_curpage}, :content (1)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/2}, :content (2)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/3}, :content (3)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/4}, :content (4)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/5}, :content (5)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/6}, :content (6)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/7}, :content (7)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/8}, :content (8)} {:tag :a, :attrs {:class p_num, :href /commentlist/turnpage/id/816/page/9}, :content (…)}   {:tag :a, :attrs {:href /commentlist/turnpage/id/816/page/2, :class p_redirect_l}, :content (下一页)}   {:tag :span, :attrs nil, :content ((第1页, 共259条))})} 		)} 
+			)} 
+)} 
+
+ {:tag :style, :attrs nil, :content (
+#autoSuggestList{border:1px solid #b3b3b3; background-color:#ffffff; height:auto; text-align:left;padding:0px 6px 6px; border-radius:3px;}
+
+#autoSuggestList li{margin-top:6px; cursor:pointer; line-height:24px; color:#363636;; padding-right:10px}
+#autoSuggestList li.suggest_title{border-top:none; cursor:default;}
+#autoSuggestList li img{display:block; float:left; margin-right:5px;}
+#autoSuggestList li.on{background-color:#eeeeee}
+textarea {font:normal 12px/1.5em Tahoma, simsun; overflow-y:auto; overflow-x:hidden; word-wrap: break-word;}
+
+#textareaShadow em{ font-style:normal;}
+)} 
+
+ {:tag :script, :attrs {:src http://res.xiami.net/res/js/jquery/jquery.color.js, :type text/javascript}, :content nil} 
+ {:tag :script, :attrs {:src http://res.xiami.net/res/js/jquery/editbox/jquery.editbox.js?v=20131014, :type text/javascript}, :content nil} 
+ {:tag :script, :attrs {:src http://res.xiami.net/static/js/plug/jquery.autoSuggest.js?v=20130517, :type text/javascript}, :content nil} 
+
+ {:tag :script, :attrs nil, :content (
+var commentType = 1;
+var object_id = parseInt(816);
+var uid = parseInt('') || 0;
+var content_txt = '';
+var content_html = '';
+var topic = '';
+var relids = '';
+
+function regReportEvent() {
+    $('.post_item').each(function(i){
+        var self = this;
+        $(self).unbind('mouseenter.report mouseleave.report');
+        $(self).bind('mouseenter.report',function(){
+            temp = setTimeout(function(){
+                $(self).children('.info').children('.report').children('.reportbox').show();
+            }, 200);
+        }).bind('mouseleave.report', function(){
+            clearTimeout(temp);
+            $(self).children('.info').children('.report').children('.reportbox').hide();
+        });
+    });
+}
+regReportEvent();
+
+$(document).ready(function(){
+	var $commentDiv 	= $("#wall_list"),
+	$commentForm 	= $('#post_form'),
+	$commentCount	= $('.wall_list_count').find('span');
+	$btn_Submit 	= $commentForm.find('.bt_sub4w'),
+	$textarea 		= $commentForm.find('textarea'),
+	$count 			= $commentForm.find('.type_counts em'),
+	regDelEvent	= function(){
+		$('.delete a',$commentDiv).attr('onclick','').unbind()
+		.click(function(){
+			if(!confirm('确定要删除吗？')) return false;
+			var $this = $(this);
+			$this.hide().after($loading2);
+			$.post($this.attr('href'),{mode:'ajax'},function(data){
+				if(data == '1') {
+					$this.parent().parent().parent().remove();
+					var count = parseInt($commentCount.text()) - 1;
+					$commentCount.text(count);
+				} else {
+					$this.show().next().remove();
+					alert(data);
+				}
+			});
+			return false;
+		});
+	},
+
+	//重新注册editbox的事件
+	regEvent	= function(){
+		regDelEvent();
+		$('.editbox').editbox();
+		$('.rebox').editbox({type:'re',saveBtnValue:'回 复',afterAppend:regDelEvent});
+		$('.quotebox').editbox({type:'quote',saveBtnValue:'回 复',afterAppend:regDelEvent});
+		$('.hotrebox').editbox({type:'re',saveBtnValue:'回 复',afterAppend:regDelEvent});
+	},
+
+	//ajax翻页
+	ajaxTurnPage	= function(data,type){
+		if(data){
+			var $wallCount = $(".wall_list_count").clone();
+			$commentDiv.empty().append(data);
+			$commentDiv.prepend($wallCount);
+			//$(".all_page").find('a')[0].focus();
+		}
+
+		$("#wall_list .all_page>a").each(function(){
+			var href=$(this).attr('href');
+			var patrn=/page\/(\d+)/;
+			var page = patrn.exec(href);
+			if(page) {
+				href = '/commentlist/turnpage/id/'+object_id+'/page/'+page[1]+'/ajax/1';
+				$(this).attr('href','javascript:;').click(function(){
+					var location = String(window.location).split("#");
+					$("#wall_list .all_page").empty().append($loading2);
+					$.post(href,{'type':type},function(data){window.location = location[0]+"#wall_list";ajaxTurnPage(data,type);});
+				});
+			}
+		});
+		regEvent();
+		regReportEvent();
+	};
+
+	ajaxTurnPage('',commentType);
+	$textarea.keyup(function(){
+		var num = $textarea.val().length;
+		$count.html(num.toString());
+	});
+
+	$btn_Submit.click(function(){
+		var val = $textarea.val();
+		var num = val.length;
+
+		if(num<1||/^\s*$/.test(val)) {alert('内容不能为空');return false;}
+		if(num>300) {alert('输入内容请限制在300字以内');return false;}
+
+		$btn_Submit.hide().after($loading2);
+		if(commentType==23||commentType==25||commentType==24||commentType==30||commentType==12){
+			var sendshare = $('#sendshare').val();
+			if(sendshare==1) {
+				var querydata = {
+					relids:relids,
+					type:commentType,
+					oid:object_id,
+					content:val,
+					mode:'ajax',
+					_xiamitoken:_xiamitoken,
+					sendshare:sendshare,
+					'content_txt':encodeURIComponent(content_txt),
+					'content_html':encodeURIComponent(content_html),
+					'topic':encodeURIComponent(topic)
+				};
+			}else {
+				var querydata = {type:commentType,oid:object_id,content:val,relids:relids,mode:'ajax',_xiamitoken:_xiamitoken};
+			}
+		}else{
+			var querydata = {type:commentType,oid:object_id,content:val,relids:relids,mode:'ajax',_xiamitoken:_xiamitoken};	
+		}
+	
+		$.getJSON('/commentlist/add', querydata, function(data){
+			$btn_Submit.fadeIn().next().remove();
+			if(data.status=='failed') {alert(data.msg);return;}
+			$count.html('0');
+			if(!topic) {
+				$textarea.val('');
+				$textarea.next().val('');
+			}else {
+				$textarea.val(topic) ;
+			}
+			$commentDiv.find('ul').prepend(data.output);
+			regEvent();
+
+			var count = parseInt($commentCount.text()) + 1;
+				$commentCount.text(count);
+			var $c = $commentDiv.find('ul').children();
+			var $last = $($c[0]);
+			//$('a',$last).focus();
+			//window.scrollTo(0,$(".comments_wall").offset().top);
+			$last.hide().fadeIn('fast').animate({backgroundColor:'#FFE222'},'slow').animate({backgroundColor:'#ffffff'},1800);
+		});
+     
+		relids = '';
+		return false;
+	});
+	
+	$("textarea[node-type=autoSuggest]").autoSuggest( "/relation/fetch", uid);
+});
+function detail_report(id,type){
+	var url = '/ajax/report/id/'+ encodeURIComponent(id)+'/type/'+encodeURIComponent(type);
+	showDialog(url);
+}
+
+
+
+function ageree(id,state){
+	var querydata = {'id':id,'state':state,'user_id':uid,'mode':'ajax', '_xiamitoken':_xiamitoken};
+	$.ajax({
+		url:'/commentlist/ageree/',
+		type: 'GET',
+		data:querydata,
+		dataType: 'json',
+		timeout: 2000,
+		beforeSend: function(){
+		},
+		error: function(data){	
+			var url = '/commentlist/ageree/id/'+ encodeURIComponent(id)+'/state/'+encodeURIComponent(state);
+			showDialog(url);
+		},
+		success: function(data){			
+			if(data.status==1){
+				if(state==1){
+					var v = parseInt($('.agereebox_'+id).attr('rel'))+1;
+					$('.agereebox_'+id).html('赞('+v+')');
+				}else if(state==2){
+					var v = parseInt($('.disagereebox_'+id).attr('rel'))+1;	
+					$('.disagereebox_'+id).html('弱('+v+')');
+				}				
+			}
+		}
+	});	
+}
+
+$("#sendshare").click(function() {
+    var val = $("#sendshare").val();
+    if(val==1) $("#sendshare").val(0);
+    if(val==0) $("#sendshare").val(1);   
+});
+
+var Renren={
+	ApiKey:'8521f0afe9404fafbd73d063dd258df0',
+	Receiver:'/renren/xd-receiver',
+	CallBack:'/renren/login',
+	Init:function(){
+		var self=this;
+		XN_RequireFeatures(["Connect"], function(){
+			XN.Main.init(self.ApiKey,self.Receiver,{"doNotUseCachedConnectState":true,'permsToRequestOnConnect':'publish_feed'});
+		});
+	},
+	
+	Login:function(){
+		XN.Connect.requireSession(function(){
+			window.location='/renren/login';
+		});
+		setTimeout(function(){
+			$('#shadow').remove();
+			}, 300);
+	},
+	
+	Logout:function(){
+		var self=this;
+		XN_RequireFeatures(["Connect"], function(){
+			XN.Main.init(self.ApiKey,self.Receiver);
+			XN.Connect.get_status().waitUntilReady(function (login_state) {
+				if (login_state != XN.ConnectState.connected) self.Init();
+				else {
+					var $msg = $('#logoutMsg').find('ul');
+					$msg.append('<li style="display:none">正在等待人人连接的退出! 请稍侯...</li>');
+					var $last = $msg.find('li:last');
+					$last.fadeIn();
+					var timer = setInterval(function(){$last.html($last.html()+'.');},500);
+					XN.Connect.logout(function () {
+						clearInterval(timer);
+						$last.html('人人连接已成功退出！');
+						setTimeout(function(){$last.fadeOut();},3000);
+						self.Init();
+					});
+				}
+			});
+		});
+	}
+};
+
+window.renrenLogin=Renren.Login;
+
+window.sinaLoginForMsg = function(){
+	openWind("/sina?done");
+};
+window.renLoginForMsg = function() {
+	openWind("/renren/goon?done");
+};
+window.qqLoginForMsg = function() {
+	openWind("/share/connect/type/qzone?done");
+};
+window.taoLoginForMsg = function() {
+	openWind("xxx");
+};
+)} 
+					)} 
+				)} 
+				 {:tag :div, :attrs {:id sidebar}, :content (
+										 {:tag :div, :attrs {:data-spm 6856593, :class music_counts}, :content (
+						 {:tag :ul, :attrs {:class clearfix}, :content (
+							 {:tag :li, :attrs {:class line}, :content ({:tag :em, :attrs {:id play_count_num}, :content nil} {:tag :span, :attrs nil, :content (试听)})} 
+							 {:tag :li, :attrs {:class line}, :content (2837 {:tag :span, :attrs nil, :content (收藏)})} 
+							 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title , :href #wall}, :content ({:tag :i, :attrs {:property v:count}, :content (259)} {:tag :span, :attrs nil, :content (评论)})})} 
+						)} 
+					)} 
+					
+					 {:tag :div, :attrs {:class block mgt20, :id album_fans_block}, :content (
+						                                                 {:tag :h3, :attrs nil, :content (收藏了这张专辑的人们...)} 
+                         {:tag :div, :attrs {:class content clearfix}, :content (
+                             {:tag :ul, :attrs nil, :content (
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title 一衣, :name_card 73, :href /u/73}, :content ({:tag :img, :attrs {:alt 一衣, :src http://img.xiami.net/images/avatar_new/0/73_1402477742_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/73}, :content (一衣)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title 边城, :name_card 190, :href /u/190}, :content ({:tag :img, :attrs {:alt 边城, :src http://img.xiami.net/images/avatar_new/0/190_1381939309_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/190}, :content (边城)} {:tag :a, :attrs {:style display:inline, :title 虾米Vip, :target _blank, :href http://www.xiami.com/vip}, :content ({:tag :i, :attrs {:class icon icon_vip}, :content nil})})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title blackdream, :name_card 4333, :href /u/4333}, :content ({:tag :img, :attrs {:alt blackdream, :src http://img.xiami.net/images/avatar_new/0/8/4333/4333_1304932266_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/4333}, :content (blackdream)})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title 王員外, :name_card 8584, :href /u/8584}, :content ({:tag :img, :attrs {:alt 王員外, :src http://img.xiami.net/images/avatar_new/0/17/8584/8584_1304933582_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/8584}, :content (王員外)})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title 麦兜说老麦是一种愿望, :name_card 10535, :href /u/10535}, :content ({:tag :img, :attrs {:alt 麦兜说老麦是一种愿望, :src http://img.xiami.net/images/avatar_new/0/21/10535/10535_1374157388_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/10535}, :content (麦兜说老麦是一种愿望)})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title 艾保 思故, :name_card 18298, :href /u/18298}, :content ({:tag :img, :attrs {:alt 艾保 思故, :src http://img.xiami.net/images/avatar_new/0/36/18298/18298_1304936472_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/18298}, :content (艾保 思故)})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title 大強, :name_card 12112, :href /u/12112}, :content ({:tag :img, :attrs {:alt 大強, :src http://img.xiami.net/images/avatar_new/0/24/12112/12112_1304934618_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/12112}, :content (大強)})})} 
+                                                                 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:title iceorange, :name_card 6518, :href /u/6518}, :content ({:tag :img, :attrs {:alt iceorange, :src http://img.xiami.net/images/avatar_new/0/13/6518/6518_1333791675_1.jpg}, :content nil})} {:tag :p, :attrs nil, :content ({:tag :a, :attrs {:href /u/6518}, :content (iceorange)})})} 
+                                                            )} 
+                        )} 
+																	)} 
+                                         {:tag :div, :attrs {:data-spm 6856597, :class adm_block mgt20}, :content ({:type :comment, :data  Muisc-Album_Right_300x250 } {:tag :script, :attrs {:type text/javascript}, :content (GA_googleFillSlot("Muisc-Album_Right_300x250");)})} 
+										 {:tag :div, :attrs {:class block sec_Rlt mgt20, :id other_albums}, :content (
+						 {:tag :h3, :attrs nil, :content ({:tag :span, :attrs nil, :content (窦唯的其他热门专辑)})} 
+						 {:tag :div, :attrs {:class content clearfix}, :content (
+							 {:tag :div, :attrs {:class sider_sec}, :content (
+								 {:tag :ul, :attrs nil, :content (
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/1078102271, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img98/198/10781022711378102272_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/1078102271}, :content (甜蜜十八岁)})} 
+												 {:tag :p, :attrs {:class year}, :content (2013发行)} 
+											)} 
+										)} 
+									)} 
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/446974, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img98/198/4469741308624320_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/446974}, :content (迷走江湖)} {:tag :b, :attrs {:class ico_cd ele_inline mah}, :content ({:tag :a, :attrs {:onclick playalbum('446974'), :title 试听 迷走江湖, :href javascript:void(0)}, :content (试听)})})} 
+												 {:tag :p, :attrs {:class year}, :content (2011发行)} 
+											)} 
+										)} 
+									)} 
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/305505, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img58/7158/3055051385789494_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/305505}, :content (李米的猜想 电影原声专辑)} {:tag :b, :attrs {:class ico_cd ele_inline mah}, :content ({:tag :a, :attrs {:onclick playalbum('305505'), :title 试听 李米的猜想 电影原声专辑, :href javascript:void(0)}, :content (试听)})})} 
+												 {:tag :p, :attrs {:class year}, :content (2008发行)} 
+											)} 
+										)} 
+									)} 
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/306954, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img98/198/306954_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/306954}, :content (五音环乐)} {:tag :b, :attrs {:class ico_cd ele_inline mah}, :content ({:tag :a, :attrs {:onclick playalbum('306954'), :title 试听 五音环乐, :href javascript:void(0)}, :content (试听)})})} 
+												 {:tag :p, :attrs {:class year}, :content (2008发行)} 
+											)} 
+										)} 
+									)} 
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/172786, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img98/198/1727861393838970_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/172786}, :content (佐罗在中国)} {:tag :b, :attrs {:class ico_cd ele_inline mah}, :content ({:tag :a, :attrs {:onclick playalbum('172786'), :title 试听 佐罗在中国, :href javascript:void(0)}, :content (试听)})})} 
+												 {:tag :p, :attrs {:class year}, :content (2007发行)} 
+											)} 
+										)} 
+									)} 
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/172785, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img98/198/1727851393838936_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/172785}, :content (松阿珠阿吉)} {:tag :b, :attrs {:class ico_cd ele_inline mah}, :content ({:tag :a, :attrs {:onclick playalbum('172785'), :title 试听 松阿珠阿吉, :href javascript:void(0)}, :content (试听)})})} 
+												 {:tag :p, :attrs {:class year}, :content (2007发行)} 
+											)} 
+										)} 
+									)} 
+																		 {:tag :li, :attrs nil, :content (
+										 {:tag :div, :attrs {:class album_item55_side}, :content (
+											 {:tag :p, :attrs {:class cover}, :content (  {:tag :a, :attrs {:class CDcover55, :href /album/172784, :title }, :content ({:tag :img, :attrs {:alt , :height 55, :width 55, :src http://img.xiami.net/images/album/img98/198/1727841393244517_3.jpg}, :content nil})})} 
+											 {:tag :div, :attrs {:class info}, :content (
+												 {:tag :p, :attrs {:class name}, :content ({:tag :a, :attrs {:title , :href /album/172784}, :content (35651)} {:tag :b, :attrs {:class ico_cd ele_inline mah}, :content ({:tag :a, :attrs {:onclick playalbum('172784'), :title 试听 35651, :href javascript:void(0)}, :content (试听)})})} 
+												 {:tag :p, :attrs {:class year}, :content (2007发行)} 
+											)} 
+										)} 
+									)} 
+																	)} 
+							)} 
+						
+						)} 
+						 {:tag :div, :attrs {:class acts}, :content ({:tag :a, :attrs {:class more, :href /artist/album/id/198}, :content (更多专辑)})} 
+					)} 
+					                    
+					 {:tag :div, :attrs {:class block sec_Rlt mgt20, :id album_tags_block}, :content (
+						 {:tag :h3, :attrs nil, :content (专辑标签)} 
+						 {:tag :div, :attrs {:class content clearfix}, :content (
+							 {:tag :a, :attrs {:title 标签为摇滚的专辑, :href /album/tag/%E6%91%87%E6%BB%9A, :class hot0, :id tag_436}, :content (摇滚)} {:tag :a, :attrs {:title 标签为大陆的专辑, :href /album/tag/%E5%A4%A7%E9%99%86, :class hot0, :id tag_5196}, :content (大陆)} {:tag :a, :attrs {:title 标签为中国的专辑, :href /album/tag/%E4%B8%AD%E5%9B%BD, :class hot0, :id tag_6147}, :content (中国)} {:tag :a, :attrs {:title 标签为窦唯\的专辑, :href /album/tag/%E7%AA%A6%E5%94%AF%5C, :class hot0, :id tag_473808}, :content (窦唯\)} {:tag :a, :attrs {:title 标签为中国摇滚的专辑, :href /album/tag/%E4%B8%AD%E5%9B%BD%E6%91%87%E6%BB%9A, :class hot0, :id tag_4717}, :content (中国摇滚)} {:tag :a, :attrs {:title 标签为的专辑, :href /album/tag/, :class hot0, :id tag_}, :content nil} {:tag :a, :attrs {:title 标签为艳阳天的专辑, :href /album/tag/%E8%89%B3%E9%98%B3%E5%A4%A9, :class hot0, :id tag_240186}, :content (艳阳天)} {:tag :a, :attrs {:title 标签为Rock & Roll的专辑, :href /album/tag/Rock+%26+Roll, :class hot0, :id tag_715920}, :content (Rock & Roll)} {:tag :a, :attrs {:title 标签为 的专辑, :href /album/tag/+, :class hot0, :id tag_232647}, :content ( )} {:tag :a, :attrs {:title 标签为中国经典的专辑, :href /album/tag/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E5%85%B8, :class hot0, :id tag_333604}, :content (中国经典)} {:tag :a, :attrs {:title 标签为窦的专辑, :href /album/tag/%E7%AA%A6, :class hot0, :id tag_253203}, :content (窦)} {:tag :a, :attrs {:title 标签为窦唯的专辑, :href /album/tag/%E7%AA%A6%E5%94%AF, :class hot3, :id tag_5098}, :content (窦唯)} {:tag :a, :attrs {:title 标签为经典的专辑, :href /album/tag/%E7%BB%8F%E5%85%B8, :class hot0, :id tag_691}, :content (经典)} {:tag :a, :attrs {:title 标签为男声的专辑, :href /album/tag/%E7%94%B7%E5%A3%B0, :class hot0, :id tag_6277}, :content (男声)} {:tag :a, :attrs {:title 标签为窦唯-艳阳天的专辑, :href /album/tag/%E7%AA%A6%E5%94%AF-%E8%89%B3%E9%98%B3%E5%A4%A9, :class hot0, :id tag_395025}, :content (窦唯-艳阳天)} {:tag :a, :attrs {:title 标签为Rock的专辑, :href /album/tag/Rock, :class hot0, :id tag_437}, :content (Rock)} {:tag :a, :attrs {:title 标签为窦唯艳阳天的专辑, :href /album/tag/%E7%AA%A6%E5%94%AF%E8%89%B3%E9%98%B3%E5%A4%A9, :class hot0, :id tag_353435}, :content (窦唯艳阳天)} {:tag :a, :attrs {:title 标签为华语的专辑, :href /album/tag/%E5%8D%8E%E8%AF%AD, :class hot0, :id tag_4357}, :content (华语)} {:tag :a, :attrs {:title 标签为魔岩三杰的专辑, :href /album/tag/%E9%AD%94%E5%B2%A9%E4%B8%89%E6%9D%B0, :class hot0, :id tag_112236}, :content (魔岩三杰)} {:tag :a, :attrs {:title 标签为窦唯-艳的专辑, :href /album/tag/%E7%AA%A6%E5%94%AF-%E8%89%B3, :class hot0, :id tag_472540}, :content (窦唯-艳)} 
+						)} 
+						 {:tag :div, :attrs {:class acts}, :content ({:tag :a, :attrs {:class more, :href /album/moretags/id/816}, :content (更多标签)})} 
+					)} 
+                     {:tag :div, :attrs {:class add2group}, :content ({:tag :a, :attrs {:title , :onclick groupalbum('816'), :href javascript:}, :content (收藏此专辑到我的小组)}   {:tag :a, :attrs {:title , :href /group/fav/type/album/id/816, :class others}, :content ((其他4个))})} 
+                    
+                                        
+					 {:tag :div, :attrs {:class amend mgt20}, :content (
+						 {:tag :ul, :attrs nil, :content (
+							 {:tag :li, :attrs nil, :content ({:tag :a, :attrs {:class report, :target _blank, :href /wiki/addalbum?id=816}, :content ({:tag :i, :attrs nil, :content nil} 专辑信息报错与补充)})} 
+						)} 
+					)} 
+				)} 
+			)} 
+						 {:tag :div, :attrs {:data-spm 6856581, :id nav}, :content (
+								 {:tag :a, :attrs {:class , :href /artist/198}, :content (艺人概览)} 
+				 {:tag :a, :attrs {:class , :href /artist/profile/id/198}, :content (档案)} 				
+				 {:tag :a, :attrs {:class current, :href /artist/album/id/198}, :content (专辑)} 				
+				 {:tag :a, :attrs {:class , :href /artist/top/id/198}, :content (热门歌曲)} 				
+				 {:tag :a, :attrs {:class , :href /artist/pic/arid/198}, :content (乐迷相册)} 
+				 {:tag :a, :attrs {:class , :href /artist/similar/id/198}, :content (相似艺人)} 
+				 {:tag :a, :attrs {:class  last, :href /artist/fans/id/198}, :content (粉丝)} 
+							)} 
+			 {:tag :div, :attrs {:style margin-left:111px;, :class adm_block mgt20}, :content ({:type :comment, :data  Muisc-Album_Bottom_300x250 } {:tag :script, :attrs {:type text/javascript}, :content (GA_googleFillSlot("Muisc-Album_Bottom_300x250");)})} 
+		)} 
+	)} 
+)} 
+ {:tag :script, :attrs {:language javascript}, :content (
+var aid=816;
+var arid = 198;
+var search_site = 'http://www.xiami.com';
+
+function page_review(id,num){
+	var url = '/album/review/id/'+ encodeURIComponent(id) + '/num/'+ encodeURIComponent(num)+'/nolink/1';
+	showDialog(url);
+}
+
+function getQuote(type,id){
+	var url = '/ajax/getquote/type/'+ encodeURIComponent(type)+'/id/'+encodeURIComponent(id);
+	showDialog(url);
+}
+$(document).ready(function() {
+	$('#cover_lightbox').lightBox({
+		imageLoading:'http://img.xiami.net/res/js/jquery/jquery_lightbox_images/lightbox-ico-loading.gif',
+		imageBtnPrev:'http://img.xiami.net/res/js/jquery/jquery_lightbox_images/lightbox-btn-prev.gif',	
+		imageBtnNext:'http://img.xiami.net/res/js/jquery/jquery_lightbox_images/lightbox-btn-next.gif',
+		imageBtnClose:'http://img.xiami.net/res/js/jquery/jquery_lightbox_images/lightbox-btn-close_tiny.gif',
+		imageBlank:'http://img.xiami.net/res/js/jquery/jquery_lightbox_images/lightbox-blank.gif'
+	});
+	var delGrade = $(".delGrade");
+	$(".grade").hover(function(){
+		delGrade.show();
+	},function(){
+		delGrade.hide();
+	});
+	delGrade.bind('click',function(){
+		var $this = $(this);
+		$this.siblings('a').removeClass('selected');
+		$.getJSON('/album/review',{grade:0,id:aid,submit:1,mod:'ajax',_xiamitoken:_xiamitoken},function(data){
+			if(data.status=='failed'){alert(data.msg);return;}
+			$this.siblings('input').val('0');
+			window.location.reload();
+		});
+	});
+	/**/
+	var target='.grade a';
+	//var i=parseInt($('#album_cover .grade_v').val());
+	var i = '';
+	if(parseInt($('#album_cover .grade_v').val())){
+		for (j=0; j<i; j++){$($(target).get(j)).addClass('selected');}
+		$('.grade span').text($($(target).get(i-1)).text());
+	}
+	$(target).mouseover(function(){
+		$(target).removeClass('hover').removeClass('selected');
+		var i=parseInt($(target).index($(this)[0])); 
+		for (j=0; j<=i; j++){$($(target).get(j)).addClass('hover');}
+		$('.grade span').text($(this).text()); 
+	}).click(function(){
+		$(target).removeClass('hover').removeClass('selected');
+		var i=parseInt($(target).index($(this)[0])); 
+		for (j=0; j<=i; j++){$($(target).get(j)).addClass('selected');}
+		$('#album_cover .grade_v').val(i+1);
+		//$('.grade span').text($(this).text());
+	}).mouseout(function(){
+		$(target).removeClass('hover').removeClass('selected');
+		var i=parseInt($('#album_cover .grade_v').val());		
+		for (j=0; j<i; j++){$($(target).get(j)).addClass('selected');}
+		if(!parseInt($('#album_cover .grade_v').val())){
+		$('.grade span').text('');
+		}else{
+		$('.grade span').text($($(target).get(i-1)).text());
+		}
+	});
+	/**/
+
+	$('#album_acts').mouseenter(function(){
+		$(this).addClass('acts_hover');
+		$('.do_fav').mouseenter(function(){
+			$(this).find('ul').show();
+		})
+		.mouseleave(function(){
+			$(this).find('ul').hide();
+		});
+	})
+	.mouseleave(function(){
+		$(this).removeClass('acts_hover');
+	});
+
+	//专辑试听数
+	var playCount = 0;
+	var temp = $('.song_hot');
+	for(var i=0;i<temp.length;i++){
+		playCount += $(temp[i]).text()-0;
+	}
+	$('#play_count_num').html(playCount);
+	
+	$(".album_intro_toggle a").toggle(
+		function() {
+			$("#album_intro").removeClass("intro_less");
+			$(this).attr('id','show_less').html("收缩");
+		},
+		function() {
+			$("#album_intro").addClass("intro_less");
+			$(this).attr('id','show_more').html("详细");
+		}
+	);
+});
+	//提交音频
+	$('#submit_music').hover(function(){
+		$(this).find('.show_tips').show();
+	},function(){
+		$(this).find('.show_tips').hide();
+	});
+$('#more_btn').bind("click", function(){
+	if (!$(this).hasClass("song_less")) {
+		$(this).html('- 更少').addClass("song_less");
+		$('.share_btns').hide();
+		$('#full_share').show();
+	} else {
+		$(this).html('+ 更多').removeClass("song_less");
+		$('#full_share').hide();
+		$('.share_btns').show();
+	}
+});
+)} 
+
+
+ {:tag :style, :attrs nil, :content (
+	.sitemap dl dd a{
+		background: none;
+		padding: 0;
+	}
+	
+	.sitemap dl dd{
+		padding: 0;
+		line-height: 22px;
+	}
+
+	.sitemap dl{
+		margin: 0;
+	}
+	.sitemap dl dt{ 
+	font-size: 12px;
+	line-height: 22px;
+	}
+	#footer {zoom:1;}
+)} 
+
+
+ {:tag :div, :attrs {:data-spm 1110930425, :id footer}, :content (
+	 {:tag :div, :attrs {:class gap}, :content (
+	 {:tag :div, :attrs {:class wrapper}, :content (
+		 {:tag :div, :attrs {:class content}, :content (
+			 {:tag :div, :attrs {:class sitemap}, :content (
+				
+				 {:tag :dl, :attrs nil, :content (
+					 {:tag :dt, :attrs nil, :content (关于)} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /about, :title 关于我们}, :content (关于我们)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /job, :title 虾米招聘}, :content (虾米招聘)} {:tag :sup, :attrs {:class hot}, :content nil})} 
+										 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /musician-contact, :title 独立音乐人合作}, :content (独立音乐人合作)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /contact, :title 联系我们}, :content (联系我们)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /links, :title 友情链接}, :content (友情链接)})} 
+				)} 
+				
+				 {:tag :dl, :attrs nil, :content (
+					 {:tag :dt, :attrs nil, :content (特色服务)} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /vip, :title 虾米 VIP}, :content (虾米 VIP)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /relation/talentcollect, :title 音乐达人}, :content (音乐达人)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /group, :title 虾米小组}, :content (虾米小组)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href http://loop.xiami.com/, :title 虾米 LOOP}, :content (虾米 LOOP)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /widget, :title 虾米播播}, :content (虾米播播)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /events, :title 音乐专题}, :content (音乐专题)})} 
+										
+				)} 
+				
+				 {:tag :dl, :attrs nil, :content (
+					 {:tag :dt, :attrs nil, :content (虾米云音乐)} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /apps/iphone, :title 虾米 for iPhone}, :content (虾米 for iPhone)} {:tag :sup, :attrs {:class hot}, :content nil})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /apps/android, :title 虾米 for Android}, :content (虾米 for Android)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /apps/win, :title 虾米 for Windows}, :content (虾米 for Windows)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /apps/mac, :title 虾米 for Mac}, :content (虾米 for Mac)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /apps/ipad, :title 虾米 for iPad}, :content (虾米 for iPad)})} 
+				)} 
+
+				
+				 {:tag :dl, :attrs nil, :content (
+					 {:tag :dt, :attrs nil, :content (更多)} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /music/category, :title 分类找歌}, :content (分类找歌)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /websitehelp, :title 帮助中心}, :content (帮助中心)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /wiki/addalbum, :title 添加虾米还没有的资料}, :content (添加虾米还没有的资料)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /music/want, :title 提交大家想要的专辑}, :content (提交大家想要的专辑)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /group/join/id/10147?done=/group/thread-new/id/10147, :title 给虾米提意见}, :content (给虾米提意见)})} 
+					 {:tag :dd, :attrs nil, :content ({:tag :a, :attrs {:href /software/allegro, :title 虾传}, :content (虾传)})} 
+				)} 
+			)} 
+				
+			 {:tag :div, :attrs {:class cooperation}, :content (
+							)} 
+
+		)} 
+		 {:tag :div, :attrs {:class ali_group}, :content (
+			 {:tag :a, :attrs {:href http://page.1688.com/shtml/about/ali_group1.shtml}, :content (阿里巴巴集团)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.alibaba.com}, :content (阿里巴巴国际站)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.1688.com}, :content (阿里巴巴中国站)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.aliexpress.com}, :content (全球速卖通)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.taobao.com}, :content (淘宝网)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.tmall.com}, :content (天猫)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://ju.taobao.com}, :content (聚划算)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.etao.com}, :content (一淘)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.alimama.com}, :content (阿里妈妈)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://trip.taobao.com}, :content (淘宝旅行)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.xiami.com}, :content (虾米)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.aliyun.com}, :content (阿里云计算)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.yunos.com}, :content (云OS)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.net.cn}, :content (万网)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.alipay.com}, :content (支付宝)} 
+			 {:tag :b, :attrs nil, :content (|)} 
+			 {:tag :a, :attrs {:href http://www.laiwang.com/}, :content (来往)} 
+		)} 
+		 {:tag :div, :attrs {:class extra}, :content (
+			 {:tag :div, :attrs {:class sns}, :content (
+				关注虾米： 
+				 {:tag :a, :attrs {:title 新浪微博, :href http://t.sina.com.cn/xiamixiamixiami}, :content ({:tag :b, :attrs {:class icon sina}, :content nil})} 
+				 {:tag :a, :attrs {:title 人人网, :href http://page.renren.com/699099957/index}, :content ({:tag :b, :attrs {:class icon renren}, :content nil})} 
+				 {:tag :a, :attrs {:title QQ 空间, :href http://new.qzone.qq.com/810167634}, :content ({:tag :b, :attrs {:class icon qzone}, :content nil})} 
+				 {:tag :a, :attrs {:title 腾讯微博, :href http://t.qq.com/xiaxiaomi}, :content ({:tag :b, :attrs {:class icon tqq}, :content nil})} 
+								 {:tag :a, :attrs {:title 豆瓣, :href http://www.douban.com/people/xiaxiaomi}, :content ({:tag :b, :attrs {:class icon douban}, :content nil})} 
+							)} 
+			
+			 {:tag :div, :attrs {:class copyright}, :content (© 2007 -  {:tag :script, :attrs nil, :content (document.write(new Date().getFullYear());)}   {:tag :a, :attrs {:href http://www.xiami.com/}, :content (杭州缪斯客网络科技有限公司)}  -  {:tag :a, :attrs {:title 网站地图, :href /sitemap}, :content (网站地图)}   {:tag :strong, :attrs {:title give music a chance, :class xiami_motto ti}, :content ("give music a chance")} {:tag :br, :attrs nil, :content nil} {:tag :a, :attrs {:target _blank, :href http://img.xiami.net/res/v3/img/wenwangwen.jpg}, :content (浙网文[2011]0012-005号)}      {:tag :a, :attrs {:title 浙ICP备08103200号-2, :target _blank, :href http://www.miibeian.gov.cn/}, :content (浙ICP备08103200号-2)}      {:tag :a, :attrs {:target _blank, :href http://img.xiami.net/res/v3/img/icp.jpg}, :content (经营许可证编号 浙B2-20110188)}     阿里巴巴旗下网站)} 
+		)} 
+	)} 
+	)} 
+)} 
+ {:type :comment, :data  #footer}  
+
+ {:tag :a, :attrs {:class t_hide, :href javascript:void(0);, :id gotop}, :content (Top)} 
+
+ {:tag :div, :attrs {:style display:none;, :id personal_hover}, :content nil} 
+ {:tag :textarea, :attrs {:style display:none;, :id personal_hover_tpl}, :content (
+	)} {:tag :div, :attrs {:class lightShadow, :id personal_hover_shadow}, :content nil} 
+	 {:tag :div, :attrs {:id personal_hover_inner}, :content (
+	 {:tag :a, :attrs {:title  %gmt_access% , :href http://www.xiami.com/u/%uid%, :id personal_hover_link}, :content ({:tag :img, :attrs {:height 50, :width 50, :src %avatar%, :id personal_hover_img}, :content nil})} 
+	 {:tag :img, :attrs {:alt , :height 50, :width 50, :src http://img.xiami.net/res/img/default/loading50x50.gif, :id personal_hover_pulser_img, :class hidden}, :content nil} 
+	 {:tag :div, :attrs {:id personal_trigger_bar}, :content (
+	 {:tag :a, :attrs {:title , :href javascript:;, :id personal_menu_down, :class personal_drop}, :content (更多内容)} 
+	 {:tag :div, :attrs {:style display:none;, :class personal_buddy_menus, :id personal_menu_show}, :content (
+	 {:tag :span, :attrs {:class blank_block}, :content nil} 
+	 {:tag :p, :attrs {:id personal_relationship_g}, :content ({:tag :span, :attrs {:class be_contacts}, :content ({:tag :strong, :attrs nil, :content (%nick_name%)})})} 
+	 {:tag :div, :attrs {:id personal_menu_other_div}, :content (
+		 {:tag :a, :attrs {:title %nick_name%的个人主页, :href http://www.xiami.com/u/%uid%, :class blocks, :id personal_o_index}, :content (%nick_name%的个人主页)} 
+ {:type :comment, :data 		<a id="personal_o_minifeed"  class="blocks" href="http://www.xiami.com/space/feed/u/%uid%" title="近况">近况</a>} 
+		 {:tag :a, :attrs {:title %nick_name%的音乐库, :href http://www.xiami.com/space/lib-song/u/%uid%, :class blocks, :id personal_o_library}, :content (音乐库)} 
+         {:tag :a, :attrs {:title %nick_name%的分享, :href http://www.xiami.com/space/rec/u/%uid%, :class blocks, :id personal_o_recommend}, :content (分享)} 
+         {:tag :a, :attrs {:title %nick_name%的关注和粉丝, :href http://www.xiami.com/space/following/u/%uid%, :class blocks, :id personal_o_contact}, :content (关注/粉丝)} 
+		 {:tag :a, :attrs {:title %nick_name%的精选集, :href http://www.xiami.com/space/collect/u/%uid%, :class blocks, :id personal_o_collect}, :content (精选集)} 
+ {:type :comment, :data 		<a id="personal_o_charts"  class="blocks" href="http://www.xiami.com/space/charts/u/%uid%" title="个人排行榜">个人排行榜</a>} 
+		 {:tag :a, :attrs {:title %nick_name%参与过的话题, :href http://www.xiami.com/space/group-thread/u/%uid%, :class blocks, :id personal_o_topic}, :content (参与的话题)} 
+	)} 
+	 {:tag :a, :attrs {:title 发站内信, :href http://www.xiami.com/member/sendpm?to_user_id=%uid%, :class blocks_out, :id personal_msgsned}, :content (发站内信)} 
+	 {:tag :a, :attrs {:title 加入黑名单, :onclick blacklist('%uid%');return false;, :href javascript:;, :class blocks_out, :id personal_block_usr}, :content (加入黑名单)} 
+	 {:tag :div, :attrs {:id person_menu_self_div}, :content nil} 
+	)} 
+	)} 
+	)} 
+
+
+
+
+ {:tag :script, :attrs nil, :content (
+;(function($){
+	$.fn.personalDropMenu = function(settings){
+		var defaults = {
+			menuDiv: '#personal_hover',
+			tplDiv: '#personal_hover_tpl',
+			dropdownArrow:'#personal_menu_down',
+			myUid: 0
+		};
+        
+		$.extend(defaults, settings);
+        
+		var $menuDiv,menuDiv_html,$tplDiv;
+		$menuDiv = $(defaults.menuDiv);
+		$tplDiv = $(defaults.tplDiv);
+		menuDiv_html = $tplDiv.val();//保存原始的html        
+		$menuDiv.bind('mouseleave',function(){$(this).hide();});
+		window.isFriendshipQueryed=false;
+		var friends;
+		var setFriendHtml = function(uid,$obj){
+			$obj.next().remove();
+			if(uid == defaults.myUid) {
+				$obj.html('<strong>你自己</strong>');
+				$menuDiv.find('#personal_block_usr').remove();
+				$menuDiv.find('#personal_msgsned').remove();
+			}else if(!friends){
+				$obj.after('<span class="be_stranger"><a href="javascript:;" onclick="attention('+uid+',1);">(加关注)</a></span>');
+			}else if(friends['f_'+uid] && friends['f_'+uid]=="1"){
+				$obj.after('<span class="be_stranger"> 已关注 <a href="http://www.xiami.com/member/attention/uid/'+uid+'/type/2?_xiamitoken='+_xiamitoken+'" onclick="return confirm(\'确定要取消吗？\');">(取消关注)</a></span>');
+			}else if(friends['f_'+uid] && friends['f_'+uid]=="2"){
+				$obj.after('<span class="be_stranger"> 已关注 <a href="http://www.xiami.com/member/attention/uid/'+uid+'/type/2?_xiamitoken='+_xiamitoken+'" onclick="return confirm(\'确定要取消吗？\');">(取消关注)</a></span>');
+			}else if(friends['f_'+uid] && friends['f_'+uid]=="3"){
+				$obj.after('<span class="be_stranger"> 已加入黑名单 <a href="http://www.xiami.com/member/attention/uid/'+uid+'/type/2?_xiamitoken='+_xiamitoken+'" onclick="return confirm(\'确定要取消吗？\');">(取消)</a></span>');
+				$menuDiv.find('#personal_block_usr').remove();
+				$menuDiv.find('#personal_msgsned').remove();
+			}else{
+				$obj.after('<span class="be_stranger"><a href="javascript:;" onclick="attention('+uid+',1);">(加关注)</a></span>');
+			}
+		};
+        
+		return this.each(function(){
+			var $this;
+			$this = $(this);
+			$this.mouseover(function(){
+				var params ={
+					uid: /\d+/.exec($this.attr('href')),
+					avatar: $this.find('img').attr('src'),
+					nick_name:$this.attr('title'),
+					gmt_access:$this.attr('rel')
+				};
+				if(params.gmt_access!='') params.gmt_access = "来访时间: "+params.gmt_access;
+				var html = menuDiv_html.parseTpl(params);
+				//var rects = $this[0].getBoundingClientRect();
+				var rects = $this.offset();
+				var bodyRects = $('body')[0].getBoundingClientRect();
+				//var left = rects.left - bodyRects.left - 6;
+				//var top = rects.top - bodyRects.top - 6;
+				var left = rects.left - 6;
+				var top = rects.top - 6;
+				$menuDiv.css({'top':top,'left':left});
+				$menuDiv.html(html).show();
+				if(params.gmt_access=='') $menuDiv.find('#personal_hover_link').attr('title','');
+				$menuDiv.find(defaults.dropdownArrow).click(function(){
+					var $this = $(this);
+					var $next = $this.next();
+					$this.toggleClass('active')
+					$next.toggle();
+					if($next.css('display')!='block') return;
+					$relation = $next.find('.be_contacts');
+					if(params.uid ==defaults.myUid) {setFriendHtml(params.uid,$relation); return; }     
+					if(isFriendshipQueryed){ setFriendHtml(params.uid,$relation); return; }                    
+					if(!myUid) return;
+					$relation.after($loading2);
+					$.getJSON('/member/get-friends/_xiamitoken/'+_xiamitoken,function(data){
+						try{
+							$relation.next().remove();
+							if(data.status == 'failed'){return false;}
+							isFriendshipQueryed = true;
+							friends = data.friends;
+							setFriendHtml(params.uid,$relation);
+						}catch(e){alert('Warning:something wrong! Please retry!');return;}
+					});
+				});
+			});
+		});
+	};
+})(jQuery);
+
+
+// var myUid = parseInt('');
+// $('.personalDropDown').personalDropMenu({myUid:myUid});
+)} 
+
+ {:tag :script, :attrs nil, :content (
+_xiamitoken = 'b62b409a698709aaf8b851f541fe1dfa';
+
+
+$(document).ready(function(){
+	$('body').click(function(e){
+		$(".ctrl_gears_more").addClass('hidden');
+		$(".bt_cdgears").removeClass('active');	
+	});
+	
+	$("#web_loading").remove();
+
+	$(".song_menu").mouseover(function() {
+		$(this).css('z-index','6').children('span').show();
+	}).mouseout(function() {
+		$(this).css('z-index','5').children('span').hide();
+	});
+
+	$(".bt_cdgears").mouseover(function(){$(this).addClass('active').next().removeClass('hidden').show();});
+	BackTop('gotop');
+	
+	// if ($.cookie('fools_day') != 1) {
+	// 	var now = new Date();
+	// 	var close_date = new Date('2012/4/2');
+	// 	var begin_date = new Date('2012/4/1');
+	// 	if (close_date.getTime()-now.getTime()>0 && now.getTime()-begin_date.getTime()>0) {
+	// 		var rabbit_hole = Math.ceil(Math.random()*4);
+	// 		if (rabbit_hole != 3) {
+	// 			setTimeout(function() {
+	// 				$.cookie('fools_day', 1 , { expires: 3, path: '/', domain: '.xiami.com'});
+	// 				location.href = '/event/heavenconcert';
+	// 			}, 3000);
+	// 		}
+	// 	}
+	// }
+});
+var BackTop=function(btnId){
+	var btn=document.getElementById(btnId);
+	var browserName=navigator.userAgent.toLowerCase();
+	if(/chrome/i.test(browserName) && /webkit/i.test(browserName) && /mozilla/i.test(browserName)){
+	    var d = document.body;
+	}else if(/webkit/i.test(browserName) && !this.chrome){
+		var d = document.body;
+	}else{
+	    var d = document.documentElement ? document.documentElement : document.body;
+	}
+	/*var d = document.documentElement ? document.documentElement : document.body;*/
+	window.onscroll=set;
+	btn.onclick=function (){
+		btn.className = 't_hide';
+		window.onscroll=null;
+		this.timer=setInterval(function(){
+			//d.scrollTop = 0;
+			d.scrollTop-=Math.ceil(d.scrollTop*0.8);
+			if(d.scrollTop==0) clearInterval(btn.timer,window.onscroll=set);
+		},10);
+	};
+	function set(){
+		btn.className = d.scrollTop >= 1200 ? 't_show' : 't_hide';
+	}
+};
+var checkFlash=function(a){var b='检测到您系统Flash插件版本过低,为了更好的使用虾米音乐,请升级您的Flash插件, <a href="http://get.adobe.com/cn/flashplayer/" target="_blank" style="color:#36c">马上升级</a>',c=function(){var a,c,b=document.body.children||document.body.childNodes;for(c=0;c<b.length;c++)if(1==b[c].nodeType){a=b[c];break}return a}(),d=function(){var c,a=navigator,b=0;if(a.plugins&&a.mimeTypes.length)c=navigator.plugins["Shockwave Flash"],c&&(b=c.description.replace(/.*\s(\d+\.\d+).*/,"$1"));else try{c=new window.ActiveXObject("ShockwaveFlash.ShockwaveFlash"),c&&(b=c.GetVariable("$version"))}catch(d){}return b}(),e=function(){var a=document.createElement("div");a.innerHTML=b,a.style.backgroundColor="#FFF9D7",a.style.borderBottom="1px solid #E3C823",a.style.fontWeight="bold",a.style.lineHeight="30px",a.style.textAlign="center",a.style.color="#f60",document.body.insertBefore(a,c)},f=d?d.match(/\d+/g):-1,g=f.length>0?f.join("."):0;return!g||parseInt(f[0],10)<a?(e(),!1):!0}(9);
+)}  
+
+
+
+ {:tag :script, :attrs {:type text/javascript}, :content (
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32929566-1']);
+  _gaq.push(['_setDomainName', 'xiami.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+)} 
+
+
+ {:tag :div, :attrs {:style display:none}, :content (
+ {:tag :script, :attrs {:charset gb2312, :language JavaScript, :src http://s95.cnzz.com/stat.php?id=921634&web_id=921634}, :content nil} 
+ {:tag :script, :attrs {:language JavaScript, :src http://s16.cnzz.com/stat.php?id=2629111&web_id=2629111}, :content nil} 
+)} 
+
+
+
+ {:tag :div, :attrs {:style background:#fff; margin: 0 auto;display:none;}, :content ({:tag :font, :attrs {:style font-size:12px; color:#fff;}, :content (Host: , Process All 0.6546s Memory:4189.61k  {:tag :br, :attrs nil, :content nil} db_emumo_readDb: connect costs 0.00533294677734 s, 12 queries costs 0.0178 s  {:tag :br, :attrs nil, :content nil})})} 
+)} 
+)})

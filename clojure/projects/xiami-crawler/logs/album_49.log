@@ -1,0 +1,76 @@
+({:tag :html, :attrs nil, :content (
+     {:tag :head, :attrs nil, :content (
+         {:tag :meta, :attrs {:charset gbk}, :content nil} 
+         {:tag :meta, :attrs {:content IE=Edge,chrome=1, :http-equiv x-ua-compatible}, :content nil} 
+         {:tag :title, :attrs nil, :content (�ף�����������)} 
+         {:tag :link, :attrs {:href http://g.tbcdn.cn/tb/err/0.0.2/layout.css, :type text/css, :rel stylesheet}, :content nil} 
+    )} 
+
+     {:tag :body, :attrs nil, :content ({:tag :script, :attrs {:type text/javascript}, :content (
+(function (d) {
+var t=d.createElement("script");t.type="text/javascript";t.async=true;t.id="tb-beacon-aplus";
+t.setAttribute("exparams","category=&userid=&aplus&member_auth=0");
+t.src=("https:"==d.location.protocol?"https://s":"http://a")+".tbcdn.cn/s/aplus_v2.js";
+d.getElementsByTagName("head")[0].appendChild(t);
+})(document);
+)} 
+ {:tag :script, :attrs nil, :content (
+var ua = "";
+var UA_Opt = {};
+UA_Opt.LogVal = "ua";
+UA_Opt.MaxMCLog = 3;
+UA_Opt.MaxMPLog = 3;
+UA_Opt.MaxKSLog = 3;
+UA_Opt.Token = new Date().getTime() + ":" + Math.random();
+UA_Opt.SendMethod = 8;
+UA_Opt.Flag = 13454;
+)} 
+ {:tag :script, :attrs {:src http://uaction.aliyuncdn.com/js/ua.js}, :content nil} 
+ {:tag :script, :attrs nil, :content (
+try{
+    UA_Opt.Token = new Date().getTime() + ":" + Math.random();
+UA_Opt.reload();
+}catch(err){}
+var uaexp=new Date();
+uaexp.setTime(uaexp.getTime()+30*24*60*60*1000);
+document.cookie="pnm_cku822="+encodeURIComponent(ua)+";path=/;expires="+uaexp.toGMTString();
+)} 
+ {:tag :script, :attrs nil, :content (
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&asid=AAChlJ1TfZuCx14WQAA=",id="tb-beacon-aplus",src=(location>"https"?"//s":"//a")+".tbcdn.cn/s/aplus_v2.js")
+)} 
+
+     {:tag :h1, :attrs nil, :content ({:tag :script, :attrs {:type text/javascript, :src /alisec/captcha/changelogo.js}, :content nil})} 
+         {:tag :div, :attrs {:class content}, :content (
+             {:tag :script, :attrs {:type text/javascript}, :content (
+             function refreshCode() {
+                 document.getElementById("J_CheckCode").src="http://regcheckcode.taobao.com/auction/checkcode?sessionID=f4ddc902dcb969e3370cbf273843f4cd&t=" + (new Date()).getTime()+'"';
+             }
+            )} 
+
+             {:tag :div, :attrs {:class msg e needcode}, :content (
+                 {:tag :p, :attrs {:class gududezhanwei}, :content nil} 
+                 {:tag :p, :attrs {:class youxianchupin}, :content (
+                    �ף��������������������ȿ�ˮ�� {:tag :br, :attrs nil, :content nil} �������ϻ����� {:tag :br, :attrs nil, :content nil} {:tag :br, :attrs nil, :content nil} Ϊ��֤�������ʣ���������ͼ�е��������ݣ�
+                )} 
+                 {:tag :p, :attrs {:style display: block;, :class fanrendedongxi}, :content (
+                )} {:tag :form, :attrs {:method post, :action /alisec/captcha/tmdgetv3.php}, :content (
+                         {:tag :p, :attrs nil, :content (
+                             {:tag :input, :attrs {:id check, :type text, :name code, :class checkcode}, :content nil} 
+                             {:tag :img, :attrs {:align absmiddle, :src http://regcheckcode.taobao.com/auction/checkcode?sessionID=f4ddc902dcb969e3370cbf273843f4cd, :id J_CheckCode, :height 35, :width 85}, :content nil} 
+                             {:tag :a, :attrs {:class newCheckCode, :onclick refreshCode(), :href #}, :content (�����廻һ��)} {:tag :br, :attrs nil, :content nil} 
+                             {:tag :input, :attrs {:value ��  ��, :type submit, :class submit}, :content nil} 
+                             {:tag :input, :attrs {:type hidden, :value f4ddc902dcb969e3370cbf273843f4cd, :name sessionID}, :content nil} 
+                             {:tag :input, :attrs {:type hidden, :value xiami, :name apply}, :content nil} 
+                             {:tag :input, :attrs {:type hidden, :value http://www.xiami.com/album/49, :name referer}, :content nil} 
+                        )} 
+                    )} 
+                
+                 {:tag :br, :attrs nil, :content nil} 
+                 {:tag :div, :attrs {:style text-align: right; color:#bcbcbc;}, :content (ҳ��λ�ã� www.xiami.com )} 
+            )} 
+
+        )} 
+ {:tag :iframe, :attrs {:src /alisec/captcha/foot.html, :height 100%, :width 100%, :frameborder 0, :align left, :scrolling no}, :content nil} 
+    )} 
+
+)})

@@ -2,7 +2,7 @@
   (:gen-class))
 
 (require '[net.cgrand.enlive-html :as enlive])
-(use '[clojure.string :only (lower-case)])
+(require '[clojure.string :as string])
 (import '(java.net URL MalformedURLException))
 (import '(java.util.concurrent LinkedBlockingQueue))
 
@@ -21,7 +21,18 @@
                      (Double/parseDouble s)
                      (catch java.lang.NumberFormatException ne default-double))))
 
-(def album-id (atom 0))
+(defn get-starting-album []
+  (try 
+    (let [line (slurp "logs/last_album_id.log")]
+      (if (empty? line)
+        0
+        (parse-int (string/trim line) 0)))
+    (catch java.io.FileNotFoundException fe 0)))
+
+(def album-id (atom (get-starting-album)))
+
+(defn record-last-album []
+  ((logger/file-logger "logs/last_album_id.log") @album-id))
 
 (def url-queue (LinkedBlockingQueue.))
 (def crawled-urls (atom #{}))
@@ -78,6 +89,17 @@
     (doseq [artist (filter-nil ordered-artists)]
       (record-artist artist))))
 
+; Record songs, albums and artists
+; Then clean up the atoms to free up memory
+(defn record-all []
+  (record-songs)
+  (record-albums)
+  (record-artists)
+  (record-last-album)
+  (swap! song-infos #{})
+  (swap! album-infos #{})
+  (swap! artist-infos #{}))
+
 (defn record-album-page [album-id message]
   ((logger/file-logger (str "logs/album_" album-id ".log")) message))
 
@@ -104,8 +126,8 @@
             album-name (peek (first album-name))
             album-category (peek (first category))
             album-genre (if (nil? genre)
-                          "N/A"
-                          (peek (first genre)))
+                          ["N/A"]
+                          (rest (first genre)))
             album-value (if (nil? value)
                           "-1"
                           (peek (first value)))
@@ -114,7 +136,7 @@
             artist-id (peek (pop (first artist)))
             artist-name (peek (first artist))]
         (let [song-list (map conj (map vector song-id song-name song-hot) (repeat (count song-id) album-id))
-              album-info [album-id album-name album-category album-genre artist-id album-value album-comments album-colleted]
+              album-info [album-id album-name album-category (apply str (interpose "," album-genre)) artist-id album-value album-comments album-colleted]
               artist-info [artist-id artist-name]]
           {:song-list song-list
            :album-info album-info
@@ -208,9 +230,9 @@
    (alter-meta! a dissoc ::paused)
    (run a)))
 
-(defn test-crawler
+(defn timed-crawler
   "Resets all state associated with the crawler, adds the given URL to the url-queue, and runs the crawler for 60 seconds, returning a vector containing the number of URLs crawled, and the number of URLs accumulated through crawling that have yet to be visited."
-  [agent-count starting-url crawling-time]
+  [agent-count crawling-time]
   (def agents (set (repeatedly agent-count
                                #(agent {::t #'get-url :queue url-queue}))))
   (.clear url-queue)
@@ -219,18 +241,25 @@
   (Thread/sleep crawling-time)
   (pause)
   (Thread/sleep 10000)	;Wait till all agents terminate
-  (println "Crawled url count: " (count @crawled-urls))
-  (record-songs)
-  (record-albums)
-  (record-artists))
+  (record-all))
+
+(defn infinite-crawler
+  [agent-count crawling-time]
+  (loop [round 1]
+    (println "--------------Round " round " started---------------")
+    (timed-crawler agent-count crawling-time)
+    (println "--------------Round " round " finished---------------")
+    (recur (inc round))))
 
 (defn -main
   [& args]
   (println "Hello, Crawler of agents!")
   (println "Input number of agents:")
   (when-let [number (read)]
-    (let [url config/starting-url]
-      (println "Starting url:" url)
-      (println "Input time to crawl(unit: s): ")
-      (when-let [crawling-time (read)]
-        (test-crawler number url (* 1000 crawling-time))))))
+    (println "Input time to crawl(unit: s): ")
+    (when-let [crawling-time (read)]
+      (println "Input mode: 1-timed crawler; 2-infinite-crawler")
+      (when-let [mode (read)]
+        (if (= mode 1)
+          (timed-crawler number (* 1000 crawling-time))
+          (infinite-crawler number (* 1000 crawling-time)))))))
