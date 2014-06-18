@@ -31,8 +31,10 @@
 
 (def album-id (atom (get-starting-album)))
 
-(defn record-last-album []
-  ((logger/file-logger "logs/last_album_id.log") @album-id))
+; Cannot record @album-id here, because it may cause mismatch between "crawled" albums and "crawling" albums.
+; Use the maximum of "crawled" albums as last album id.
+(defn record-last-album [album-id]
+  ((logger/file-logger "logs/last_album_id.log") album-id))
 
 (def url-queue (LinkedBlockingQueue.))
 (def crawled-urls (atom #{}))
@@ -73,9 +75,12 @@
 (defn record-albums []
   (println "Albums got: " (count @album-infos))
   (println @album-infos)
-  (let [ordered-albums (sort-by (comp parse-double last) (filter-nil @album-infos))]
-    (doseq [album (filter-nil ordered-albums)]
-      (record-album album))))
+  (let [crawled-albums @album-infos]
+    (when-let [last-album-id (first (reverse (sort-by first crawled-albums)))]
+      (record-last-album last-album-id) ; Include nil album id to avoid crawling next time
+      (let [ordered-albums (sort-by (comp parse-double last) (filter-nil crawled-albums))] ; Only record non-nil albums
+        (doseq [album (filter-nil ordered-albums)]
+          (record-album album))))))
 
 (defn record-artist [artist-info]
   (let [[id name] artist-info]
@@ -95,7 +100,6 @@
   (record-songs)
   (record-albums)
   (record-artists)
-  (record-last-album)
   (swap! song-infos #{})
   (swap! album-infos #{})
   (swap! artist-infos #{}))
@@ -127,7 +131,7 @@
             album-category (peek (first category))
             album-genre (if (nil? genre)
                           ["N/A"]
-                          (rest (first genre)))
+                          (map second genre))
             album-value (if (nil? value)
                           "-1"
                           (peek (first value)))

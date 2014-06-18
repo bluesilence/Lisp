@@ -45,12 +45,12 @@
 
 ; Parse album genre
 (def album-genre-pattern
-  (re-pattern ":content \\(专辑风格：\\)}\\s+[^{]+\\s+.+\\/genre\\/.+}, :content \\(([^\\(\\)]+)\\)}"))
+  (re-pattern "\\/genre\\/detail\\/sid\\/\\d+}, :content \\(([^\\(\\)]+)\\)}"))
 
 ; Test text of album genre
 (def album-genre-test
-  "{:tag :td, :attrs {:valign top, :class item}, :content (专辑风格：)}
-   284                                                                                       {:tag :td, :attrs {:valign top}, :content ({:tag :a, :attrs {:href /genre/detail/gid/12}, :content (轻音乐 Easy Listening)}")
+  ":content (专辑风格：)}  
+  {:tag :td, :attrs {:valign top}, :content ({:tag :a, :attrs {:href /genre/detail/sid/851}, :content (中国民乐 Chinese Folk Music)} ,  {:tag :a, :attrs {:href /genre/detail/sid/3021}, :content (江南丝竹 Jiangnan Sizhu)})}")
 
 ; Parse album value
 (def album-value-pattern
