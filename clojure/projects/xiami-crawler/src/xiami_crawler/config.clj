@@ -1,9 +1,6 @@
 (ns xiami-crawler.config
   (:gen-class))
 
-; Sleep between every slurp to prevent being banned
-(def sleep-interval 4500)
-
 ; Start from album 1
 (def starting-url "http://www.xiami.com/album/1")
 

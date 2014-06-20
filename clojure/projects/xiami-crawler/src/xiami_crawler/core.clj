@@ -21,13 +21,24 @@
                      (Double/parseDouble s)
                      (catch java.lang.NumberFormatException ne default-double))))
 
-(defn get-starting-album []
+(defn get-int-from-file [file default-int]
   (try 
-    (let [line (slurp "logs/last_album_id.log")]
+    (let [line (slurp file)
+          default-value default-int]
       (if (empty? line)
-        0
-        (parse-int (string/trim line) 0)))
-    (catch java.io.FileNotFoundException fe 0)))
+        default-int
+        (parse-int (string/trim line) default-int)))
+    (catch java.io.FileNotFoundException fe default-int)))
+
+(defn get-starting-album []
+  (get-int-from-file "logs/last_album_id.log" 0))
+
+; Sleep between every slurp to prevent being banned
+(defn get-sleep-interval []
+  (get-int-from-file "config/sleep_interval.config" 5000))
+
+(def sleep-interval
+  (get-sleep-interval))
 
 (def album-id (atom (get-starting-album)))
 
@@ -168,7 +179,7 @@
         url (URL. (str config/album-url-path album-id))]
     (println "URL got:" url)
     (try
-      (Thread/sleep config/sleep-interval)
+      (Thread/sleep sleep-interval)
       (if (@crawled-urls url)
            state
         {:url url
