@@ -2,80 +2,10 @@
   (:gen-class))
 
 (use '[clojure.string :as string])
-
-(def starting-message "
-************************************************
-  You were drunk last night.
-  and you found yourself...locked!
-
-  ...What the fuck?!
-
-  Anyway, let's try to escape from here first!
-************************************************")
+(use '[room-escape.script :as script])
 
 (defn display [message & args]
   (println (str message (string/join args))))
-
-(def categories ["room"
-                 "spot"
-                 "item"])
-
-(def rooms [{:id 1
-             :category 0
-             :name "starting room"
-             :description {:default-check "The room is dark. Try look around."
-                           :near-check "This is a strange room. Barely no furniture except a [table] and a [door]."}
-             :items [2 3]
-             }])
-
-(def starting-room (:id (first rooms)))
-
-(def spots [{:id 2
-             :category 1
-             :name "table"
-             :description {:default-check "This is a small square table. It seems that there is something on the table..."
-                           :near-check "There is a [card] on the table."}
-             :items [4]}
-            {:id 3
-             :category 1
-             :name "door"
-             :description{:default-check "The door is locked."
-                          :near-check "There is a [password-panel] beside the door. Maybe the password is written somewhere..."}
-             :items [5]}])
-
-(def items [{:id 4
-             :category 2
-             :name "card"
-             :description {:default-check "It's a card with number 0428 on it."}}
-            {:id 5
-             :category 2
-             :name "password-panel"
-             :description {:default-check "There are button 0~9 on the panel. The length of the password seems to be 4."}
-             :state "Locked"}])
-
-(def objects (vec (concat rooms spots items)))
-
-; To-Do: use macro to generate these locate functions
-(defn locate-by-id [id]
-  (first (filter (comp #(= % id) #(:id %)) objects)))
-
-(defn locate-by-name [name]
-  (first (filter (comp #(= % name) #(:name %)) objects)))
-
-(defn locate-by-category [category-id]
-  (filter (comp #(= % category-id) #(:category %)) objects))
-
-(defn room? [id]
-  (let [category-id (:category (locate-by-id id))]
-    (= "room" (nth categories category-id))))
-
-(defn spot? [id]
-  (let [category-id (:category (locate-by-id id))]
-    (= "spot" (nth categories category-id))))
-
-(defn item? [id]
-  (let [category-id (:category (locate-by-id id))]
-    (= "item" (nth categories category-id))))
 
 (def visible (atom #{}))
 
@@ -92,6 +22,9 @@
   (if (visible? id)
     (set-invisible id)
     (set-visible id)))
+
+(defn get-visible-objects []
+  (filter (comp visible? :id) objects))
 
 (defn describe
   [id & args]
@@ -178,28 +111,39 @@
 
 (def continue (atom true))
 (defn quit []
-  (swap! continue not)
-  (display "Bye~!"))
+  (swap! continue not))
 
 (defn continue? []
   (= @continue true))
 
-(declare action-list)
+(defn get-object-actions []
+  (let [object-actions (filter (comp not nil?) (map :action (get-visible-objects)))
+        results (transient [])]
+    (doseq [act object-actions]
+      (doseq [a act]
+        (conj! results a)))
+    (persistent! results)))
+
+(declare get-action-list)
 
 (defn help []
   (display "Pick one [action] below:")
-  (doseq [action action-list]
+  (doseq [action (get-action-list)]
     (display (str "[" (:name action) "] " (:description action)))))
 
-(def action-list [{:name "help" :function help :description "Get help information"},
+(defn get-action-list []
+  (conj (get-object-actions)
+                  {:name "help" :function help :description "Get help information"},
                   {:name "get-location" :function get-location :description "Get current location"},
                   {:name "look-around" :function look-around :description "Look around the room"},
                   {:name "check" :function check :description "Check room/spot/item"},
                   {:name "goto" :function goto :description "Goto spot"},
-                  {:name "quit" :function quit :description "Quit the game"}])
+                  {:name "quit" :function quit :description "Quit the game"}))
 
 (defn execute [command & args]
-  (let [action (->> action-list (filter (comp #(= (:name %) (str command)))) first :function)
+  (println "Command: " command)
+  (println "Args: " args)
+  (let [action (->> (get-action-list) (filter (comp #(= (:name %) (str command)))) first :function)
         args-str (string/join args)]
     (if (nil? action)
       (do 
@@ -228,6 +172,11 @@
     (do (when-not (= command-str "")
       (let [command-vector (string/split command-str #" ")]
         (execute (first command-vector) (string/join (rest command-vector)))))
-      (when (continue?)
-        (display-prompt)
-        (recur (str (read-line)))))))
+      (if (win?)
+        (do
+          (swap! continue not)
+          (display win-message))
+        (when (continue?)
+          (display-prompt)
+          (recur (str (read-line)))))))
+  (display "Goodbye~!"))
