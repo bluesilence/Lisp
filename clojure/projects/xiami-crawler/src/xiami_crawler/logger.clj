@@ -11,11 +11,12 @@
   #(with-open [f (clojure.java.io/writer file :append false)]
      ((print-logger f) %)))
 
-(def today (format "%1$tY-%1$tm-%1$te"(java.util.Date.)))
+(defn get-today []
+  (format "%1$tY-%1$tm-%1$te"(java.util.Date.)))
 
 (defn file-logger-with-date
   [file]
-  (let [file-name (str file "_" today ".log")]
+  (let [file-name (str file "_" (get-today) ".log")]
     #(with-open [f (clojure.java.io/writer file-name :append true)]
        ((print-logger f) %))))
 

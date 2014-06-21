@@ -68,7 +68,7 @@
 
 (defn record-song [song-info]
   (let [[id name hot album-id] song-info]
-  ((logger/file-logger-with-date "records/songs") (apply str (interpose ";" [logger/today id name hot album-id])))))
+  ((logger/file-logger-with-date "records/songs") (apply str (interpose ";" [(logger/get-today) id name hot album-id])))))
 
 ; Record songs by hotness desc
 (defn record-songs []
@@ -80,7 +80,7 @@
 
 (defn record-album [album-info]
   (let [[id name category genre artist-id value comments colleted] album-info]
-  ((logger/file-logger-with-date "records/albums") (apply str (interpose ";" [logger/today id name category genre artist-id value comments colleted])))))
+  ((logger/file-logger-with-date "records/albums") (apply str (interpose ";" [(logger/get-today) id name category genre artist-id value comments colleted])))))
 
 ; Record albums by album-colleted
 (defn record-albums []
@@ -95,7 +95,7 @@
 
 (defn record-artist [artist-info]
   (let [[id name] artist-info]
-  ((logger/file-logger-with-date "records/artists") (apply str (interpose ";" [logger/today id name])))))
+  ((logger/file-logger-with-date "records/artists") (apply str (interpose ";" [(logger/get-today) id name])))))
 
 ; Record artists by id
 (defn record-artists []
