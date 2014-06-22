@@ -87,7 +87,7 @@
   (println "Albums got: " (count @album-infos))
   (println @album-infos)
   (let [crawled-albums @album-infos]
-    (when-let [last-album-id (first (reverse (sort-by first crawled-albums)))]
+    (when-let [last-album-id (first (first (reverse (sort-by first crawled-albums))))]
       (record-last-album last-album-id) ; Include nil album id to avoid crawling next time
       (let [ordered-albums (sort-by (comp parse-double last) (filter-nil crawled-albums))] ; Only record non-nil albums
         (doseq [album (filter-nil ordered-albums)]
