@@ -34,11 +34,12 @@
   (get-int-from-file "logs/last_album_id.log" 0))
 
 ; Sleep between every slurp to prevent being banned
-(defn get-sleep-interval []
+(def sleep-interval
   (get-int-from-file "config/sleep_interval.config" 5000))
 
-(def sleep-interval
-  (get-sleep-interval))
+; Randomize sleep interval to avoid being recognized as crawler
+(defn get-sleep-interval []
+  (+ sleep-interval (rand-int 5000)))
 
 (def album-id (atom (get-starting-album)))
 
@@ -179,7 +180,7 @@
         url (URL. (str config/album-url-path album-id))]
     (println "URL got:" url)
     (try
-      (Thread/sleep sleep-interval)
+      (Thread/sleep (get-sleep-interval))
       (if (@crawled-urls url)
            state
         {:url url
