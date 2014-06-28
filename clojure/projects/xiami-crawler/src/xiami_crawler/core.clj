@@ -3,6 +3,8 @@
 
 (require '[net.cgrand.enlive-html :as enlive])
 (require '[clojure.string :as string])
+; Cannot parse content using client/get instead of slurp...
+; (require '[clj-http.client :as client])
 (import '(java.net URL MalformedURLException))
 (import '(java.util.concurrent LinkedBlockingQueue))
 
