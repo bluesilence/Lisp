@@ -1,13 +1,11 @@
 (ns xiami-crawler.core
   (:gen-class))
 
-(require '[net.cgrand.enlive-html :as enlive])
-(require '[clojure.string :as string])
-; Cannot parse content using client/get instead of slurp...
-(require '[clj-http.client :as client])
 (import '(java.net URL MalformedURLException))
 (import '(java.util.concurrent LinkedBlockingQueue))
-
+(require '[clj-http.client :as client])
+(require '[clojure.string :as string])
+(require '[net.cgrand.enlive-html :as enlive])
 (require '[xiami-crawler.config :as config])
 (require '[xiami-crawler.logger :as logger])
 (require '[xiami-crawler.util :as util])
