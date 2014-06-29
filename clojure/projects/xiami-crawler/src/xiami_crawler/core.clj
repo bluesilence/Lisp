@@ -4,12 +4,13 @@
 (require '[net.cgrand.enlive-html :as enlive])
 (require '[clojure.string :as string])
 ; Cannot parse content using client/get instead of slurp...
-; (require '[clj-http.client :as client])
+(require '[clj-http.client :as client])
 (import '(java.net URL MalformedURLException))
 (import '(java.util.concurrent LinkedBlockingQueue))
 
 (require '[xiami-crawler.config :as config])
 (require '[xiami-crawler.logger :as logger])
+(require '[xiami-crawler.util :as util])
 
 (defn parse-int
   ([s] (Integer/parseInt s))
@@ -41,7 +42,7 @@
 
 ; Randomize sleep interval to avoid being recognized as crawler
 (defn get-sleep-interval []
-  (+ sleep-interval (rand-int 5000)))
+  (+ sleep-interval (rand-int sleep-interval)))
 
 (def album-id (atom (get-starting-album)))
 
@@ -179,14 +180,18 @@
   [{:keys [^LinkedBlockingQueue queue] :as state}]
   (println "------------------------get-url--------------------------")
   (let [album-id (get-next-album)
-        url (URL. (str config/album-url-path album-id))]
+        url (str config/album-url-path album-id)
+        proxy-port (util/pick-proxy-randomly)
+        host (first proxy-port)
+        port (second proxy-port)]
     (println "URL got:" url)
+    (println "Proxy host:" host " port:" port)
     (try
       (Thread/sleep (get-sleep-interval))
       (if (@crawled-urls url)
            state
         {:url url
-         :content (slurp url)
+         :content (:body (client/get url {:proxy-host host :proxy-port (parse-int port)})) ; obsolete: (slurp url)
          :album album-id
          ::t #'process})
       (catch Exception e
