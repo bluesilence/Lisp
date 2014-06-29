@@ -4,8 +4,9 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [enlive/enlive "1.0.0"]]
+                 [enlive/enlive "1.0.0"]
+                 [clj-http "0.9.2"]]
   :main xiami-crawler.core
-  :aot [xiami-crawler.config xiami-crawler.logger xiami-crawler.debug]
+  :aot [xiami-crawler.config xiami-crawler.logger xiami-crawler.debug xiami-crawler.util]
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
