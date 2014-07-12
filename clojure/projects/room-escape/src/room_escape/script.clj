@@ -1,26 +1,9 @@
 (ns room-escape.script
   (:gen-class))
 
-(defn parse-int
-  ([s] (Integer/parseInt s))
-  ([s default-int] (try
-                     (Integer/parseInt s)
-                     (catch java.lang.NumberFormatException ne default-int))))
+(use '[room-escape.common :only [parse-int locate-by-id]])
 
-(declare rooms)
-(declare spots)
-(declare items)
 (declare objects)
-
-; To-Do: use macro to generate these locate functions
-(defn locate-by-id [id]
-  (first (filter (comp #(= % id) #(:id %)) objects)))
-
-(defn locate-by-name [name]
-  (first (filter (comp #(= % name) #(:name %)) objects)))
-
-(defn locate-by-category [category-id]
-  (filter (comp #(= % category-id) #(:category %)) objects))
 
 (def starting-message "
 ************************************************
@@ -72,31 +55,15 @@
                             (if (or (> button 9) (< button 0))
                               (println "Invalid button: " %)
                               (do
-                                (swap! (:state (locate-by-id 5)) conj button)
+                                (swap! (:state (locate-by-id 5 objects)) conj button)
                                 (println "You pressed button " button))))}]}])
-
-(def objects (vec (concat rooms spots items)))
 
 (def starting-room (:id (first rooms)))
 
-(def categories ["room"
-                 "spot"
-                 "item"])
-
-(defn room? [id]
-  (let [category-id (:category (locate-by-id id))]
-    (= "room" (nth categories category-id))))
-
-(defn spot? [id]
-  (let [category-id (:category (locate-by-id id))]
-    (= "spot" (nth categories category-id))))
-
-(defn item? [id]
-  (let [category-id (:category (locate-by-id id))]
-    (= "item" (nth categories category-id))))
+(def objects (vec (concat rooms spots items)))
 
 (defn win? []
-  (if-let [states (vec (rseq @(:state (locate-by-id 5))))]
+  (if-let [states (vec (rseq @(:state (locate-by-id 5 objects))))]
     (if (>= (count states) 4)
       (-> states (subvec 0 4) (rseq) (vec) (= [0 4 2 8]))
       false)
