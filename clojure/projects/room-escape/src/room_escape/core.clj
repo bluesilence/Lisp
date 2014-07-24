@@ -3,7 +3,7 @@
 
 (use '[clojure.string :as string])
 (use '[room-escape.script :as script])
-(use '[room-escape util script])
+(use '[room-escape common util script])
 
 (defn execute [command & args]
   (println "Command: " command)

@@ -4,8 +4,9 @@
 (use '[clojure.string :as string])
 (use '(room-escape script common))
 
-(defn display [message & args]
-  (println (str message (string/join args))))
+(def current-status (atom {:room -1
+                           :spot -1
+                           :items #{}}))
 
 (def categories ["room"
                  "spot"
@@ -23,25 +24,6 @@
   (let [category-id (:category (locate-by-id id objects))]
     (= "item" (nth categories category-id))))
 
-(def visible (atom #{}))
-
-(defn visible? [id]
-  (contains? @visible id))
-
-(defn set-visible [id]
-  (swap! visible conj id))
-
-(defn set-invisible [id]
-  (swap! visible disj id))
-
-(defn toggle-visible [id]
-  (if (visible? id)
-    (set-invisible id)
-    (set-visible id)))
-
-(defn get-visible-objects []
-  (filter (comp visible? :id) objects))
-
 (defn describe
   [id & args]
   (if-let [object (locate-by-id id objects)]
@@ -51,10 +33,6 @@
         (display (get (:description object) (keyword key-str)))))
     (display "No object with id " id " found.")))
 
-(def current-status (atom {:room -1
-                           :spot -1
-                           :items []}))
-
 (defn in-status [id]
   (let [status @current-status]
     (or (= (:room status) id)
@@ -63,6 +41,18 @@
 
 (defn update-status [key value]
   (swap! current-status assoc key value))
+
+(defn add-item-by-id [item-id]
+  (let [items (:items current-status)]
+    (update-status :items (conj items item-id))))
+
+(defn add-item-by-name [item-name]
+  (if-let [item-id (:id (locate-by-name item-name objects))]
+    (if-not (in-status item-id)
+      (do 
+        (add-item-by-id item-id)
+        (display "You picked the [" item-name "]."))
+      (display "You have already picked the [" item-name "]."))))
 
 (defn update-room [room-id]
   (update-status :room room-id))
@@ -107,6 +97,29 @@
           (display "You didn't see any [" object-name "] around here.")))
       (display "There is no [" object-name "] around here."))))
 
+(defn pick [item-name]
+  (if (nil? item-name)
+    (display "Item name cannot be nil.")
+    (if-let [object (locate-by-name item-name objects)]
+      (let [id (:id object)]
+        (if (visible? id)
+          (if (:pickable object)
+            (add-item-by-name item-name)
+            (display "[" item-name "] cannot be picked."))
+          (display "You didn't see any [" item-name "] around here.")))
+      (display "There is no [" item-name "] around here."))))
+
+(defn show-items []
+  (let [items (:items @current-status)
+        items-count (count items)]
+    (if (> items-count 0)
+      (do
+        (display "You have " items-count " items:")
+        (doseq [item-id items]
+          (display "[" (get-name item-id objects) "]: ")
+          (describe item-id)))
+      (display "You don't have any item by now."))))
+
 (defn goto [spot-name]
   (if (empty? spot-name)
     (display "Spot name cannot be empty.")
@@ -132,6 +145,9 @@
 (defn continue? []
   (= @continue true))
 
+(defn get-visible-objects []
+  (filter (comp visible? :id) objects))
+
 (defn get-object-actions []
   (let [object-actions (filter (comp not nil?) (map :action (get-visible-objects)))
         results (transient [])]
@@ -150,8 +166,10 @@
 (defn get-action-list []
   (conj (get-object-actions)
                   {:name "help" :function help :description "Get help information"},
+                  {:name "show-items" :function show-items :description "Show your items"},
                   {:name "get-location" :function get-location :description "Get current location"},
                   {:name "look-around" :function look-around :description "Look around the room"},
                   {:name "check" :function check :description "Check room/spot/item"},
+                  {:name "pick" :function pick :description "Pick an item"},
                   {:name "goto" :function goto :description "Goto spot"},
                   {:name "quit" :function quit :description "Quit the game"}))

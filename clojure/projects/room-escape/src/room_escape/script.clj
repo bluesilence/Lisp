@@ -1,7 +1,7 @@
 (ns room-escape.script
   (:gen-class))
 
-(use '[room-escape.common :only [parse-int locate-by-id]])
+(use '[room-escape.common :only [parse-int locate-by-id set-visible display]])
 
 (declare objects)
 
@@ -34,15 +34,13 @@
              :name "door"
              :description{:default-check "The door is locked."
                           :near-check "There is a [password-panel] beside the door. Maybe the password is written somewhere..."}
+             :opened false
              :items [5]}])
 
 (def items [{:id 4
              :category 2
              :name "card"
-             :description {:default-check "It's a card with number 0428 on it."}
-             :action [{:name "pick"
-                       :description "Pick the card"
-                       :function nil}]}
+             :description {:default-check "It's a card with number 0428 on it."}}
             {:id 5
              :category 2
              :name "password-panel"
@@ -54,20 +52,28 @@
                          #(let [button (parse-int % -1)]
                             (if (or (> button 9) (< button 0))
                               (println "Invalid button: " %)
-                              (do
-                                (swap! (:state (locate-by-id 5 objects)) conj button)
-                                (println "You pressed button " button))))}]}])
+                              (let [states (:state (locate-by-id 5 objects))]
+                                (swap! states conj button)
+                                (println "You pressed button " button)
+                                (let [inputs (vec (rseq @states))]
+                                  (if (>= (count inputs) 4)
+                                    (if (-> inputs (subvec 0 4) (rseq) (vec) (= [0 4 2 8]))
+                                    (do 
+                                      (set-visible 6)
+                                      (display "The bottom of the [password-panel] opened. A [key] fell down to the floor."))))))))}]}
+
+            {:id 6
+             :category 2
+             :name "key"
+             :description {:default-check "It's a key which fell from under the [password-panel]."}
+             :pickable true}])
 
 (def starting-room (:id (first rooms)))
 
 (def objects (vec (concat rooms spots items)))
 
 (defn win? []
-  (if-let [states (vec (rseq @(:state (locate-by-id 5 objects))))]
-    (if (>= (count states) 4)
-      (-> states (subvec 0 4) (rseq) (vec) (= [0 4 2 8]))
-      false)
-    false))
+  (:opened (locate-by-id 3 objects)))
 
 (def win-message "
 ************************************************
