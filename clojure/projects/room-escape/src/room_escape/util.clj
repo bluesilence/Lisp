@@ -33,11 +33,11 @@
         (display (get (:description object) (keyword key-str)))))
     (display "No object with id " id " found.")))
 
-(defn in-status [id]
+(defn in-status? [id]
   (let [status @current-status]
     (or (= (:room status) id)
         (= (:spot status) id)
-        (contains? (:items status) id))))
+        ((set (:items status)) id))))
 
 (defn update-status [key value]
   (swap! current-status assoc key value))
@@ -48,7 +48,7 @@
 
 (defn add-item-by-name [item-name]
   (if-let [item-id (:id (locate-by-name item-name objects))]
-    (if-not (in-status item-id)
+    (if-not (in-status? item-id)
       (do 
         (add-item-by-id item-id)
         (display "You picked the [" item-name "]."))
@@ -88,7 +88,7 @@
     (if-let [object (locate-by-name object-name objects)]
       (let [id (:id object)]
         (if (visible? id)
-          (if (in-status id) ; If object is in status, set its items are visible
+          (if (in-status? id) ; If object is in status, set its items are visible
             (do
                 (doseq [item (:items object)]
                   (set-visible item))
@@ -139,7 +139,22 @@
   (check (get-current-room)))
 
 (defn use-item [item-name target-name]
-  (display "You used the [" item-name "] at the [" target-name "]."))
+  (let [item (locate-by-name item-name objects)
+        target (locate-by-name target-name objects)]
+    (let [item-id (:id item)
+          target-id (:id target)]
+      (if (not (visible? item-id))
+        (display "You didn't see any [" item-name "] around here.")
+        (if (not (visible? target-id))
+          (display "You didn't see any [" target-name "] around here.")
+          (if (not (in-status? item-id))
+            (display "You don't have the [" item-name "] at hand.")
+            (if-let [use-function (:on-use item)]
+              (do
+                (if (use-function target-name)
+                  (display "You used the [" item-name "] at the [" target-name "].")
+                  (display "The [" item-name "] cannot be used on the [" target-name "].")))
+              (display "[" item-name "] cannot be used."))))))))
 
 (def continue (atom true))
 (defn quit []

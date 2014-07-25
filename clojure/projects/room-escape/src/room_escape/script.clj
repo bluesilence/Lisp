@@ -1,7 +1,7 @@
 (ns room-escape.script
   (:gen-class))
 
-(use '[room-escape.common :only [parse-int locate-by-id set-visible display]])
+(use '[room-escape.common :only [parse-int locate-by-id locate-by-name set-visible display]])
 
 (declare objects)
 
@@ -34,13 +34,15 @@
              :name "door"
              :description{:default-check "The door is locked."
                           :near-check "There is a [password-panel] beside the door. Maybe the password is written somewhere..."}
-             :opened false
+             :opened (atom false)
              :items [5]}])
 
 (def items [{:id 4
              :category 2
              :name "card"
-             :description {:default-check "It's a card with number 0428 on it."}}
+             :pickable true
+             :description {:default-check "It's a card with number 0428 on it."
+                           :near-check "Perhaps you can [press] the numbers at the [password-panel]?"}}
             {:id 5
              :category 2
              :name "password-panel"
@@ -65,7 +67,14 @@
             {:id 6
              :category 2
              :name "key"
-             :description {:default-check "It's a key which fell from under the [password-panel]."}
+             :description {:default-check "It's a key which fell from under the [password-panel]."
+                          :near-check "Maybe it can open the [door]?"}
+             :on-use #(let [target (locate-by-name % objects)]
+                        (if (= (:name target) "door")
+                          (do
+                            (swap! (:opened target) not)
+                            true)
+                          false))
              :pickable true}])
 
 (def starting-room (:id (first rooms)))
@@ -73,7 +82,7 @@
 (def objects (vec (concat rooms spots items)))
 
 (defn win? []
-  (:opened (locate-by-id 3 objects)))
+  @(:opened (locate-by-id 3 objects)))
 
 (def win-message "
 ************************************************
