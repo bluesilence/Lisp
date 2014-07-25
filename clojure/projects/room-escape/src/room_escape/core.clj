@@ -5,18 +5,28 @@
 (use '[room-escape.script :as script])
 (use '[room-escape common util script])
 
+; macro doesn't help...it generates at compiling time
+; (defmacro call-action [action & args]
+;  (println "Action: " action)
+;  (println "Args: " args)
+;  `(~action ~@args))
+
 (defn execute [command & args]
   (println "Command: " command)
   (println "Args: " args)
   (let [action (->> (get-action-list) (filter (comp #(= (:name %) (str command)))) first :function)
-        args-str (string/join args)]
+        args-list (first args)]
     (if (nil? action)
       (do 
         (display "Unsupported command: " command)
         (help))
-      (if (string/blank? args-str)
-          (action)
-          (action args-str)))))
+      (let [args-num (count args-list)] ; at most 2 args are supported
+        (cond (= 0 args-num)
+                 (action)
+              (= 1 args-num)
+                 (action (first args-list))
+              (= 2 args-num)
+                 (action (first args-list) (second args-list)))))))
 
 (defn initialize []
   (display starting-message)
@@ -36,7 +46,7 @@
   (loop [command-str (str (read-line))]
     (do (when-not (= command-str "")
       (let [command-vector (string/split command-str #" ")]
-        (execute (first command-vector) (string/join (rest command-vector)))))
+        (execute (first command-vector) (rest command-vector))))
       (if (win?)
         (do
           (swap! continue not)

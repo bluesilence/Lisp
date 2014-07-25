@@ -138,6 +138,9 @@
   (display "You looked around.")
   (check (get-current-room)))
 
+(defn use-item [item-name target-name]
+  (display "You used the [" item-name "] at the [" target-name "]."))
+
 (def continue (atom true))
 (defn quit []
   (swap! continue not))
@@ -171,5 +174,6 @@
                   {:name "look-around" :function look-around :description "Look around the room"},
                   {:name "check" :function check :description "Check room/spot/item"},
                   {:name "pick" :function pick :description "Pick an item"},
+                  {:name "use" :function use-item :description "Use one of your items at a target object."}
                   {:name "goto" :function goto :description "Goto spot"},
                   {:name "quit" :function quit :description "Quit the game"}))
