@@ -43,7 +43,7 @@
   (swap! current-status assoc key value))
 
 (defn add-item-by-id [item-id]
-  (let [items (:items current-status)]
+  (let [items (:items @current-status)]
     (update-status :items (conj items item-id))))
 
 (defn add-item-by-name [item-name]
@@ -51,8 +51,8 @@
     (if-not (in-status? item-id)
       (do 
         (add-item-by-id item-id)
-        (display "You picked the [" item-name "]."))
-      (display "You have already picked the [" item-name "]."))))
+        (display "You picked the " (enclose item-name) "."))
+      (display "You have already picked the " (enclose item-name) "."))))
 
 (defn update-room [room-id]
   (update-status :room room-id))
@@ -78,24 +78,24 @@
 (defn get-location []
   (display "Your current location:")
   (when-let [room (get-current-room)]
-    (display "Room: [" room "]"))
+    (display "Room: " (enclose room)))
   (when-let [spot (:name (locate-by-id (get-current-spot-id) objects))]
-    (display "Spot: [" spot "]")))
+    (display "Spot: " (enclose spot))))
 
 (defn check [object-name]
   (if (nil? object-name)
     (display "Object name cannot be nil.")
     (if-let [object (locate-by-name object-name objects)]
       (let [id (:id object)]
-        (if (visible? id)
-          (if (in-status? id) ; If object is in status, set its items are visible
-            (do
-                (doseq [item (:items object)]
-                  (set-visible item))
-                (describe id 'near-check))
-            (describe id))
-          (display "You didn't see any [" object-name "] around here.")))
-      (display "There is no [" object-name "] around here."))))
+        (if (in-status? id) ; If object is in status, set its items are visible
+          (do
+              (doseq [item (:items object)]
+                (set-visible item))
+              (describe id 'near-check))
+          (if (visible? id)
+            (describe id)
+            (display "You didn't see any " (enclose object-name) " around here."))))
+      (display "There is no " (enclose object-name) " around here."))))
 
 (defn pick [item-name]
   (if (nil? item-name)
@@ -105,9 +105,9 @@
         (if (visible? id)
           (if (:pickable object)
             (add-item-by-name item-name)
-            (display "[" item-name "] cannot be picked."))
-          (display "You didn't see any [" item-name "] around here.")))
-      (display "There is no [" item-name "] around here."))))
+            (display (enclose item-name) " cannot be picked."))
+          (display "You didn't see any " (enclose item-name) " around here.")))
+      (display "There is no " (enclose item-name) " around here."))))
 
 (defn show-items []
   (let [items (:items @current-status)
@@ -116,7 +116,7 @@
       (do
         (display "You have " items-count " items:")
         (doseq [item-id items]
-          (display "[" (get-name item-id objects) "]: ")
+          (display (enclose (get-name item-id objects)) ":")
           (describe item-id)))
       (display "You don't have any item by now."))))
 
@@ -127,12 +127,12 @@
       (let [id (:id spot)]
         (if (visible? id)
           (if (spot? id)
-            (do (display "You went to the [" spot-name "] to take a closer look.")
+            (do (display "You went to the " (enclose spot-name) " to take a closer look.")
                 (update-spot id)
                 (describe id 'near-check))
-            (display "[" spot-name "] is not somewhere to go to."))
-          (display "You didn't see any [" spot-name "] around here.")))
-      (display "There is no [" spot-name "] around here."))))
+            (display (enclose spot-name) " is not somewhere to go to."))
+          (display "You didn't see any " (enclose spot-name) " around here.")))
+      (display "There is no " (enclose spot-name) " around here."))))
 
 (defn look-around []
   (display "You looked around.")
@@ -144,17 +144,17 @@
     (let [item-id (:id item)
           target-id (:id target)]
       (if (not (visible? item-id))
-        (display "You didn't see any [" item-name "] around here.")
+        (display "You didn't see any " (enclose item-name) " around here.")
         (if (not (visible? target-id))
-          (display "You didn't see any [" target-name "] around here.")
+          (display "You didn't see any " (enclose target-name) " around here.")
           (if (not (in-status? item-id))
-            (display "You don't have the [" item-name "] at hand.")
+            (display "You don't have the " (enclose item-name) " at hand.")
             (if-let [use-function (:on-use item)]
               (do
                 (if (use-function target-name)
-                  (display "You used the [" item-name "] at the [" target-name "].")
-                  (display "The [" item-name "] cannot be used on the [" target-name "].")))
-              (display "[" item-name "] cannot be used."))))))))
+                  (display "You used the " (enclose item-name) " at the " (enclose target-name) ".")
+                  (display "The " (enclose item-name) " cannot be used on the " (enclose target-name) ".")))
+              (display (enclose item-name) " cannot be used."))))))))
 
 (def continue (atom true))
 (defn quit []
@@ -177,18 +177,21 @@
 (declare get-action-list)
 
 (defn help []
-  (display "Pick one [action] below:")
+  (display "")
+  (display "Pick one " (enclose "action") " below:")
+  (display "----------------------------")
   (doseq [action (get-action-list)]
-    (display (str "[" (:name action) "] " (:description action)))))
+    (display (enclose (:name action)) " " (:description action))
+    (display "  Usage: " (:usage action))))
 
 (defn get-action-list []
   (conj (get-object-actions)
-                  {:name "help" :function help :description "Get help information"},
-                  {:name "show-items" :function show-items :description "Show your items"},
-                  {:name "get-location" :function get-location :description "Get current location"},
-                  {:name "look-around" :function look-around :description "Look around the room"},
-                  {:name "check" :function check :description "Check room/spot/item"},
-                  {:name "pick" :function pick :description "Pick an item"},
-                  {:name "use" :function use-item :description "Use one of your items at a target object."}
-                  {:name "goto" :function goto :description "Goto spot"},
-                  {:name "quit" :function quit :description "Quit the game"}))
+                  {:name "help" :function help :description "Get help information" :usage "help"},
+                  {:name "show-items" :function show-items :description "Show your items" :usage "show-items"},
+                  {:name "get-location" :function get-location :description "Get current location" :usage "get-location"},
+                  {:name "look-around" :function look-around :description "Look around the room" :usage "look-around"},
+                  {:name "check" :function check :description "Check room/spot/item" :usage (str "check " (enclose "object") ". Eg. check door")},
+                  {:name "pick" :function pick :description (str "Pick an item. So you can take a near " (enclose "check") " at the item, or " (enclose "use") " the item.") :usage (str "pick " (enclose "item") ". Eg. pick card")},
+                  {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "use " (enclose "item") " " (enclose "target-object") ". Eg. use key door")}
+                  {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "goto " (enclose "spot") ". Eg. goto door")},
+                  {:name "quit" :function quit :description "Quit the game" :usage "quit"}))

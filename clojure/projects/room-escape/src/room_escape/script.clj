@@ -1,6 +1,7 @@
 (ns room-escape.script
   (:gen-class))
 
+(use '[clojure.string :as string])
 (use '[room-escape.common :only [parse-int locate-by-id locate-by-name set-visible display]])
 
 (declare objects)
@@ -41,25 +42,34 @@
              :category 2
              :name "card"
              :pickable true
-             :description {:default-check "It's a card with number 0428 on it."
-                           :near-check "Perhaps you can [press] the numbers at the [password-panel]?"}}
+             :description {:default-check "It's a card with some words on it."
+                           :near-check "
+ 'Oops, I failed it again.
+  Only 1 step before game clear...
+  But I stopped at 1024 T T
+
+  Hey stranger!
+  Can you help me get to the number?'
+                                       
+What is this...a riddle?"}}
             {:id 5
              :category 2
              :name "password-panel"
-             :description {:default-check "There are button 0~9 on the panel. The length of the password seems to be 4."}
+             :description {:default-check "There are button 0~9 on the panel. The length of the password seems to be 4. Maybe you can press the buttons..."}
              :state (atom [])
              :action [{:name "press"
                        :description "Press button 0 ~ 9 on the [password-panel]"
+                       :usage "press [0~9]. Eg. press 0"
                        :function
                          #(let [button (parse-int % -1)]
                             (if (or (> button 9) (< button 0))
                               (println "Invalid button: " %)
                               (let [states (:state (locate-by-id 5 objects))]
                                 (swap! states conj button)
-                                (println "You pressed button " button)
+                                (println "You pressed button" button)
                                 (let [inputs (vec (rseq @states))]
                                   (if (>= (count inputs) 4)
-                                    (if (-> inputs (subvec 0 4) (rseq) (vec) (= [0 4 2 8]))
+                                    (if (-> inputs (subvec 0 4) (rseq) (string/join) (= "2048"))
                                     (do 
                                       (set-visible 6)
                                       (display "The bottom of the [password-panel] opened. A [key] fell down to the floor."))))))))}]}

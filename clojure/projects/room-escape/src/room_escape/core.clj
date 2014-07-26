@@ -12,21 +12,26 @@
 ;  `(~action ~@args))
 
 (defn execute [command & args]
-  (println "Command: " command)
-  (println "Args: " args)
-  (let [action (->> (get-action-list) (filter (comp #(= (:name %) (str command)))) first :function)
+  ;(println "Command: " command)
+  ;(println "Args: " args)
+  (let [action-info (->> (get-action-list) (filter (comp #(= (:name %) (str command)))) first)
+        action (:function action-info)
         args-list (first args)]
     (if (nil? action)
       (do 
         (display "Unsupported command: " command)
         (help))
       (let [args-num (count args-list)] ; at most 2 args are supported
-        (cond (= 0 args-num)
-                 (action)
-              (= 1 args-num)
-                 (action (first args-list))
-              (= 2 args-num)
-                 (action (first args-list) (second args-list)))))))
+        (try
+          (cond (= 0 args-num)
+                   (action)
+                (= 1 args-num)
+                   (action (first args-list))
+                (= 2 args-num)
+                   (action (first args-list) (second args-list)))
+          (catch Exception e
+            (display "[!]Incorrect usage.")
+            (display "  Usage: " (:usage action-info))))))))
 
 (defn initialize []
   (display starting-message)

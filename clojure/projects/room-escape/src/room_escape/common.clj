@@ -6,6 +6,9 @@
 (defn display [message & args]
   (println (str message (string/join args))))
 
+(defn enclose [object-name]
+  (str "["object-name"]"))
+
 (defn parse-int
   ([s] (Integer/parseInt s))
   ([s default-int] (try
