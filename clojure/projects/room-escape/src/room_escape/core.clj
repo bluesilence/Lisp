@@ -47,6 +47,7 @@
   (flush))
 
 (defn game-server []
+  (display "Opening game server...")
   (letfn [(echo [in out]
             (binding [*in* (BufferedReader. (InputStreamReader. in))
                       *out* (OutputStreamWriter. out)]
