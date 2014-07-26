@@ -40,6 +40,7 @@
   (display starting-message)
   (update-room starting-room)
   (set-visible starting-room)
+  (Thread/sleep 5000)
   (help))
 
 (defn display-prompt []
