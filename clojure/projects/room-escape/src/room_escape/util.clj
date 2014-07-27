@@ -9,7 +9,6 @@
                  "item"])
 
 (defn construct-player [player-id]
-  (display "Construct player " player-id)
   (let [initial-context
         {:player-objects (objects player-id) 
 	 :current-status (atom {:room -1
