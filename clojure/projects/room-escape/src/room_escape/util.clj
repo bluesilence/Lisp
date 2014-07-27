@@ -4,170 +4,181 @@
 (use '[clojure.string :as string])
 (use '(room-escape script common))
 
-(def current-status (atom {:room -1
-                           :spot -1
-                           :items #{}}))
-
 (def categories ["room"
                  "spot"
                  "item"])
 
-(defn room? [id]
-  (let [category-id (:category (locate-by-id id objects))]
+(defn construct-player [player-id]
+  (display "Construct player " player-id)
+  (let [initial-context
+        {:player-objects (objects player-id) 
+	 :current-status (atom {:room -1
+                           :spot -1
+                           :items #{}})
+         :visible (atom #{})
+         :win (atom false)
+         :continue (atom true)}]
+  (swap! players assoc player-id initial-context)))
+
+(defn room? [player-id object-id]
+  (let [category-id (:category (locate-by-id player-id object-id))]
     (= "room" (nth categories category-id))))
 
-(defn spot? [id]
-  (let [category-id (:category (locate-by-id id objects))]
+(defn spot? [player-id object-id]
+  (let [category-id (:category (locate-by-id player-id object-id))]
     (= "spot" (nth categories category-id))))
 
-(defn item? [id]
-  (let [category-id (:category (locate-by-id id objects))]
+(defn item? [player-id object-id]
+  (let [category-id (:category (locate-by-id player-id object-id))]
     (= "item" (nth categories category-id))))
 
 (defn describe
-  [id & args]
-  (if-let [object (locate-by-id id objects)]
+  [player-id object-id & args]
+  (if-let [object (locate-by-id player-id object-id)]
     (let [key-str (string/join args)]
       (if (empty? key-str)
         (display (:default-check (:description object)))
         (display (get (:description object) (keyword key-str)))))
-    (display "No object with id " id " found.")))
+    (display "No object with id " object-id " found.")))
 
-(defn in-status? [id]
-  (let [status @current-status]
-    (or (= (:room status) id)
-        (= (:spot status) id)
-        ((set (:items status)) id))))
+(defn in-status? [player-id object-id]
+  (let [status @(:current-status (get @players player-id))]
+    (or (= (:room status) object-id)
+        (= (:spot status) object-id)
+        ((set (:items status)) object-id))))
 
-(defn update-status [key value]
-  (swap! current-status assoc key value))
+(defn update-status [player-id key value]
+  (let [status (:current-status (get @players player-id))]
+  (swap! status assoc key value)))
 
-(defn add-item-by-id [item-id]
-  (let [items (:items @current-status)]
-    (update-status :items (conj items item-id))))
+(defn add-item-by-id [player-id item-id]
+  (let [items (:items @(:current-status (get @players player-id)))]
+    (update-status player-id :items (conj items item-id))))
 
-(defn add-item-by-name [item-name]
-  (if-let [item-id (:id (locate-by-name item-name objects))]
-    (if-not (in-status? item-id)
+(defn add-item-by-name [player-id item-name]
+  (if-let [item-id (:id (locate-by-name player-id item-name))]
+    (if-not (in-status? player-id item-id)
       (do 
-        (add-item-by-id item-id)
+        (add-item-by-id player-id item-id)
         (display "You picked the " (enclose item-name) "."))
       (display "You have already picked the " (enclose item-name) "."))))
 
-(defn update-room [room-id]
-  (update-status :room room-id))
+(defn update-room [player-id room-id]
+  (update-status player-id :room room-id))
 
-(defn get-current-spot-id []
-  (:spot @current-status))
+(defn get-current-spot-id [player-id]
+  (:spot @(:current-status (get @players player-id))))
 
-(defn get-current-room []
-  (when-let [id (:room @current-status)]
-    (:name (locate-by-id id objects))))
+(defn get-current-room [player-id]
+  (when-let [id (:room @(:current-status (get @players player-id)))]
+    (:name (locate-by-id player-id id))))
 
-(defn update-spot [spot-id]
-  (when-let [old-spot (locate-by-id (get-current-spot-id) objects)]
+(defn update-spot [player-id spot-id]
+  (when-let [old-spot (locate-by-id player-id (get-current-spot-id player-id))]
     (doseq [item (:items old-spot)]
-      (set-invisible item)))
-  (if-let [new-spot (locate-by-id spot-id objects)]
+      (set-invisible player-id item)))
+  (if-let [new-spot (locate-by-id player-id spot-id)]
     (do
       (doseq [item (:items new-spot)]
-        (set-visible item))
-      (update-status :spot spot-id))
+        (set-visible player-id item))
+      (update-status player-id :spot spot-id))
     (display "Spot " spot-id " doesn't exist.")))
 
-(defn get-location []
+(defn get-location [player-id]
   (display "Your current location:")
-  (when-let [room (get-current-room)]
+  (when-let [room (get-current-room player-id)]
     (display "Room: " (enclose room)))
-  (when-let [spot (:name (locate-by-id (get-current-spot-id) objects))]
+  (when-let [spot (:name (locate-by-id player-id (get-current-spot-id player-id)))]
     (display "Spot: " (enclose spot))))
 
-(defn check [object-name]
+(defn check [player-id object-name]
   (if (nil? object-name)
     (display "Object name cannot be nil.")
-    (if-let [object (locate-by-name object-name objects)]
+    (if-let [object (locate-by-name player-id object-name)]
       (let [id (:id object)]
-        (if (in-status? id) ; If object is in status, set its items are visible
+        (if (in-status? player-id id) ; If object is in status, set its items are visible
           (do
               (doseq [item (:items object)]
-                (set-visible item))
-              (describe id 'near-check))
-          (if (visible? id)
-            (describe id)
+                (set-visible player-id item))
+              (describe player-id id 'near-check))
+          (if (visible? player-id id)
+            (describe player-id id)
             (display "You didn't see any " (enclose object-name) " around here."))))
       (display "There is no " (enclose object-name) " around here."))))
 
-(defn pick [item-name]
+(defn pick [player-id item-name]
   (if (nil? item-name)
     (display "Item name cannot be nil.")
-    (if-let [object (locate-by-name item-name objects)]
+    (if-let [object (locate-by-name player-id item-name)]
       (let [id (:id object)]
-        (if (visible? id)
+        (if (visible? player-id id)
           (if (:pickable object)
-            (add-item-by-name item-name)
+            (add-item-by-name player-id item-name)
             (display (enclose item-name) " cannot be picked."))
           (display "You didn't see any " (enclose item-name) " around here.")))
       (display "There is no " (enclose item-name) " around here."))))
 
-(defn show-items []
-  (let [items (:items @current-status)
+(defn show-items [player-id]
+  (let [items (:items @(:current-status (get @players player-id)))
         items-count (count items)]
     (if (> items-count 0)
       (do
         (display "You have " items-count " items:")
         (doseq [item-id items]
-          (display (enclose (get-name item-id objects)) ":")
-          (describe item-id)))
+          (display (enclose (get-name player-id item-id)) ":")
+          (describe player-id item-id)))
       (display "You don't have any item by now."))))
 
-(defn goto [spot-name]
+(defn goto [player-id spot-name]
   (if (empty? spot-name)
     (display "Spot name cannot be empty.")
-    (if-let [spot (locate-by-name spot-name objects)]
+    (if-let [spot (locate-by-name player-id spot-name)]
       (let [id (:id spot)]
-        (if (visible? id)
-          (if (spot? id)
+        (if (visible? player-id id)
+          (if (spot? player-id id)
             (do (display "You went to the " (enclose spot-name) " to take a closer look.")
-                (update-spot id)
-                (describe id 'near-check))
+                (update-spot player-id id)
+                (describe player-id id 'near-check))
             (display (enclose spot-name) " is not somewhere to go to."))
           (display "You didn't see any " (enclose spot-name) " around here.")))
       (display "There is no " (enclose spot-name) " around here."))))
 
-(defn look-around []
+(defn look-around [player-id]
   (display "You looked around.")
-  (check (get-current-room)))
+  (check player-id (get-current-room player-id)))
 
-(defn use-item [item-name target-name]
-  (let [item (locate-by-name item-name objects)
-        target (locate-by-name target-name objects)]
+(defn use-item [player-id item-name target-name]
+  (let [item (locate-by-name player-id item-name)
+        target (locate-by-name player-id target-name)]
     (let [item-id (:id item)
           target-id (:id target)]
-      (if (not (visible? item-id))
+      (if (not (visible? player-id item-id))
         (display "You didn't see any " (enclose item-name) " around here.")
-        (if (not (visible? target-id))
+        (if (not (visible? player-id target-id))
           (display "You didn't see any " (enclose target-name) " around here.")
-          (if (not (in-status? item-id))
+          (if (not (in-status? player-id item-id))
             (display "You don't have the " (enclose item-name) " at hand.")
             (if-let [use-function (:on-use item)]
               (do
-                (if (use-function target-name)
+                (if (use-function player-id target-name)
                   (display "You used the " (enclose item-name) " at the " (enclose target-name) ".")
                   (display "The " (enclose item-name) " cannot be used on the " (enclose target-name) ".")))
               (display (enclose item-name) " cannot be used."))))))))
 
-(def continue (atom true))
-(defn quit []
-  (swap! continue not))
+(defn quit [player-id]
+  (let [continue-context (:continue (get @players player-id))]
+    (swap! continue-context not)))
 
-(defn continue? []
-  (= @continue true))
+(defn continue? [player-id]
+  (let [continue-context (:continue (get @players player-id))]
+    (= @continue-context true)))
 
-(defn get-visible-objects []
-  (filter (comp visible? :id) objects))
+(defn get-visible-objects [player-id]
+  (let [objects (:player-objects (get @players player-id))]
+    (filter (comp (partial visible? player-id) :id) objects)))
 
-(defn get-object-actions []
-  (let [object-actions (filter (comp not nil?) (map :action (get-visible-objects)))
+(defn get-object-actions [player-id]
+  (let [object-actions (filter (comp not nil?) (map :action (get-visible-objects player-id)))
         results (transient [])]
     (doseq [act object-actions]
       (doseq [a act]
@@ -176,16 +187,16 @@
 
 (declare get-action-list)
 
-(defn help []
+(defn help [player-id]
   (display "")
   (display "Pick one " (enclose "action") " below:")
   (display "----------------------------")
-  (doseq [action (get-action-list)]
+  (doseq [action (get-action-list player-id)]
     (display (enclose (:name action)) " " (:description action))
     (display "  Usage: " (:usage action))))
 
-(defn get-action-list []
-  (conj (get-object-actions)
+(defn get-action-list [player-id]
+  (conj (get-object-actions player-id)
                   {:name "help" :function help :description "Get help information" :usage "help"},
                   {:name "show-items" :function show-items :description "Show your items" :usage "show-items"},
                   {:name "get-location" :function get-location :description "Get current location" :usage "get-location"},

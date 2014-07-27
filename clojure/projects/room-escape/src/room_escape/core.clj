@@ -14,58 +14,65 @@
 ;  (println "Args: " args)
 ;  `(~action ~@args))
 
-(defn execute [command & args]
+(defn execute [player-id command & args]
   ;(println "Command: " command)
   ;(println "Args: " args)
-  (let [action-info (->> (get-action-list) (filter (comp #(= (:name %) (str command)))) first)
+  (let [action-info (->> (get-action-list player-id) (filter (comp #(= (:name %) (str command)))) first)
         action (:function action-info)
         args-list (first args)]
     (if (nil? action)
       (do 
         (display "Unsupported command: " command)
-        (help))
+        (help player-id))
       (let [args-num (count args-list)] ; at most 2 args are supported
         (try
           (cond (= 0 args-num)
-                   (action)
+                   (action player-id)
                 (= 1 args-num)
-                   (action (first args-list))
+                   (action player-id (first args-list))
                 (= 2 args-num)
-                   (action (first args-list) (second args-list)))
+                   (action player-id (first args-list) (second args-list)))
           (catch Exception e
+            (.printStackTrace e)
             (display "[!]Incorrect usage.")
             (display "  Usage: " (:usage action-info))))))))
 
-(defn initialize []
+(defn initialize [player-id]
+  (construct-player player-id)
   (display starting-message)
-  (update-room starting-room)
-  (set-visible starting-room)
+  (update-room player-id starting-room)
+  (set-visible player-id starting-room)
   (Thread/sleep 5000)
-  (help))
+  (help player-id))
 
 (defn display-prompt []
   (print ">>")
   (flush))
 
+(def player-count (atom 0))
+
 (defn game-server []
   (display "Opening game server...")
   (letfn [(echo [in out]
+            (swap! player-count inc)
+            (println "Player " @player-count " connected.")
             (binding [*in* (BufferedReader. (InputStreamReader. in))
                       *out* (OutputStreamWriter. out)]
-              (initialize)
-              (display-prompt)
-              (loop [command-str (str (read-line))]
-                (do (when-not (= command-str "")
-                      (let [command-vector (string/split command-str #" ")]
-                        (execute (first command-vector) (rest command-vector))))
-                  (if (win?)
+              (let [current-player @player-count]
+                (initialize current-player)
+                (display-prompt)
+                (loop [command-str (str (read-line))]
+                  (do (when-not (= command-str "")
+                        (let [command-vector (string/split command-str #" ")]
+                          (execute current-player (first command-vector) (rest command-vector))))
+                  (if (win? current-player)
                     (do
-                      (swap! continue not)
+                      (swap! (:continue (get @players current-player)) not)
                       (display win-message))
-                    (when (continue?)
+                    (when (continue? current-player)
                       (display-prompt)
                       (recur (str (read-line)))))))
-             (display "Goodbye~!")))]
+             (display "Goodbye~!"))))]
     (create-server 8080 echo)))
 
 (defn -main
