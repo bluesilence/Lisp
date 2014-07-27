@@ -78,4 +78,6 @@
 (defn -main
   "A text only game to escape from a locked room."
   [& args]
+  (if (= args true)
+    (swap! is-windows not))
   (game-server))

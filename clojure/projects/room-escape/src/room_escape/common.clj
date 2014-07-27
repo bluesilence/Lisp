@@ -3,8 +3,14 @@
 
 (use '[clojure.string :as string])
 
-(defn display [message & args]
-  (println (str message (string/join args))))
+(def is-windows (atom false))
+
+; the replace doesn't fix the line feed issue on windows...
+(defn display
+  [message & args]
+  (let [output (str message (string/join args))]
+    (if @is-windows (string/replace output #"\r" "\r\n"))
+    (println output)))
 
 (defn enclose [object-name]
   (str "\033[33m[" object-name "]\33[0m"))
