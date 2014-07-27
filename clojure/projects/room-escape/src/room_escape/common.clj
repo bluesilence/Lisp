@@ -7,7 +7,10 @@
   (println (str message (string/join args))))
 
 (defn enclose [object-name]
-  (str "["object-name"]"))
+  (str "\033[33m[" object-name "]\33[0m"))
+
+(defn highlight [message]
+  (str "\033[36m" message "\33[0m"))
 
 (defn parse-int
   ([s] (Integer/parseInt s))

@@ -1,7 +1,7 @@
 (ns room-escape.util
   (:gen-class))
 
-(use '[clojure.string :as string])
+(use '[clojure.string :as string :only [join]])
 (use '(room-escape script common))
 
 (def categories ["room"

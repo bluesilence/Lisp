@@ -4,7 +4,7 @@
 (import '[java.io BufferedReader InputStreamReader OutputStreamWriter])
 (use 'server.socket)
 
-(use '[clojure.string :as string])
+(use '[clojure.string :as string :only [split]])
 (use '[room-escape.script :as script])
 (use '[room-escape common util script])
 
