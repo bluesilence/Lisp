@@ -1,6 +1,9 @@
 # room-escape
 
-FIXME: description
+Pure text version of room escape!
+The game is ONLINE now. Play it by:
+
+telnet avalonOfSunny.cloudapp.net 8080
 
 ## Installation
 
@@ -8,13 +11,13 @@ Download from http://example.com/FIXME.
 
 ## Usage
 
-FIXME: explanation
+The project uses Leiningen. Download the code and run:
 
-    $ java -jar room-escape-0.1.0-standalone.jar [args]
+    $ lein run
 
 ## Options
 
-FIXME: listing of options this app accepts.
+Only Linux telnet is supported by now.
 
 ## Examples
 
@@ -22,7 +25,7 @@ FIXME: listing of options this app accepts.
 
 ### Bugs
 
-...
+Using Windows telnet, the text will be a mess due to different line feed issue between Windows and Linux.
 
 ### Any Other Sections
 ### That You Think
