@@ -1,13 +1,15 @@
 # room-escape
 
-Pure text version of room escape!
-The game is ONLINE now. Play it by:
+Pure text version of room escape.
 
-telnet avalonOfSunny.cloudapp.net 8080
+The game is ONLINE now!
+
+Play it by:
+
+    $ telnet avalonOfSunny.cloudapp.net 8080
 
 ## Installation
 
-Download from http://example.com/FIXME.
 
 ## Usage
 
