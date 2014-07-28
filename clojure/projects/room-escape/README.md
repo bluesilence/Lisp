@@ -19,7 +19,13 @@ The project uses Leiningen. Download the code and run:
 
 ## Options
 
-Only Linux telnet is supported by now.
+For Linux:
+
+    $ telnet avalonOfSunny.cloudapp.net 8080
+
+For Windows:
+
+Get an Xterm <a href="http://mobaxterm.mobatek.net/">here</a>.
 
 ## Examples
 
@@ -27,7 +33,7 @@ Only Linux telnet is supported by now.
 
 ### Bugs
 
-Using Windows telnet, the text will be a mess due to different line feed issue between Windows and Linux.
+Using default telnet in Windows, the text will be a mess due to different line feed issue between Windows and Linux.
 
 ### Any Other Sections
 ### That You Think
