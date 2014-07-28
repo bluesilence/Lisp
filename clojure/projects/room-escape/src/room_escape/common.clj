@@ -12,11 +12,20 @@
     (if @is-windows (string/replace output #"\r" "\r\n"))
     (println output)))
 
+(defn display-prompt []
+  (print ">>")
+  (flush))
+
 (defn enclose [object-name]
   (str "\033[33m[" object-name "]\33[0m"))
 
 (defn highlight [message]
   (str "\033[36m" message "\33[0m"))
+
+(def welcome-message (highlight "
+************************************************
+     WELCOME TO THE WORLD OF ROOM ESCAPE!
+************************************************"))
 
 (defn parse-int
   ([s] (Integer/parseInt s))

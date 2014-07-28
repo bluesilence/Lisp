@@ -6,7 +6,10 @@
 
 (declare objects)
 
-(def starting-message (highlight "
+(def starting-rooms [{:name "Demo room"
+                      :id 1 ;Map to object id
+                      :description "A simple room for demo."
+                      :starting-message (highlight "
 ************************************************
   You were drunk last night.
   and you found yourself...locked!
@@ -14,7 +17,13 @@
   ...What the fuck?!
 
   Anyway, let's try to escape from here first!
-************************************************"))
+************************************************")
+                      :win-message (highlight "
+************************************************
+  Congratulations!
+  The door is opened! You walked out...
+  Still, you are trying to figure this out.
+************************************************")}])
 
 (defn- rooms [player-id]
   (vector {:id 1
@@ -93,14 +102,5 @@ What is this...a riddle?")}}
                           false))
              :pickable true}))
 
-(def starting-room 1)
-
 (defn objects [player-id]
   (vec (concat (rooms player-id) (spots player-id) (items player-id))))
-
-(def win-message (highlight "
-************************************************
-  Congratulations!
-  The door is opened! You walked out...
-  Still, you are trying to figure this out.
-************************************************"))

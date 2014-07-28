@@ -39,15 +39,14 @@
 
 (defn initialize [player-id]
   (construct-player player-id)
-  (display starting-message)
-  (update-room player-id starting-room)
-  (set-visible player-id starting-room)
+  (Thread/sleep 2000)
+  (let [starting-room (get-starting-room-by-player player-id)
+        starting-room-id (:id starting-room)]
+    (display (:starting-message starting-room))
+    (update-room player-id starting-room-id)
+    (set-visible player-id starting-room-id))
   (Thread/sleep 5000)
   (help player-id))
-
-(defn display-prompt []
-  (print ">>")
-  (flush))
 
 (def player-count (atom 0))
 
@@ -59,6 +58,7 @@
             (binding [*in* (BufferedReader. (InputStreamReader. in))
                       *out* (OutputStreamWriter. out)]
               (let [current-player @player-count]
+                (display welcome-message)
                 (initialize current-player)
                 (display-prompt)
                 (loop [command-str (str (read-line))]
@@ -68,7 +68,7 @@
                   (if (win? current-player)
                     (do
                       (swap! (:continue (get @players current-player)) not)
-                      (display win-message))
+                      (display (:win-message (get-starting-room-by-player current-player))))
                     (when (continue? current-player)
                       (display-prompt)
                       (recur (str (read-line)))))))

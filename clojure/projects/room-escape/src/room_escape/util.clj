@@ -8,9 +8,33 @@
                  "spot"
                  "item"])
 
+(defn display-starting-rooms []
+  (display "")
+  (display "Select one room by " (enclose "index") ":")
+  (display "----------------------------")
+  (doseq [i (range (count starting-rooms))]
+    (let [room (get starting-rooms i)]
+      (display (enclose i) (:name room))
+      (display (:description room))))
+  (display-prompt))
+
+(defn choose-starting-room [player-id]
+  (display-starting-rooms)
+  (loop [input (str (read-line))]
+    (when-let [starting-room-index (parse-int input -1)]
+      (if (and (>= starting-room-index 0)
+              (< starting-room-index (count starting-rooms)))
+        (do (display "You chosed room " starting-room-index)
+          starting-room-index)
+        (do (display "Invalid room index: " input)
+            (display-starting-rooms)
+            (recur (str (read-line))))))))
+
 (defn construct-player [player-id]
-  (let [initial-context
+  (let [starting-room-index (choose-starting-room player-id)
+        initial-context
         {:player-objects (objects player-id) 
+         :starting-room starting-room-index
 	 :current-status (atom {:room -1
                            :spot -1
                            :items #{}})
@@ -151,7 +175,8 @@
         target (locate-by-name player-id target-name)]
     (let [item-id (:id item)
           target-id (:id target)]
-      (if (not (visible? player-id item-id))
+      (if (not (or (visible? player-id item-id)
+                   (in-status? player-id item-id)))
         (display "You didn't see any " (enclose item-name) " around here.")
         (if (not (visible? player-id target-id))
           (display "You didn't see any " (enclose target-name) " around here.")
@@ -171,6 +196,20 @@
 (defn continue? [player-id]
   (let [continue-context (:continue (get @players player-id))]
     (= @continue-context true)))
+
+(defn get-starting-room-by-index [starting-room-index]
+  (let [rooms-count (count starting-rooms)]
+    (if (and (>= starting-room-index 0)
+             (< starting-room-index rooms-count))
+      (get starting-rooms starting-room-index)
+      (display "Invalid starting room index: " starting-room-index))))
+
+(defn get-starting-room-by-player [player-id]
+  (let [starting-room-index (:starting-room (get @players player-id))]
+    (get-starting-room-by-index starting-room-index)))
+
+(defn get-starting-room-id-by-player [player-id]
+  (:id (get-starting-room-by-player player-id)))
 
 (defn get-visible-objects [player-id]
   (let [objects (:player-objects (get @players player-id))]
