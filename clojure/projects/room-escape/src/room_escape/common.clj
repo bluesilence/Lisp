@@ -12,9 +12,11 @@
     ;(if @is-windows (string/replace output #"\r" "\r\n"))
     (println output)))
 
-(defn display-prompt []
-  (print ">>")
-  (flush))
+(defn display-prompt [player-id]
+  (println "")
+  (let [prompt (str "player" player-id "@room-escape:~$ ")]
+    (print prompt)
+    (flush)))
 
 (defn enclose [object-name]
   (str "\033[33m[" object-name "]\33[0m"))

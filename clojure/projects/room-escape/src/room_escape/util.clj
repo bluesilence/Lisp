@@ -18,7 +18,7 @@
       false
       @continue-context)))
 
-(defn display-starting-rooms []
+(defn display-starting-rooms [player-id]
   (display "")
   (display "Select one room by " (enclose "index") ":")
   (display "----------------------------")
@@ -28,10 +28,10 @@
       (display (:description room))))
   (display (enclose "Q") " " (highlight "Quit"))
   (display "Quit the game.")
-  (display-prompt))
+  (display-prompt player-id))
 
 (defn choose-starting-room [player-id]
-  (display-starting-rooms)
+  (display-starting-rooms player-id)
   (loop [input (str (read-line))]
     (when-not (= input "Q")
       (let [starting-room-index (parse-int input -1)]
@@ -263,13 +263,31 @@
 
 (defn get-action-list [player-id]
   (conj (get-object-actions player-id)
-                  {:name "help" :function help :description "Get help information" :usage "help"},
-                  {:name "show-items" :function show-items :description "Show your items" :usage "show-items"},
-                  {:name "get-location" :function get-location :description "Get current location" :usage "get-location"},
-                  {:name "look-around" :function look-around :description "Look around the room" :usage "look-around"},
-                  {:name "check" :function check :description "Check room/spot/item" :usage (str "check " (enclose "object") ". Eg. check door")},
-                  {:name "pick" :function pick :description (str "Pick an item. So you can take a near " (enclose "check") " at the item, or " (enclose "use") " the item.") :usage (str "pick " (enclose "item") ". Eg. pick card")},
-                  {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "use " (enclose "item") " " (enclose "target-object") ". Eg. use key door")}
-                  {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "goto " (enclose "spot") ". Eg. goto door")},
-                  {:name "main" :function back-to-main :description "Back to main menu." :usage "main"},
-                  {:name "quit" :function quit :description "Quit the game" :usage "quit"}))
+                  {:name "help" :function help :description "Get help information" :usage "help" :hint []},
+                  {:name "show-items" :function show-items :description "Show your items" :usage "show-items" :hint ["check" "look-around"]},
+                  {:name "get-location" :function get-location :description "Get current location" :usage "get-location" :hint ["look-around" "goto"]},
+                  {:name "look-around" :function look-around :description "Look around the room" :usage "look-around" :hint ["goto"]},
+                  {:name "check" :function check :description "Check room/spot/item" :usage (str "check " (enclose "object") ". Eg. check door") :hint ["goto" "pick" "use"]},
+                  {:name "pick" :function pick :description (str "Pick an item. So you can take a near " (enclose "check") " at the item, or " (enclose "use") " the item.") :usage (str "pick " (enclose "item") ". Eg. pick card") :hint ["check" "use"]},
+                  {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "use " (enclose "item") " " (enclose "target-object") ". Eg. use key door") :hint ["check"]}
+                  {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "goto " (enclose "spot") ". Eg. goto door") :hint ["check" "pick"]},
+                  {:name "main" :function back-to-main :description "Back to main menu." :usage "main" :hint []},
+                  {:name "quit" :function quit :description "Quit the game" :usage "quit" :hint []}))
+
+(defn get-action-by-name [player-id action-name]
+  (let [action-info (->> (get-action-list player-id) (filter (comp #(= (:name %) action-name))) first)]
+    (if (nil? action-info)
+      (display "No action named " action-name " found.")
+      action-info)))
+
+(defn show-hint [player-id action-info]
+  (when-let [hint (:hint action-info)]
+    (when (> (count hint) 0)
+      (do
+        (display "")
+        (display (highlight "HINT:") " Try " (enclose "action") " below:"))
+        (display "----------------------------")
+        (let [actions (map (partial get-action-by-name player-id) hint)]
+          (doseq [action actions]
+            (display (enclose (:name action)) " " (:description action))
+            (display "  Usage: " (:usage action)))))))

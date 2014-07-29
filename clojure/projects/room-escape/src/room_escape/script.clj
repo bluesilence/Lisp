@@ -65,7 +65,7 @@ What is this...a riddle?")}}
             {:id 5
              :category 2
              :name "password-panel"
-             :description {:default-check "There are button 0~9 on the panel. The length of the password seems to be 4. Maybe you can press the buttons..."}
+             :description {:default-check (str "There are button 0~9 on the panel. The length of the password seems to be 4. Maybe you can " (enclose "press") " the buttons...")}
              :state (atom "")
              :action [{:name "press"
                        :description (str "Press button 0~9 on the " (enclose "password-panel"))

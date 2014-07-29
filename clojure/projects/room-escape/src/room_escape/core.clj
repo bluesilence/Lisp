@@ -32,6 +32,7 @@
                    (action player-id (first args-list))
                 (= 2 args-num)
                    (action player-id (first args-list) (second args-list)))
+          (show-hint player-id action-info)
           (catch Exception e
             (.printStackTrace e)
             (display "[!]Incorrect usage.")
@@ -50,7 +51,7 @@
                 (display welcome-message)
                 (initialize current-player)
                 (when (continue? current-player)
-                  (display-prompt)
+                  (display-prompt current-player)
                   (loop [command-str (str (read-line))]
                     (do (when-not (= command-str "")
                           (let [command-vector (string/split command-str #" ")]
@@ -60,7 +61,7 @@
                         (swap! (:continue (get @players current-player)) not)
                         (display (:win-message (get-starting-room-by-player current-player))))
                       (when (continue? current-player)
-                        (display-prompt)
+                        (display-prompt current-player)
                         (recur (str (read-line))))))))
              (display "Goodbye~!"))
            (clean-up current-player)
