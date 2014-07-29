@@ -1,15 +1,15 @@
 (ns room-escape.common
   (:gen-class))
 
-(use '[clojure.string :as string])
+(use '[clojure.string :as string :only [join]])
 
-(def is-windows (atom false))
+; (def is-windows (atom false))
 
 ; the replace doesn't fix the line feed issue on windows...
 (defn display
   [message & args]
   (let [output (str message (string/join args))]
-    (if @is-windows (string/replace output #"\r" "\r\n"))
+    ;(if @is-windows (string/replace output #"\r" "\r\n"))
     (println output)))
 
 (defn display-prompt []
@@ -68,7 +68,10 @@
     (set-visible player-id object-id)))
 
 (defn win? [player-id]
-  @(:win (get @players player-id)))
+  (let [win-context (:win (get @players player-id))]
+    (if (nil? win-context) ; Player quits from main menu
+      false
+      @win-context)))
 
 (defn set-win [player-id]
   (swap! (:win (get @players player-id)) not))

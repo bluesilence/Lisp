@@ -8,40 +8,65 @@
                  "spot"
                  "item"])
 
+(defn quit [player-id]
+  (let [continue-context (:continue (get @players player-id))]
+    (swap! continue-context not)))
+
+(defn continue? [player-id]
+  (let [continue-context (:continue (get @players player-id))]
+    (if (nil? continue-context) ; Player quits from main menu
+      false
+      @continue-context)))
+
 (defn display-starting-rooms []
   (display "")
   (display "Select one room by " (enclose "index") ":")
   (display "----------------------------")
   (doseq [i (range (count starting-rooms))]
     (let [room (get starting-rooms i)]
-      (display (enclose i) (:name room))
+      (display (enclose i) " " (highlight (:name room)))
       (display (:description room))))
+  (display (enclose "Q") " " (highlight "Quit"))
+  (display "Quit the game.")
   (display-prompt))
 
 (defn choose-starting-room [player-id]
   (display-starting-rooms)
   (loop [input (str (read-line))]
-    (when-let [starting-room-index (parse-int input -1)]
-      (if (and (>= starting-room-index 0)
-              (< starting-room-index (count starting-rooms)))
-        (do (display "You chosed room " starting-room-index)
-          starting-room-index)
-        (do (display "Invalid room index: " input)
-            (display-starting-rooms)
-            (recur (str (read-line))))))))
+    (when-not (= input "Q")
+      (let [starting-room-index (parse-int input -1)]
+        (if (and (>= starting-room-index 0)
+                (< starting-room-index (count starting-rooms)))
+          (do (display "You chosed room " (enclose starting-room-index))
+            starting-room-index)
+          (do (display "Invalid room index: " input)
+              (display-starting-rooms)
+              (recur (str (read-line)))))))))
+
+(defn get-starting-room-by-index [starting-room-index]
+  (let [rooms-count (count starting-rooms)]
+    (if (and (>= starting-room-index 0)
+             (< starting-room-index rooms-count))
+      (get starting-rooms starting-room-index)
+      (display "Invalid starting room index: " starting-room-index))))
 
 (defn construct-player [player-id]
-  (let [starting-room-index (choose-starting-room player-id)
-        initial-context
-        {:player-objects (objects player-id) 
-         :starting-room starting-room-index
-	 :current-status (atom {:room -1
-                           :spot -1
-                           :items #{}})
-         :visible (atom #{})
-         :win (atom false)
-         :continue (atom true)}]
-  (swap! players assoc player-id initial-context)))
+  (when-let [starting-room-index (choose-starting-room player-id)]
+    (let [starting-room (get-starting-room-by-index starting-room-index)
+          initial-context
+          {:player-objects (:objects starting-room) 
+           :starting-room starting-room-index
+           :current-status (atom {:room -1
+                             :spot -1
+                             :items #{}})
+           :visible (atom #{})
+           :win (atom false)
+           :continue (atom true)}]
+    (swap! players assoc player-id initial-context))))
+
+; Release context of player when game is over
+(defn clean-up [player-id]
+  (swap! players dissoc player-id))
 
 (defn room? [player-id object-id]
   (let [category-id (:category (locate-by-id player-id object-id))]
@@ -189,21 +214,6 @@
                   (display "The " (enclose item-name) " cannot be used on the " (enclose target-name) ".")))
               (display (enclose item-name) " cannot be used."))))))))
 
-(defn quit [player-id]
-  (let [continue-context (:continue (get @players player-id))]
-    (swap! continue-context not)))
-
-(defn continue? [player-id]
-  (let [continue-context (:continue (get @players player-id))]
-    (= @continue-context true)))
-
-(defn get-starting-room-by-index [starting-room-index]
-  (let [rooms-count (count starting-rooms)]
-    (if (and (>= starting-room-index 0)
-             (< starting-room-index rooms-count))
-      (get starting-rooms starting-room-index)
-      (display "Invalid starting room index: " starting-room-index))))
-
 (defn get-starting-room-by-player [player-id]
   (let [starting-room-index (:starting-room (get @players player-id))]
     (get-starting-room-by-index starting-room-index)))
@@ -233,6 +243,24 @@
     (display (enclose (:name action)) " " (:description action))
     (display "  Usage: " (:usage action))))
 
+(defn initialize [player-id]
+  (construct-player player-id)
+  ; Player may quit during construction
+  (when (continue? player-id)
+    (Thread/sleep 2000)
+    (let [starting-room (get-starting-room-by-player player-id)
+          starting-room-id (:id starting-room)]
+      (display (:starting-message starting-room))
+      (update-room player-id starting-room-id)
+      (set-visible player-id starting-room-id))
+    (Thread/sleep 5000)
+    (help player-id)))
+
+; Return to room choosing menu
+(defn back-to-main [player-id]
+  (clean-up player-id)
+  (initialize player-id))
+
 (defn get-action-list [player-id]
   (conj (get-object-actions player-id)
                   {:name "help" :function help :description "Get help information" :usage "help"},
@@ -243,4 +271,5 @@
                   {:name "pick" :function pick :description (str "Pick an item. So you can take a near " (enclose "check") " at the item, or " (enclose "use") " the item.") :usage (str "pick " (enclose "item") ". Eg. pick card")},
                   {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "use " (enclose "item") " " (enclose "target-object") ". Eg. use key door")}
                   {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "goto " (enclose "spot") ". Eg. goto door")},
+                  {:name "main" :function back-to-main :description "Back to main menu." :usage "main"},
                   {:name "quit" :function quit :description "Quit the game" :usage "quit"}))

@@ -37,47 +37,39 @@
             (display "[!]Incorrect usage.")
             (display "  Usage: " (:usage action-info))))))))
 
-(defn initialize [player-id]
-  (construct-player player-id)
-  (Thread/sleep 2000)
-  (let [starting-room (get-starting-room-by-player player-id)
-        starting-room-id (:id starting-room)]
-    (display (:starting-message starting-room))
-    (update-room player-id starting-room-id)
-    (set-visible player-id starting-room-id))
-  (Thread/sleep 5000)
-  (help player-id))
-
 (def player-count (atom 0))
 
 (defn game-server []
   (display "Opening game server...")
   (letfn [(echo [in out]
             (swap! player-count inc)
-            (println "Player " @player-count " connected.")
-            (binding [*in* (BufferedReader. (InputStreamReader. in))
-                      *out* (OutputStreamWriter. out)]
-              (let [current-player @player-count]
+            (let [current-player @player-count]
+              (println "Player" current-player "connected.")
+              (binding [*in* (BufferedReader. (InputStreamReader. in))
+                        *out* (OutputStreamWriter. out)]
                 (display welcome-message)
                 (initialize current-player)
-                (display-prompt)
-                (loop [command-str (str (read-line))]
-                  (do (when-not (= command-str "")
-                        (let [command-vector (string/split command-str #" ")]
-                          (execute current-player (first command-vector) (rest command-vector))))
-                  (if (win? current-player)
-                    (do
-                      (swap! (:continue (get @players current-player)) not)
-                      (display (:win-message (get-starting-room-by-player current-player))))
-                    (when (continue? current-player)
-                      (display-prompt)
-                      (recur (str (read-line)))))))
-             (display "Goodbye~!"))))]
+                (when (continue? current-player)
+                  (display-prompt)
+                  (loop [command-str (str (read-line))]
+                    (do (when-not (= command-str "")
+                          (let [command-vector (string/split command-str #" ")]
+                            (execute current-player (first command-vector) (rest command-vector))))
+                    (if (win? current-player)
+                      (do
+                        (swap! (:continue (get @players current-player)) not)
+                        (display (:win-message (get-starting-room-by-player current-player))))
+                      (when (continue? current-player)
+                        (display-prompt)
+                        (recur (str (read-line))))))))
+             (display "Goodbye~!"))
+           (clean-up current-player)
+           (display "Player " current-player " disconnected.")))]
     (create-server 8080 echo)))
 
 (defn -main
   "A text only game to escape from a locked room."
   [& args]
-  (if (= args true)
-    (swap! is-windows not))
+  ;(if (= args true)
+  ;  (swap! is-windows not))
   (game-server))

@@ -4,8 +4,6 @@
 (use '[clojure.string :as string :only [join] :exclude [reverse]])
 (use '[room-escape.common :only [parse-int locate-by-id locate-by-name set-visible visible? set-win display enclose highlight]])
 
-(declare objects)
-
 (def starting-rooms [{:name "Demo room"
                       :id 1 ;Map to object id
                       :description "A simple room for demo."
@@ -23,19 +21,19 @@
   Congratulations!
   The door is opened! You walked out...
   Still, you are trying to figure this out.
-************************************************")}])
-
-(defn- rooms [player-id]
-  (vector {:id 1
+************************************************")
+                      :objects [
+            ;Define rooms
+            {:id 1
              :category 0
              :name "starting room"
              :description {:default-check "The room is dark. Try look around."
                            :near-check (str "This is a strange room. Barely no furniture except a " (enclose "table") " and a " (enclose "door") ".")}
              :items [2 3]
-             }))
+             }
 
-(defn- spots [player-id]
-  (vector {:id 2
+            ;Define spots
+            {:id 2
              :category 1
              :name "table"
              :description {:default-check "This is a small square table. It seems that there is something on the table..."
@@ -46,10 +44,10 @@
              :name "door"
              :description{:default-check "The door is locked."
                           :near-check (str "There is a " (enclose "password-panel") " beside the door. Maybe the password is written somewhere...")}
-             :items [5]}))
+             :items [5]}
 
-(defn- items [player-id]
-  (vector {:id 4
+            ;Define items
+            {:id 4
              :category 2
              :name "card"
              :pickable true
@@ -63,6 +61,7 @@
   Can you help me get to the number?'") "   
 
 What is this...a riddle?")}}
+
             {:id 5
              :category 2
              :name "password-panel"
@@ -100,7 +99,4 @@ What is this...a riddle?")}}
 			    (set-win player-id)
 		            true)
                           false))
-             :pickable true}))
-
-(defn objects [player-id]
-  (vec (concat (rooms player-id) (spots player-id) (items player-id))))
+             :pickable true}]}])
