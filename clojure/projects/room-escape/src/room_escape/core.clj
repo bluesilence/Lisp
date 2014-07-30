@@ -32,7 +32,11 @@
                    (action player-id (first args-list))
                 (= 2 args-num)
                    (action player-id (first args-list) (second args-list)))
-          (show-hint player-id action-info)
+          (let [action-name (:name action-info)]
+            (when-not (or (= action-name "help")
+                          (= action-name "main")
+                          (= action-name "quit"))
+              (set-last-action player-id (:name action-info))))
           (catch Exception e
             (.printStackTrace e)
             (display "[!]Incorrect usage.")

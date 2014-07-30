@@ -70,6 +70,7 @@ What is this...a riddle?")}}
              :action [{:name "press"
                        :description (str "Press button 0~9 on the " (enclose "password-panel"))
                        :usage "press 0~9. Eg. press 0"
+                       :hint ["press"]
                        :function
                          #(let [player-id %1
                                 button (parse-int %2 -1)]

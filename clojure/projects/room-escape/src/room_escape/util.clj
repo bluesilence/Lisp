@@ -1,6 +1,7 @@
 (ns room-escape.util
   (:gen-class))
 
+(use '[clojure.set :only [union]])
 (use '[clojure.string :as string :only [join]])
 (use '(room-escape script common))
 
@@ -61,12 +62,20 @@
                              :items #{}})
            :visible (atom #{})
            :win (atom false)
-           :continue (atom true)}]
+           :continue (atom true)
+           :last-action (atom [])}]
     (swap! players assoc player-id initial-context))))
 
 ; Release context of player when game is over
 (defn clean-up [player-id]
   (swap! players dissoc player-id))
+
+(defn get-last-action [player-id]
+  (:last-action (get @players player-id)))
+
+(defn set-last-action [player-id action-name]
+  (let [last-action (get-last-action player-id)]
+    (swap! last-action assoc 0 action-name)))
 
 (defn room? [player-id object-id]
   (let [category-id (:category (locate-by-id player-id object-id))]
@@ -235,13 +244,35 @@
 
 (declare get-action-list)
 
+(defn get-action-by-name [player-id action-name]
+  (let [action-info (->> (get-action-list player-id) (filter (comp #(= (:name %) action-name))) first)]
+    (if (nil? action-info)
+      (display "No action named " action-name " found.")
+      action-info)))
+
+(defn show-hint [player-id]
+  (when-let [last-action (first @(:last-action (get @players player-id)))]
+    (when-let [hint (:hint (get-action-by-name player-id last-action))]
+      (when (> (count hint) 0)
+        (do
+          (display "")
+          (display (highlight "HINT:") " Try " (enclose "action") " below:"))
+          (display "----------------------------")
+          (let [actions (set (map (partial get-action-by-name player-id) hint))
+                object-actions (set (get-object-actions player-id))]
+            (let [unique-actions (clojure.set/union actions object-actions)]
+              (doseq [action unique-actions]
+                (display (enclose (:name action)) " " (:description action))
+                (display "  Usage: " (:usage action)))))))))
+
 (defn help [player-id]
   (display "")
-  (display "Pick one " (enclose "action") " below:")
+  (display (highlight "ACTION LIST"))
   (display "----------------------------")
   (doseq [action (get-action-list player-id)]
     (display (enclose (:name action)) " " (:description action))
-    (display "  Usage: " (:usage action))))
+    (display "  Usage: " (:usage action)))
+  (show-hint player-id))
 
 (defn initialize [player-id]
   (construct-player player-id)
@@ -262,7 +293,7 @@
   (initialize player-id))
 
 (defn get-action-list [player-id]
-  (conj (get-object-actions player-id)
+  (reverse (conj (get-object-actions player-id)
                   {:name "help" :function help :description "Get help information" :usage "help" :hint []},
                   {:name "show-items" :function show-items :description "Show your items" :usage "show-items" :hint ["check" "look-around"]},
                   {:name "get-location" :function get-location :description "Get current location" :usage "get-location" :hint ["look-around" "goto"]},
@@ -272,22 +303,4 @@
                   {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "use " (enclose "item") " " (enclose "target-object") ". Eg. use key door") :hint ["check"]}
                   {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "goto " (enclose "spot") ". Eg. goto door") :hint ["check" "pick"]},
                   {:name "main" :function back-to-main :description "Back to main menu." :usage "main" :hint []},
-                  {:name "quit" :function quit :description "Quit the game" :usage "quit" :hint []}))
-
-(defn get-action-by-name [player-id action-name]
-  (let [action-info (->> (get-action-list player-id) (filter (comp #(= (:name %) action-name))) first)]
-    (if (nil? action-info)
-      (display "No action named " action-name " found.")
-      action-info)))
-
-(defn show-hint [player-id action-info]
-  (when-let [hint (:hint action-info)]
-    (when (> (count hint) 0)
-      (do
-        (display "")
-        (display (highlight "HINT:") " Try " (enclose "action") " below:"))
-        (display "----------------------------")
-        (let [actions (map (partial get-action-by-name player-id) hint)]
-          (doseq [action actions]
-            (display (enclose (:name action)) " " (:description action))
-            (display "  Usage: " (:usage action)))))))
+                  {:name "quit" :function quit :description "Quit the game" :usage "quit" :hint []})))
