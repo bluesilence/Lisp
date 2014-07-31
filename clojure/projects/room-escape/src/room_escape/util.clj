@@ -142,7 +142,8 @@
     (display "Spot " spot-id " doesn't exist.")))
 
 (defn get-location [player-id]
-  (display "Your current location:")
+  (display (highlight "CURRENT LOCATION"))
+  (display "----------------------------")
   (when-let [room (get-current-room player-id)]
     (display "Room: " (enclose room)))
   (when-let [spot (:name (locate-by-id player-id (get-current-spot-id player-id)))]
@@ -176,6 +177,8 @@
       (display "There is no " (enclose item-name) " around here."))))
 
 (defn show-items [player-id]
+  (display (highlight "YOUR ITEMS"))
+  (display "----------------------------")
   (let [items (:items @(:current-status (get @players player-id)))
         items-count (count items)]
     (if (> items-count 0)
@@ -185,6 +188,11 @@
           (display (enclose (get-name player-id item-id)) ":")
           (describe player-id item-id)))
       (display "You don't have any item by now."))))
+
+(defn get-status [player-id]
+  (get-location player-id)
+  (display "")
+  (show-items player-id))
 
 (defn goto [player-id spot-name]
   (if (empty? spot-name)
@@ -251,21 +259,24 @@
       action-info)))
 
 (defn show-hint [player-id]
-  (when-let [last-action (first @(:last-action (get @players player-id)))]
+  (display "")
+  (display (highlight "HINT:") " Try " (enclose "action") " below:")
+  (display "----------------------------")
+  (if-let [last-action (first @(:last-action (get @players player-id)))]
     (when-let [hint (:hint (get-action-by-name player-id last-action))]
       (when (> (count hint) 0)
         (do
-          (display "")
-          (display (highlight "HINT:") " Try " (enclose "action") " below:"))
-          (display "----------------------------")
           (let [actions (set (map (partial get-action-by-name player-id) hint))
                 object-actions (set (get-object-actions player-id))]
             (let [unique-actions (clojure.set/union actions object-actions)]
               (doseq [action unique-actions]
                 (display (enclose (:name action)) " " (:description action))
-                (display "  Usage: " (:usage action)))))))))
+                (display "  Usage: " (:usage action))))))))
+    (let [action (get-action-by-name player-id "look")] ; if no last action, show look
+      (display (enclose (:name action)) " " (:description action))
+      (display "  Usage: " (:usage action)))))
 
-(defn help [player-id]
+(defn show-action [player-id]
   (display "")
   (display (highlight "ACTION LIST"))
   (display "----------------------------")
@@ -274,7 +285,14 @@
     (display "  Usage: " (:usage action)))
   (show-hint player-id))
 
+(defn alias? [action-name command]
+  (let [alias-length (count command)
+             full-length (count action-name)]
+    (when (<= alias-length full-length)
+      (= (.substring action-name 0 alias-length) command))))
+
 (defn initialize [player-id]
+  (clean-up player-id)
   (construct-player player-id)
   ; Player may quit during construction
   (when (continue? player-id)
@@ -285,22 +303,21 @@
       (update-room player-id starting-room-id)
       (set-visible player-id starting-room-id))
     (Thread/sleep 5000)
-    (help player-id)))
+    (show-action player-id)))
 
 ; Return to room choosing menu
 (defn back-to-main [player-id]
-  (clean-up player-id)
   (initialize player-id))
 
 (defn get-action-list [player-id]
   (reverse (conj (get-object-actions player-id)
-                  {:name "help" :function help :description "Get help information" :usage "help" :hint []},
-                  {:name "show-items" :function show-items :description "Show your items" :usage "show-items" :hint ["check" "look-around"]},
-                  {:name "get-location" :function get-location :description "Get current location" :usage "get-location" :hint ["look-around" "goto"]},
-                  {:name "look-around" :function look-around :description "Look around the room" :usage "look-around" :hint ["goto"]},
-                  {:name "check" :function check :description "Check room/spot/item" :usage (str "check " (enclose "object") ". Eg. check door") :hint ["goto" "pick" "use"]},
-                  {:name "pick" :function pick :description (str "Pick an item. So you can take a near " (enclose "check") " at the item, or " (enclose "use") " the item.") :usage (str "pick " (enclose "item") ". Eg. pick card") :hint ["check" "use"]},
-                  {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "use " (enclose "item") " " (enclose "target-object") ". Eg. use key door") :hint ["check"]}
-                  {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "goto " (enclose "spot") ". Eg. goto door") :hint ["check" "pick"]},
-                  {:name "main" :function back-to-main :description "Back to main menu." :usage "main" :hint []},
-                  {:name "quit" :function quit :description "Quit the game" :usage "quit" :hint []})))
+                  {:name "all" :function show-action :description "Show all the available actions" :usage "a/al/all" :hint ["hint"]},
+                  {:name "hint" :function show-hint :description "Get hints" :usage "h/hi/hin/hint" :hint ["status"]},
+                  {:name "status" :function get-status :description "Get current status" :usage "s/st/sta/stat/statu/status" :hint ["look-around" "check" "goto" "use"]}
+                  {:name "look" :function look-around :description "Look around the room" :usage "l/lo/loo/look" :hint ["goto"] :aliases ["l" "lo" "loo" "look"]},
+                  {:name "check" :function check :description "Check room/spot/item" :usage (str "c/ch/che/chec/check " (enclose "object") ". Eg. check door") :hint ["goto" "pick" "use"]},
+                  {:name "pick" :function pick :description (str "Pick an item. So you can take a near " (enclose "check") " at the item, or " (enclose "use") " the item.") :usage (str "p/pi/pic/pick " (enclose "item") ". Eg. pick card") :hint ["check" "use"]},
+                  {:name "use" :function use-item :description "Use one of your items at a target object." :usage (str "u/us/use " (enclose "item") " " (enclose "target-object") ". Eg. use key door") :hint ["check"]}
+                  {:name "goto" :function goto :description "Goto spot. So you can take a close look at the spot." :usage (str "g/go/got/goto " (enclose "spot") ". Eg. goto door") :hint ["check" "pick"]},
+                  {:name "main" :function back-to-main :description "Back to main menu." :usage "m/ma/mai/main" :hint []},
+                  {:name "quit" :function quit :description "Quit the game" :usage "q/qu/qui/quit" :hint []})))

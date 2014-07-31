@@ -17,14 +17,15 @@
 (defn execute [player-id command & args]
   ;(println "Command: " command)
   ;(println "Args: " args)
-  (let [action-info (->> (get-action-list player-id) (filter (comp #(= (:name %) (str command)))) first)
+  (let [action-info (->> (get-action-list player-id) (filter (comp #(alias? (:name %) (str command)))) first)
         action (:function action-info)
         args-list (first args)]
     (if (nil? action)
       (do 
         (display "Unsupported command: " command)
-        (help player-id))
+        (show-action player-id))
       (let [args-num (count args-list)] ; at most 2 args are supported
+        (display (enclose (:name action-info)))
         (try
           (cond (= 0 args-num)
                    (action player-id)
@@ -33,7 +34,7 @@
                 (= 2 args-num)
                    (action player-id (first args-list) (second args-list)))
           (let [action-name (:name action-info)]
-            (when-not (or (= action-name "help")
+            (when-not (or (= action-name "hint")
                           (= action-name "main")
                           (= action-name "quit"))
               (set-last-action player-id (:name action-info))))
@@ -56,20 +57,27 @@
                 (initialize current-player)
                 (when (continue? current-player)
                   (display-prompt current-player)
-                  (loop [command-str (str (read-line))]
+                  (loop [command-str (string/lower-case (str (read-line)))]
                     (do (when-not (= command-str "")
                           (let [command-vector (string/split command-str #" ")]
                             (execute current-player (first command-vector) (rest command-vector))))
-                    (if (win? current-player)
-                      (do
-                        (swap! (:continue (get @players current-player)) not)
-                        (display (:win-message (get-starting-room-by-player current-player))))
-                      (when (continue? current-player)
-                        (display-prompt current-player)
-                        (recur (str (read-line))))))))
-             (display "Goodbye~!"))
-           (clean-up current-player)
-           (display "Player " current-player " disconnected.")))]
+                      (when (win? current-player)
+                        (do
+                          (display (:win-message (get-starting-room-by-player current-player)))
+                          (display "Back to main menu " (enclose "Y/n") "?")
+                          (loop [command (string/lower-case (str (read-line)))]
+                            (cond (= command "y")
+                                  (initialize current-player)
+                                  (= command "n")
+                                  (quit current-player)
+                                  :else
+                                  (do (display "Back to main menu " (enclose "Y") "/" (enclose "n") "?")
+                                      (recur (string/lower-case (str (read-line)))))))))
+		      (when (continue? current-player)
+		        (display-prompt current-player)
+		        (recur (string/lower-case (str (read-line)))))))
+		(display "Goodbye~!")))
+             (display "Player " current-player " disconnected.")))]
     (create-server 8080 echo)))
 
 (defn -main

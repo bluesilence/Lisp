@@ -69,7 +69,7 @@ What is this...a riddle?")}}
              :state (atom "")
              :action [{:name "press"
                        :description (str "Press button 0~9 on the " (enclose "password-panel"))
-                       :usage "press 0~9. Eg. press 0"
+                       :usage "pr/pre/pres/press 0~9(1 digit at a time). Eg. pr 0"
                        :hint ["press"]
                        :function
                          #(let [player-id %1
