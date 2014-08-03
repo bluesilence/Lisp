@@ -8,6 +8,15 @@ Play it by:
 
     $ telnet avalonOfSunny.cloudapp.net 8080
 
+## How to Create a Room
+
+The rooms are defined in ./rooms folder, each in a .txt file.
+All the rooms will be loaded by the game server in compiling time.
+
+There are some already-built functions to help you define the room.
+The wiki will be added later...
+
+
 ## Installation
 
 
@@ -16,14 +25,6 @@ Play it by:
 The project uses Leiningen. Download the code and run:
 
     $ lein run
-
-## How to create a room
-
-The rooms are defined in ./rooms folder, each in a .txt file.
-All the rooms will be loaded by the game server in compiling time.
-
-There are some already-built functions to help you define the room.
-The wiki will be added later...
 
 ## Options
 
