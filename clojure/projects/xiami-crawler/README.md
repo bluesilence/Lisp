@@ -24,7 +24,10 @@ FIXME: listing of options this app accepts.
 
 ...
 
-### Any Other Sections
+### Docs
+
+For detailed documentations, please read <a href="http://blog.csdn.net/bluesilence/article/details/39267369/">my CSDN blog</a>.
+
 ### That You Think
 ### Might be Useful
 
