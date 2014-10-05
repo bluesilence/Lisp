@@ -44,7 +44,10 @@ Get an Xterm <a href="http://mobaxterm.mobatek.net/">here</a>.
 
 Using default telnet in Windows, the text will be a mess due to different line feed issue between Windows and Linux.
 
-### Any Other Sections
+### Docs
+
+For detailed documentations, please read <a href="http://blog.csdn.net/bluesilence/article/details/39802943/">my CSDN blog</a>.
+
 ### That You Think
 ### Might be Useful
 
